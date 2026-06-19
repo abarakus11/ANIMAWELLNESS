@@ -1,0 +1,16 @@
+# Dependências e ferramentas locais
+node_modules/
+_jimp-tmp/
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Ambiente / secrets
+.env
+.env.*
+
+# Artefatos de desenvolvimento
+*.log
+logo-user-original.png
