@@ -290,78 +290,36 @@
      Modal System — Modalities
      ========================================================================= */
   var MODAL_DATA = {
-    kickboxing: {
-      tag: 'kickboxing',
-      title: 'Kickboxing',
-      imgClass: 'mod-kickboxing',
-      desc: 'Potência, resistência e técnica de combate com aulas dinâmicas e instrutores certificados.',
+    'judo-infantil': {
+      tag: 'programa infantil · judô',
+      title: 'Judô · Programa Infantil',
+      imgClass: 'mod-judo-infantil',
+      desc: 'Judô olímpico adaptado à infância, com foco em disciplina, coordenação, respeito e diversão segura.',
       features: [
-        'Combinações de socos, chutes e joelhadas',
-        'Aulas em grupo com turmas reduzidas',
-        'Condicionamento cardiovascular intenso',
-        'Equipamentos de proteção inclusos',
-        'Progressão técnica para todos os níveis'
+        'Exclusivo para crianças (4 a 12 anos)',
+        'Quedas, equilíbrio e coordenação motora',
+        'Socialização e autoconfiança',
+        'Turmas reduzidas e supervisionadas',
+        'Professores especializados em kids'
       ],
-      wa: 'Olá! Gostaria de agendar uma aula experimental de Kickboxing na ANIMA.'
+      wa: 'Olá! Gostaria de agendar uma aula experimental de Judô Infantil na ANIMA.'
     },
-    funcional: {
-      tag: 'funcional',
-      title: 'Funcional',
-      imgClass: 'mod-funcional',
-      desc: 'Movimento, mobilidade e condicionamento em circuitos dinâmicos.',
+    'karate-infantil': {
+      tag: 'programa infantil · karatê',
+      title: 'Karatê · Programa Infantil',
+      imgClass: 'mod-karate-infantil',
+      desc: 'Karatê para crianças com técnica progressiva, foco, respeito e desenvolvimento emocional.',
       features: [
-        'Circuitos funcionais de alta intensidade',
-        'Mobilidade e estabilidade articular',
-        'Treinos em grupo motivadores',
-        'Baixo impacto nas articulações',
-        'Periodização mensal personalizada'
+        'Fundamentos de postura e kata',
+        'Disciplina e concentração',
+        'Autodefesa adaptada à idade',
+        'Ambiente acolhedor e familiar',
+        'Graduação por faixa'
       ],
-      wa: 'Olá! Gostaria de agendar uma aula experimental de Funcional na ANIMA.'
-    },
-    'gelo-sauna': {
-      tag: 'gelo · sauna',
-      title: 'Banheira de Gelo & Sauna',
-      imgClass: 'mod-gelo-sauna',
-      desc: 'Recuperação muscular, imunidade e relaxamento com contrastes de calor e frio.',
-      features: [
-        'Banheira de gelo premium',
-        'Sauna seca e úmida',
-        'Terapia de contraste calor/frio',
-        'Recuperação pós-treino',
-        'Ambiente reservado e silencioso'
-      ],
-      wa: 'Olá! Gostaria de conhecer a Banheira de Gelo & Sauna na ANIMA.'
-    },
-    performance: {
-      tag: 'performance',
-      title: 'Performance & Saúde',
-      imgClass: 'mod-performance',
-      desc: 'Avaliação física, nutrição e recuperação para a sua longevidade.',
-      features: [
-        'Avaliação física completa',
-        'Acompanhamento nutricional',
-        'Bioimpedância periódica',
-        'Plano de longevidade individual',
-        'Integração com sala de recuperação'
-      ],
-      wa: 'Olá! Gostaria de saber mais sobre Performance & Saúde na ANIMA.'
-    },
-    'muay-thai': {
-      tag: 'muay thai',
-      title: 'Muay Thai',
-      imgClass: 'mod-muay-thai',
-      desc: 'Chutes, joelhadas e clinch com foco em condicionamento e técnica tailandesa.',
-      features: [
-        'Oito extremidades: punhos, cotovelos, joelhos e canelas',
-        'Trabalho de clinch e saco pesado',
-        'Técnica tailandesa autêntica',
-        'Sparring controlado e supervisionado',
-        'Luvas e protetores inclusos'
-      ],
-      wa: 'Olá! Gostaria de agendar uma aula experimental de Muay Thai na ANIMA.'
+      wa: 'Olá! Gostaria de agendar uma aula experimental de Karatê Infantil na ANIMA.'
     },
     boxe: {
-      tag: 'boxe',
+      tag: 'masculino & feminino · boxe',
       title: 'Boxe',
       imgClass: 'mod-boxe',
       desc: 'Footwork, defesa e combinações de socos para força, agilidade e confiança.',
@@ -370,12 +328,12 @@
         'Trabalho no saco e mitts',
         'Sparring técnico supervisionado',
         'Condicionamento explosivo',
-        'Aulas para iniciantes e avançados'
+        'Turmas para todos os níveis'
       ],
       wa: 'Olá! Gostaria de agendar uma aula experimental de Boxe na ANIMA.'
     },
     'jiu-jitsu': {
-      tag: 'jiu-jítsu',
+      tag: 'masculino & feminino · jiu-jítsu',
       title: 'Jiu-Jítsu',
       imgClass: 'mod-jiu-jitsu',
       desc: 'Alavancas, quedas e controle no solo para autodefesa e performance no tatame.',
@@ -388,61 +346,75 @@
       ],
       wa: 'Olá! Gostaria de agendar uma aula experimental de Jiu-Jítsu na ANIMA.'
     },
-    'judo-kids': {
-      tag: 'judo kids',
-      title: 'Judo Kids',
-      imgClass: 'mod-judo-kids',
-      desc: 'Judo exclusivo para crianças, com foco em disciplina, coordenação e diversão segura.',
+    'muay-thai': {
+      tag: 'masculino & feminino · muay thai',
+      title: 'Muay Thai',
+      imgClass: 'mod-muay-thai',
+      desc: 'Chutes, joelhadas e clinch com foco em condicionamento e técnica tailandesa.',
       features: [
-        'Exclusivo para crianças (4 a 12 anos)',
-        'Judo olímpico adaptado à infância',
-        'Disciplina, coordenação e socialização',
-        'Turmas reduzidas e seguras',
-        'Professores especializados em kids'
+        'Oito extremidades: punhos, cotovelos, joelhos e canelas',
+        'Trabalho de clinch e saco pesado',
+        'Técnica tailandesa autêntica',
+        'Sparring controlado e supervisionado',
+        'Luvas e protetores inclusos'
       ],
-      wa: 'Olá! Gostaria de agendar uma aula experimental de Judo Kids na ANIMA.'
+      wa: 'Olá! Gostaria de agendar uma aula experimental de Muay Thai na ANIMA.'
     },
-    'mma-executivo': {
-      tag: 'mma executivo',
-      title: 'MMA Executivo',
-      imgClass: 'mod-mma-executivo',
-      desc: 'Striking, grappling e condicionamento para quem vive a rotina corporativa — foco, energia e performance com horários flexíveis.',
+    'kick-boxe': {
+      tag: 'treino híbrido · kick boxe',
+      title: 'Kick Boxe',
+      imgClass: 'mod-kick-boxe',
+      desc: 'Potência, resistência e técnica de combate dinâmica integrada ao treino híbrido.',
       features: [
-        'Horários flexíveis para executivos',
-        'Striking + grappling integrado',
-        'Treinos de alta eficiência',
-        'Ambiente premium e reservado',
-        'Acompanhamento personalizado'
+        'Combinações de socos, chutes e joelhadas',
+        'Condicionamento cardiovascular intenso',
+        'Integração com artes marciais híbridas',
+        'Equipamentos de proteção inclusos',
+        'Progressão para todos os níveis'
       ],
-      wa: 'Olá! Gostaria de agendar uma aula experimental de MMA Executivo na ANIMA.'
+      wa: 'Olá! Gostaria de agendar uma aula experimental de Kick Boxe na ANIMA.'
     },
-    musculacao: {
-      tag: 'musculação',
-      title: 'Musculação',
-      imgClass: 'mod-musculacao',
-      desc: 'Treino de força com equipamentos premium, periodização inteligente e acompanhamento técnico contínuo.',
+    judo: {
+      tag: 'treino híbrido · judô',
+      title: 'Judô',
+      imgClass: 'mod-judo',
+      desc: 'Quedas, equilíbrio e força funcional com base olímpica para adultos e jovens.',
       features: [
-        'Equipamentos de alto padrão',
-        'Fichas periodizadas mensalmente',
-        'Avaliação postural e biomecânica',
-        'Ambiente climatizado e reservado',
-        'Integração com sala de recuperação'
+        'Quedas e controle de equilíbrio',
+        'Integração com treino híbrido',
+        'Força funcional e mobilidade',
+        'Randi e técnica supervisionada',
+        'Graduação por faixa'
       ],
-      wa: 'Olá! Gostaria de agendar uma aula experimental de Musculação na ANIMA.'
+      wa: 'Olá! Gostaria de agendar uma aula experimental de Judô na ANIMA.'
     },
-    personal: {
-      tag: 'personal trainer',
-      title: 'Personal Trainer',
-      imgClass: 'mod-personal',
-      desc: 'Acompanhamento individual exclusivo com treinador dedicado, foco total nos seus objetivos e evolução mensurável.',
+    calistenia: {
+      tag: 'corpo & mente · calistenia',
+      title: 'Calistenia',
+      imgClass: 'mod-calistenia',
+      desc: 'Força, mobilidade e controle corporal usando o peso do próprio corpo.',
       features: [
-        'Treinador exclusivo em cada sessão',
-        'Plano 100% personalizado',
-        'Ajustes semanais conforme progresso',
-        'Horários flexíveis',
-        'Integração com nutrição e recuperação'
+        'Barras, paralelas e movimentos funcionais',
+        'Progressão de força relativa',
+        'Mobilidade e estabilidade',
+        'Treinos em grupo motivadores',
+        'Adaptável a todos os níveis'
       ],
-      wa: 'Olá! Gostaria de saber mais sobre Personal Trainer na ANIMA.'
+      wa: 'Olá! Gostaria de agendar uma aula experimental de Calistenia na ANIMA.'
+    },
+    'gelo-sauna': {
+      tag: 'terapia integrativa · gelo · sauna',
+      title: 'Banho de Gelo & Sauna',
+      imgClass: 'mod-gelo-sauna',
+      desc: 'Tratamentos terapêuticos com frio e calor para recuperação, imunidade e longevidade.',
+      features: [
+        'Banheira de gelo premium',
+        'Sauna seca e úmida',
+        'Terapia de contraste calor/frio',
+        'Recuperação pós-treino',
+        'Ambiente reservado e silencioso'
+      ],
+      wa: 'Olá! Gostaria de conhecer os Tratamentos com Frio e Calor na ANIMA.'
     }
   };
 
@@ -544,6 +516,90 @@
   }
 
   /* =========================================================================
+     Plan Billing Toggle
+     ========================================================================= */
+  var PLAN_BILLING_OPTIONS = {
+    mensal: { months: 1, discount: 0, label: 'mensal' },
+    trimestral: { months: 3, discount: 0.1, label: 'trimestral' },
+    anual: { months: 12, discount: 0.15, label: 'anual' }
+  };
+
+  function formatPlanMoney(value) {
+    return Math.round(value).toLocaleString('pt-BR');
+  }
+
+  function updatePlanBilling(card, billingKey) {
+    var monthly = parseFloat(card.dataset.monthly || '0', 10);
+    var planLabel = card.dataset.planLabel || 'Plano';
+    var option = PLAN_BILLING_OPTIONS[billingKey] || PLAN_BILLING_OPTIONS.mensal;
+    var amountEl = card.querySelector('[data-plan-amount]');
+    var periodEl = card.querySelector('[data-plan-period]');
+    var detailEl = card.querySelector('[data-plan-billing-detail]');
+    var ctaEl = card.querySelector('[data-plan-cta]');
+    var monthlyEquivalent = monthly * (1 - option.discount);
+    var total = monthly * option.months * (1 - option.discount);
+
+    if (amountEl) {
+      amountEl.textContent = formatPlanMoney(monthlyEquivalent);
+    }
+
+    if (periodEl) {
+      periodEl.textContent = '/mês';
+    }
+
+    if (detailEl) {
+      if (billingKey === 'mensal') {
+        detailEl.hidden = true;
+        detailEl.textContent = '';
+      } else {
+        detailEl.hidden = false;
+        detailEl.textContent =
+          'Pagamento de R$ ' +
+          formatPlanMoney(total) +
+          ' · ' +
+          option.months +
+          (option.months === 1 ? ' mês' : ' meses') +
+          ' · economia de ' +
+          Math.round(option.discount * 100) +
+          '%';
+      }
+    }
+
+    if (ctaEl) {
+      var message =
+        'Quero o plano ' +
+        planLabel +
+        ' (mensalidade ' +
+        option.label +
+        ' · R$ ' +
+        formatPlanMoney(monthlyEquivalent) +
+        '/mês)';
+      ctaEl.href = WA_BASE + '?text=' + encodeURIComponent(message);
+    }
+
+    card.querySelectorAll('.plan-billing-btn').forEach(function (btn) {
+      var isActive = btn.dataset.billing === billingKey;
+      btn.classList.toggle('is-active', isActive);
+      btn.setAttribute('aria-selected', isActive ? 'true' : 'false');
+    });
+  }
+
+  function initPlanBilling() {
+    var cards = document.querySelectorAll('.plan-card[data-monthly]');
+    if (!cards.length) return;
+
+    cards.forEach(function (card) {
+      updatePlanBilling(card, 'mensal');
+
+      card.querySelectorAll('.plan-billing-btn').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          updatePlanBilling(card, btn.dataset.billing || 'mensal');
+        });
+      });
+    });
+  }
+
+  /* =========================================================================
      Smooth Anchor Scroll
      ========================================================================= */
   function initSmoothScroll() {
@@ -588,6 +644,7 @@
     initRevealAnimations();
     initCounters();
     initModals();
+    initPlanBilling();
     initFaqAccordion();
     initSmoothScroll();
   }

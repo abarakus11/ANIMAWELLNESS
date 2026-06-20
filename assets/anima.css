@@ -576,7 +576,13 @@ figure {
 
 .site-logo--nav {
   height: 3.875rem;
-  filter: brightness(1.12) drop-shadow(0 2px 8px rgba(0, 0, 0, 0.35));
+  mix-blend-mode: lighten;
+  filter: brightness(1.25) drop-shadow(0 2px 8px rgba(0, 0, 0, 0.35));
+}
+
+.site-logo--hero {
+  mix-blend-mode: lighten;
+  filter: brightness(1.45) saturate(1.1) drop-shadow(0 16px 56px rgba(180, 144, 48, 0.4));
 }
 
 .site-logo--footer {
@@ -601,8 +607,14 @@ figure {
 }
 
 .hero > :not(.hero-video-wrap) {
-  position: relative;
   z-index: 3;
+}
+
+.hero-stage {
+  position: relative;
+  flex: 1 1 100%;
+  width: 100%;
+  min-width: 0;
 }
 
 .hero-video-wrap {
@@ -846,21 +858,75 @@ figure {
   border-radius: var(--radius-sm);
 }
 
+.mod-card-tier {
+  display: block;
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold-600);
+  margin-bottom: 0.35rem;
+}
+
+.mod-category {
+  margin-top: 3.75rem;
+}
+
+.mod-category__label {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: var(--tracking-widest);
+  color: var(--gold-600);
+  margin-bottom: 0.5rem;
+}
+
+.mod-category__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.375rem, 2.2vw, 1.875rem);
+  font-weight: 600;
+  color: var(--green-700);
+  margin: 0 0 1.75rem;
+  max-width: 36rem;
+}
+
+.mod-category-cta {
+  margin-top: 3rem;
+  text-align: center;
+}
+
 /* Modality backgrounds */
+.mod-judo-infantil,
+.mod-judo-kids {
+  background-image: url('./judo-kids.png');
+}
+
+.mod-karate-infantil {
+  background-image: url('https://images.unsplash.com/photo-1769095212827-dbecf1cc3cab?w=700&q=80');
+}
+
+.mod-kick-boxe,
 .mod-kickboxing {
   background-image: url('https://images.unsplash.com/photo-1734189605012-f03d97a4d98f?w=700&q=80');
 }
 
-.mod-funcional {
-  background-image: url('https://images.unsplash.com/photo-1518611012118-696072aa579a?w=700&q=80');
+.mod-judo {
+  background-image: url('https://images.unsplash.com/photo-1742863067822-7719483acb63?w=700&q=80');
+}
+
+.mod-calistenia {
+  background-image: url('https://images.unsplash.com/photo-1599456323671-43c42a7e5211?w=700&q=80');
+}
+
+.mod-pilates {
+  background-image: url('https://images.unsplash.com/photo-1576678927481-0f3c2478b955?w=700&q=80');
+}
+
+.mod-yoga {
+  background-image: url('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=700&q=80');
 }
 
 .mod-gelo-sauna {
   background-image: url('https://images.unsplash.com/photo-1717356495389-6ab1e5ff9d84?w=700&q=80');
-}
-
-.mod-performance {
-  background-image: url('https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=700&q=80');
 }
 
 .mod-muay-thai {
@@ -873,24 +939,6 @@ figure {
 
 .mod-jiu-jitsu {
   background-image: url('./jiu-jitsu.png');
-}
-
-.mod-judo-kids {
-  background-image: url('./judo-kids.png');
-}
-
-.mod-mma-executivo {
-  background-image: url('./mma-executivo.png');
-}
-
-.mod-musculacao {
-  background-image: url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=700&q=80');
-}
-
-.mod-personal {
-  background-image: url('./personal.png');
-  background-size: cover;
-  background-position: center 40%;
 }
 
 .about-img {
@@ -948,6 +996,72 @@ figure {
   font-weight: 600;
   letter-spacing: var(--tracking-wider);
   color: var(--gold-600);
+}
+
+.plan-billing {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+  margin-top: 1.125rem;
+}
+
+.plan-billing-btn {
+  flex: 1 1 auto;
+  min-width: 0;
+  padding: 0.4375rem 0.625rem;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--text-muted);
+  font-family: var(--font-body);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition:
+    background var(--duration-fast),
+    border-color var(--duration-fast),
+    color var(--duration-fast);
+}
+
+.plan-billing-btn:hover {
+  border-color: var(--gold-400);
+  color: var(--green-700);
+}
+
+.plan-billing-btn.is-active {
+  background: var(--green-700);
+  border-color: var(--green-700);
+  color: var(--surface-white);
+}
+
+.plan-card-dark .plan-billing-btn {
+  border-color: var(--border-gold-strong);
+  color: rgba(245, 242, 234, 0.72);
+}
+
+.plan-card-dark .plan-billing-btn:hover {
+  border-color: var(--gold-300);
+  color: var(--surface-white);
+}
+
+.plan-card-dark .plan-billing-btn.is-active {
+  background: var(--gold-400);
+  border-color: var(--gold-400);
+  color: var(--green-900);
+}
+
+.plan-card-billing-detail {
+  margin: 0.75rem 0 0;
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: var(--gold-600);
+  font-weight: 600;
+}
+
+.plan-card-dark .plan-card-billing-detail {
+  color: var(--gold-200);
 }
 
 .plan-card-dark .plan-card-tier {
@@ -1071,9 +1185,14 @@ figure {
 }
 
 .plan-card-cta {
-  margin-top: 1.75rem;
+  margin-top: auto;
+  padding-top: 1.75rem;
   width: 100%;
+  display: flex;
   justify-content: center;
+  text-align: center;
+  font-weight: 700;
+  border: none;
 }
 
 /* --------------------------------------------------------------------------
@@ -1752,6 +1871,38 @@ figure {
   color: var(--text-inverse-muted);
 }
 
+.footer-map {
+  max-width: var(--container-max);
+  margin: 3.5rem auto 0;
+  display: grid;
+  grid-template-columns: minmax(0, 16rem) minmax(0, 1fr);
+  gap: 2rem;
+  align-items: center;
+}
+
+.footer-map-address {
+  margin: 0;
+  font-size: var(--text-sm);
+  line-height: 1.7;
+  color: var(--text-inverse-soft);
+}
+
+.footer-map-frame {
+  min-height: 22rem;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--border-gold);
+  box-shadow: var(--shadow-lg);
+  background: var(--green-800);
+}
+
+.footer-map-frame iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 22rem;
+}
+
 .footer-bottom {
   max-width: var(--container-max);
   margin: 3.5rem auto 0;
@@ -1927,6 +2078,16 @@ figure {
 
   .footer-grid {
     gap: 2rem;
+  }
+
+  .footer-map {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .footer-map-frame,
+  .footer-map-frame iframe {
+    min-height: 18rem;
   }
 
   .ba-grid {
