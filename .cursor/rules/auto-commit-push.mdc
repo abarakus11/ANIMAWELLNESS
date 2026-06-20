@@ -1,0 +1,18 @@
+---
+description: Sempre commitar e dar push no GitHub após alterações no site ANIMA
+globs: "**/*"
+alwaysApply: true
+---
+
+# Commit e push automático
+
+Após concluir alterações neste repositório (`ANIMAWELLNESS`):
+
+1. Verifique `git status` e `git diff`.
+2. Faça commit com mensagem clara em português (1–2 frases sobre o porquê).
+3. Execute `git push -u origin main` (ou a branch atual).
+4. Confirme ao usuário o hash do commit e que o push foi concluído.
+
+Não deixe alterações locais pendentes sem commit/push, salvo se o usuário pedir explicitamente para não enviar.
+
+Repositório remoto: `https://github.com/abarakus11/ANIMAWELLNESS.git`
