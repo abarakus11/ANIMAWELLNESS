@@ -930,7 +930,15 @@ figure {
 }
 
 .mod-defesa-pessoal {
-  background-image: url('./boxe.png');
+  background-image: url('./defesa-pessoal.png');
+  background-size: cover;
+  background-position: center top;
+}
+
+@media (min-width: 768px) {
+  .mod-defesa-pessoal {
+    background-image: url('./defesa-pessoal-4k.jpg');
+  }
 }
 
 .mod-boxe {
