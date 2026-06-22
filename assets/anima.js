@@ -162,7 +162,7 @@
      ========================================================================= */
   function initHeroVideo() {
     var heroVideo = document.getElementById('heroVideo');
-    if (!heroVideo) return;
+    if (!heroVideo || heroVideo.tagName === 'IFRAME') return;
 
     heroVideo.controls = false;
     heroVideo.setAttribute('controlsList', 'nodownload noplaybackrate noremoteplayback');
