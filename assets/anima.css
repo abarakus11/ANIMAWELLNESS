@@ -921,8 +921,16 @@ figure {
   }
 }
 
-.mod-calistenia {
-  background-image: url('https://images.unsplash.com/photo-1599456323671-43c42a7e5211?w=700&q=80');
+.mod-crossfit {
+  background-image: url('./crossfit.png');
+  background-size: cover;
+  background-position: center;
+}
+
+@media (min-width: 768px) {
+  .mod-crossfit {
+    background-image: url('./crossfit-4k.jpg');
+  }
 }
 
 .mod-pilates {
