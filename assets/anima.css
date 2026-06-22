@@ -910,7 +910,15 @@ figure {
 }
 
 .mod-judo {
-  background-image: url('https://images.unsplash.com/photo-1742863067822-7719483acb63?w=700&q=80');
+  background-image: url('./judo.png');
+  background-size: cover;
+  background-position: center;
+}
+
+@media (min-width: 768px) {
+  .mod-judo {
+    background-image: url('./judo-4k.jpg');
+  }
 }
 
 .mod-calistenia {
