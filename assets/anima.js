@@ -13,16 +13,25 @@
   function initScrollProgress() {
     var bar = document.getElementById('navProgress');
     if (!bar) return;
+    if (window.CSS && CSS.supports && CSS.supports('animation-timeline', 'scroll()')) return;
+  }
 
-    function update() {
-      var scrollTop = window.scrollY;
-      var docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      var pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-      bar.style.width = pct + '%';
-    }
+  /* =========================================================================
+     Nav Scroll Effect (IntersectionObserver — no scroll listeners)
+     ========================================================================= */
+  function initNavScroll() {
+    var nav = document.getElementById('mainNav');
+    var sentinel = document.getElementById('navScrollSentinel');
+    if (!nav || !sentinel || !('IntersectionObserver' in window)) return;
 
-    update();
-    window.addEventListener('scroll', update, { passive: true });
+    var io = new IntersectionObserver(
+      function (entries) {
+        nav.classList.toggle('is-scrolled', !entries[0].isIntersecting);
+      },
+      { threshold: 0 }
+    );
+
+    io.observe(sentinel);
   }
 
   /* =========================================================================
@@ -61,35 +70,10 @@
   }
 
   /* =========================================================================
-     Hero Parallax
+     Hero Parallax — static scale only (taste-skill: no scroll listeners)
      ========================================================================= */
   function initParallax() {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
-    var inner = document.getElementById('heroParallax');
-    var hero = document.querySelector('.hero');
-    if (!inner || !hero) return;
-
-    var ticking = false;
-
-    function update() {
-      ticking = false;
-      var rect = hero.getBoundingClientRect();
-      if (rect.bottom < 0 || rect.top > window.innerHeight) return;
-      var offset = window.scrollY * 0.28;
-      inner.style.transform = 'translate3d(0,' + offset + 'px,0) scale(1.06)';
-    }
-
-    window.addEventListener(
-      'scroll',
-      function () {
-        if (!ticking) {
-          ticking = true;
-          requestAnimationFrame(update);
-        }
-      },
-      { passive: true }
-    );
+    /* Parallax via scroll is intentionally disabled. Hero uses CSS scale only. */
   }
 
   /* =========================================================================
@@ -323,22 +307,6 @@
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape' && menu.dataset.open === '1') setMenu(false);
     });
-  }
-
-  /* =========================================================================
-     Nav Scroll Effect
-     ========================================================================= */
-  function initNavScroll() {
-    var nav = document.getElementById('mainNav');
-    if (!nav) return;
-
-    var onScroll = function () {
-      var scrolled = window.scrollY > 40;
-      nav.classList.toggle('is-scrolled', scrolled);
-    };
-
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
   }
 
   /* =========================================================================

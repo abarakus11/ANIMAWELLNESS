@@ -16,8 +16,8 @@
 <meta property="og:locale" content="pt_BR">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preload" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Manrope:wght@400;500;600;700&display=swap" as="style">
-<link rel="stylesheet" href="assets/anima.css?v=8">
-<link rel="stylesheet" href="assets/anima-premium.css?v=8">
+<link rel="stylesheet" href="assets/anima.css?v=9">
+<link rel="stylesheet" href="assets/anima-premium.css?v=9">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -43,8 +43,8 @@
   "image": "https://abarakus11.github.io/ANIMAWELLNESS/assets/logo-anima-vertical.png?v=4",
   "aggregateRating": {
     "@type": "AggregateRating",
-    "ratingValue": "4.9",
-    "reviewCount": "312",
+    "ratingValue": "4.8",
+    "reviewCount": "287",
     "bestRating": "5"
   }
 }
@@ -55,6 +55,7 @@
 <div class="nav-progress" id="navProgress" aria-hidden="true"></div>
 
 <div class="page">
+  <div id="navScrollSentinel" class="nav-scroll-sentinel" aria-hidden="true"></div>
 
   <!-- NAV -->
   <nav id="mainNav" class="nav nav-glass" aria-label="Principal">
@@ -69,7 +70,7 @@
       <a class="a-link" href="#faq">FAQ</a>
       <a class="a-link" href="#contato">Contato</a>
     </div>
-    <a class="btn btn-primary nav-cta-desk" href="https://wa.me/5511943870655?text=Ol%C3%A1!%20Quero%20agendar%20uma%20aula%20experimental%20na%20ANIMA." target="_blank" rel="noopener">Agendar aula</a>
+    <a class="btn btn-primary nav-cta-desk" href="https://wa.me/5511943870655?text=Ol%C3%A1!%20Quero%20agendar%20uma%20aula%20experimental%20na%20ANIMA." target="_blank" rel="noopener">Agendar aula experimental</a>
     <button class="nav-burger" id="menuToggle" type="button" aria-label="Abrir menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
@@ -107,7 +108,7 @@
       <div class="hero-content">
       <div class="hero-eyebrow" data-reveal>
         <span class="hero-eyebrow-line"></span>
-        <span class="hero-eyebrow-text"><span class="hero-eyebrow-dot" aria-hidden="true"></span> CLUBE FAMÍLIA · ARTES MARCIAIS &amp; BEM-ESTAR · SÃO PAULO</span>
+        <span class="hero-eyebrow-text">Clube familiar de artes marciais · São Paulo</span>
       </div>
       <h1 class="h1" data-reveal>ANIMA |<br><em>Family Martial Arts Club</em></h1>
       <p class="hero-lead" data-reveal>Musculação premium, artes marciais de elite e recuperação integrada. Um clube exclusivo para toda a família.</p>
@@ -205,50 +206,47 @@
   <section id="modalidades" class="section section-light">
     <div class="container">
       <div class="section-header section-header--center" data-reveal>
-        <span class="section-label section-label--center">PROGRAMAS</span>
         <h2 class="h2">Artes marciais, movimento e bem-estar para toda a família.</h2>
         <p class="section-desc">Do infantil ao adulto: treino híbrido, terapias integrativas e acompanhamento profissional em um só clube.</p>
       </div>
 
       <div class="mod-category" data-reveal>
-        <p class="mod-category__label">KIDS</p>
-        <h3 class="mod-category__title">Programa Infantil · Judô &amp; Karatê</h3>
+        <h3 class="mod-category__title">Programa Infantil: Judô e Karatê</h3>
         <div class="grid-auto">
           <button type="button" class="mod-card" data-mod="judo-infantil">
-            <div class="mod-card-media"><div class="mod-img mod-judo-infantil"><span class="mod-img-tag">judô</span></div></div>
+            <div class="mod-card-media"><div class="mod-img mod-judo-infantil"></div></div>
             <div class="mod-card-body"><span class="mod-card-tier">Programa Infantil</span><h3 class="mod-card-title">Judô</h3><p class="mod-card-desc">Disciplina, coordenação e socialização com judô olímpico adaptado à infância.</p></div>
           </button>
           <button type="button" class="mod-card" data-mod="karate-infantil">
-            <div class="mod-card-media"><div class="mod-img mod-karate-infantil"><span class="mod-img-tag">karatê</span></div></div>
+            <div class="mod-card-media"><div class="mod-img mod-karate-infantil"></div></div>
             <div class="mod-card-body"><span class="mod-card-tier">Programa Infantil</span><h3 class="mod-card-title">Karatê</h3><p class="mod-card-desc">Foco, respeito e autoconfiança com técnica marcial segura para crianças.</p></div>
           </button>
         </div>
       </div>
 
       <div class="mod-category" data-reveal>
-        <p class="mod-category__label">HYBRID TRAINING</p>
-        <h3 class="mod-category__title">Programas Masculino e Feminino · Treino Híbrido</h3>
+        <h3 class="mod-category__title">Treino híbrido masculino e feminino</h3>
         <div class="mod-carousel" data-reveal>
           <div class="mod-carousel-track">
             <div class="mod-carousel-group">
           <button type="button" class="mod-card" data-mod="boxe">
-            <div class="mod-card-media"><div class="mod-img mod-boxe"><span class="mod-img-tag">boxe</span></div></div>
+            <div class="mod-card-media"><div class="mod-img mod-boxe"></div></div>
             <div class="mod-card-body"><span class="mod-card-tier">Masculino &amp; Feminino</span><h3 class="mod-card-title">Boxe</h3><p class="mod-card-desc">Footwork, potência e confiança em cada combinação.</p></div>
           </button>
           <button type="button" class="mod-card" data-mod="jiu-jitsu">
-            <div class="mod-card-media"><div class="mod-img mod-jiu-jitsu"><span class="mod-img-tag">jiu-jítsu</span></div></div>
+            <div class="mod-card-media"><div class="mod-img mod-jiu-jitsu"></div></div>
             <div class="mod-card-body"><span class="mod-card-tier">Masculino &amp; Feminino</span><h3 class="mod-card-title">Jiu-Jítsu</h3><p class="mod-card-desc">Técnica, controle e autodefesa no tatame premium.</p></div>
           </button>
           <button type="button" class="mod-card" data-mod="defesa-pessoal">
-            <div class="mod-card-media"><div class="mod-img mod-defesa-pessoal"><span class="mod-img-tag">defesa pessoal</span></div></div>
+            <div class="mod-card-media"><div class="mod-img mod-defesa-pessoal"></div></div>
             <div class="mod-card-body"><span class="mod-card-tier">Masculino &amp; Feminino</span><h3 class="mod-card-title">Defesa Pessoal</h3><p class="mod-card-desc">Técnicas práticas de proteção para situações reais do dia a dia.</p></div>
           </button>
           <button type="button" class="mod-card" data-mod="kick-boxe">
-            <div class="mod-card-media"><div class="mod-img mod-kick-boxe"><span class="mod-img-tag">kick boxe</span></div></div>
+            <div class="mod-card-media"><div class="mod-img mod-kick-boxe"></div></div>
             <div class="mod-card-body"><span class="mod-card-tier">Treino Híbrido</span><h3 class="mod-card-title">Kick Boxe</h3><p class="mod-card-desc">Potência, resistência e técnica de combate dinâmica.</p></div>
           </button>
           <button type="button" class="mod-card" data-mod="judo">
-            <div class="mod-card-media"><div class="mod-img mod-judo"><span class="mod-img-tag">judô</span></div></div>
+            <div class="mod-card-media"><div class="mod-img mod-judo"></div></div>
             <div class="mod-card-body"><span class="mod-card-tier">Treino Híbrido</span><h3 class="mod-card-title">Judô</h3><p class="mod-card-desc">Quedas, equilíbrio e força funcional com base olímpica.</p></div>
           </button>
             </div>
@@ -261,11 +259,11 @@
         <h3 class="mod-category__title">Terapias para Corpo e Mente</h3>
         <div class="grid-auto">
           <button type="button" class="mod-card" data-mod="crossfit">
-            <div class="mod-card-media"><div class="mod-img mod-crossfit"><span class="mod-img-tag">crossfit</span></div></div>
+            <div class="mod-card-media"><div class="mod-img mod-crossfit"></div></div>
             <div class="mod-card-body"><span class="mod-card-tier">Corpo &amp; Mente</span><h3 class="mod-card-title">Crossfit</h3><p class="mod-card-desc">Força, condicionamento e performance em treinos de alta intensidade.</p></div>
           </button>
           <button type="button" class="mod-card" data-mod="gelo-sauna">
-            <div class="mod-card-media"><div class="mod-img mod-gelo-sauna"><span class="mod-img-tag">gelo · sauna</span></div></div>
+            <div class="mod-card-media"><div class="mod-img mod-gelo-sauna"></div></div>
             <div class="mod-card-body"><span class="mod-card-tier">Terapia Integrativa</span><h3 class="mod-card-title">Banho de Gelo &amp; Sauna</h3><p class="mod-card-desc">Tratamentos terapêuticos com frio e calor para recuperação e longevidade.</p></div>
           </button>
         </div>
@@ -282,33 +280,33 @@
         <h2 class="h2">Um espaço à altura da sua ambição.</h2>
       </div>
       <div class="gallery-grid" data-reveal>
-        <div class="gallery-item">
+        <figure class="gallery-item">
           <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800&q=75" alt="Área de musculação premium" loading="lazy" width="800" height="600">
-          <div class="gallery-item-overlay"><span class="gallery-item-label">Musculação</span></div>
-        </div>
-        <div class="gallery-item">
+          <figcaption class="gallery-item-caption">Musculação</figcaption>
+        </figure>
+        <figure class="gallery-item">
           <picture>
             <source media="(min-width: 768px)" srcset="./assets/brand-ring-4k.jpg">
             <img src="./assets/brand-ring.png" alt="Ringue ANIMA com iluminação premium" loading="lazy" width="800" height="600">
           </picture>
-          <div class="gallery-item-overlay"><span class="gallery-item-label">Ringue</span></div>
-        </div>
-        <div class="gallery-item">
+          <figcaption class="gallery-item-caption">Ringue</figcaption>
+        </figure>
+        <figure class="gallery-item">
           <img src="assets/brand-gi-fighter.png" alt="Atleta de Jiu-Jítsu com kimono ANIMA no tatame" loading="lazy" width="800" height="600">
-          <div class="gallery-item-overlay"><span class="gallery-item-label">Tatame</span></div>
-        </div>
-        <div class="gallery-item">
+          <figcaption class="gallery-item-caption">Tatame</figcaption>
+        </figure>
+        <figure class="gallery-item">
           <img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=800&q=75" alt="Equipamentos de alto padrão" loading="lazy" width="800" height="600">
-          <div class="gallery-item-overlay"><span class="gallery-item-label">Equipamentos</span></div>
-        </div>
-        <div class="gallery-item">
+          <figcaption class="gallery-item-caption">Equipamentos</figcaption>
+        </figure>
+        <figure class="gallery-item">
           <img src="https://images.unsplash.com/photo-1717356495389-6ab1e5ff9d84?w=800&q=75" alt="Sauna e recuperação" loading="lazy" width="800" height="600">
-          <div class="gallery-item-overlay"><span class="gallery-item-label">Recuperação</span></div>
-        </div>
-        <div class="gallery-item">
+          <figcaption class="gallery-item-caption">Recuperação</figcaption>
+        </figure>
+        <figure class="gallery-item">
           <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=800&q=75" alt="Recepção premium" loading="lazy" width="800" height="600">
-          <div class="gallery-item-overlay"><span class="gallery-item-label">Recepção</span></div>
-        </div>
+          <figcaption class="gallery-item-caption">Recepção</figcaption>
+        </figure>
       </div>
     </div>
   </section>
@@ -317,7 +315,6 @@
   <section id="planos" class="section section-light">
     <div class="container">
       <div class="section-header section-header--center" data-reveal>
-        <span class="section-label section-label--center">PLANOS</span>
         <h2 class="h2">Invista no corpo que você merece.</h2>
         <p class="section-desc">Sem taxas escondidas. Cancele quando quiser. Aula experimental gratuita antes de decidir.</p>
       </div>
@@ -433,7 +430,7 @@
       <h2 class="h2">Sua evolução começa com uma decisão.</h2>
       <p class="section-desc">Agende sua aula experimental gratuita. Sem contrato e sem pressão: só você, o tatame e o seu potencial.</p>
       <div class="cta-actions">
-        <a class="btn btn-primary btn-lg" href="https://wa.me/5511943870655?text=Ol%C3%A1!%20Quero%20agendar%20minha%20aula%20experimental%20GR%C3%81TIS." target="_blank" rel="noopener">Agendar aula grátis →</a>
+        <a class="btn btn-primary btn-lg" href="https://wa.me/5511943870655?text=Ol%C3%A1!%20Quero%20agendar%20minha%20aula%20experimental%20GR%C3%81TIS." target="_blank" rel="noopener">Agendar aula experimental →</a>
         <a class="btn btn-ghost" href="https://wa.me/5511943870655" target="_blank" rel="noopener">WhatsApp (11) 94387-0655</a>
       </div>
     </div>
@@ -479,7 +476,7 @@
       </div>
       <div class="footer-map-frame">
         <iframe
-          title="Mapa ANIMA Wellness — Rua Enxovia, 934, São Paulo"
+          title="Mapa ANIMA Wellness na Rua Enxovia, 934, São Paulo"
           src="https://www.google.com/maps?q=Rua+Enxovia,+934,+Vila+S%C3%A3o+Francisco,+S%C3%A3o+Paulo+-+SP,+04711-030&amp;hl=pt-BR&amp;z=17&amp;output=embed"
           width="100%"
           height="100%"
@@ -516,9 +513,9 @@
 
 <a class="wa-float" href="https://wa.me/5511943870655?text=Ol%C3%A1!%20Quero%20agendar%20uma%20aula%20experimental%20na%20ANIMA." target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
   <span class="wa-float__icon" aria-hidden="true">💬</span>
-  <span class="wa-float__label">Agendar aula grátis</span>
+  <span class="wa-float__label">Agendar aula experimental</span>
 </a>
 
-<script src="assets/anima.js?v=7" defer></script>
+<script src="assets/anima.js?v=8" defer></script>
 </body>
 </html>

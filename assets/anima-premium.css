@@ -40,17 +40,37 @@
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
-/* --- Scroll progress --- */
+/* --- Scroll progress (CSS scroll-driven — taste-skill) --- */
 .nav-progress {
   position: fixed;
   top: 0;
   left: 0;
   height: 2px;
-  width: 0;
+  width: 100%;
+  transform-origin: left center;
+  transform: scaleX(0);
   background: var(--gradient-gold);
   z-index: calc(var(--z-nav) + 1);
-  transition: width 0.08s linear;
   box-shadow: 0 0 12px rgba(180, 144, 48, 0.6);
+}
+
+@supports (animation-timeline: scroll()) {
+  .nav-progress {
+    animation: taste-scroll-progress linear;
+    animation-timeline: scroll(root block);
+  }
+}
+
+@keyframes taste-scroll-progress {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-progress {
+    display: none;
+  }
 }
 
 /* --- Typography refinements --- */
