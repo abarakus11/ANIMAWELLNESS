@@ -151,6 +151,27 @@ body {
   overflow-x: hidden;
 }
 
+.page {
+  position: relative;
+  isolation: isolate;
+}
+
+.page::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page::after {
+    display: none;
+  }
+}
+
 img,
 video {
   max-width: 100%;
@@ -370,6 +391,24 @@ figure {
   background: var(--gold-300);
 }
 
+.btn:active {
+  transform: translateY(1px) scale(0.98);
+}
+
+.btn:focus-visible,
+.nav-burger:focus-visible,
+.faq-question:focus-visible,
+.mod-card:focus-visible {
+  outline: 2px solid var(--gold-400);
+  outline-offset: 3px;
+}
+
+.a-link:focus-visible {
+  outline: 2px solid var(--gold-400);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
 .btn-secondary {
   background: var(--green-700);
   color: var(--text-inverse);
@@ -467,6 +506,9 @@ figure {
   background: var(--glass-bg);
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    0 10px 30px rgba(10, 26, 17, 0.22);
 }
 
 .nav-brand {
@@ -598,7 +640,7 @@ figure {
    -------------------------------------------------------------------------- */
 .hero {
   position: relative;
-  min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   align-items: center;
   padding: 7.5rem var(--section-pad-x) 5rem;
@@ -768,6 +810,40 @@ figure {
   font-size: 0.78125rem;
   letter-spacing: 0.08em;
   color: var(--text-inverse-soft);
+}
+
+.trust-strip {
+  position: relative;
+  z-index: 2;
+  background: rgba(10, 26, 17, 0.92);
+  border-bottom: 1px solid rgba(180, 144, 48, 0.14);
+  padding: 1.125rem 0;
+}
+
+.trust-strip__inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem 2rem;
+}
+
+.trust-strip__inner span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: rgba(245, 242, 234, 0.62);
+}
+
+.trust-strip__inner span::before {
+  content: '';
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--gold-400);
+  flex-shrink: 0;
 }
 
 .hero-scroll {
@@ -1831,14 +1907,12 @@ figure {
 
 .diff-cell {
   background: var(--green-800);
-  padding: 2.5rem 2rem;
+  padding: 2.5rem 2rem 2.5rem 2.25rem;
+  border-left: 2px solid rgba(180, 144, 48, 0.35);
 }
 
 .diff-cell-num {
-  font-family: var(--font-display);
-  font-size: 1.875rem;
-  color: var(--gold-400);
-  margin-bottom: 1.375rem;
+  display: none;
 }
 
 .diff-cell-title {
