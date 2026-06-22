@@ -457,6 +457,10 @@
       modModal.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
 
+      document.querySelectorAll('.mod-carousel-track').forEach(function (track) {
+        track.style.animationPlayState = 'paused';
+      });
+
       var closeBtn = modModal.querySelector('.mod-modal-close');
       if (closeBtn) closeBtn.focus();
     }
@@ -465,13 +469,18 @@
       modModal.classList.remove('is-open');
       modModal.setAttribute('aria-hidden', 'true');
       document.body.style.overflow = '';
+
+      document.querySelectorAll('.mod-carousel-track').forEach(function (track) {
+        track.style.animationPlayState = '';
+      });
+
       if (lastFocus && typeof lastFocus.focus === 'function') lastFocus.focus();
     }
 
-    document.querySelectorAll('.mod-card[data-mod]').forEach(function (card) {
-      card.addEventListener('click', function () {
-        openModModal(card.dataset.mod);
-      });
+    document.addEventListener('click', function (e) {
+      var card = e.target.closest('.mod-card[data-mod]');
+      if (!card) return;
+      openModModal(card.dataset.mod);
     });
 
     modModal.querySelectorAll('[data-close-modal]').forEach(function (el) {
@@ -662,8 +671,8 @@
     initParallax();
     initRevealAnimations();
     initCounters();
-    initModals();
     initModCarousel();
+    initModals();
     initPlanBilling();
     initFaqAccordion();
     initSmoothScroll();
