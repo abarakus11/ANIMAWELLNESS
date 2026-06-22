@@ -836,6 +836,62 @@ figure {
   margin: 0;
 }
 
+/* Modalities carousel */
+.mod-carousel {
+  overflow: hidden;
+  margin-top: 1.75rem;
+  padding: 0.75rem 0 1.5rem;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+}
+
+.mod-carousel-track {
+  display: flex;
+  width: max-content;
+  animation: mod-carousel-scroll 42s linear infinite;
+  will-change: transform;
+}
+
+.mod-carousel:hover .mod-carousel-track,
+.mod-carousel:focus-within .mod-carousel-track {
+  animation-play-state: paused;
+}
+
+.mod-carousel-group {
+  display: flex;
+  gap: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+.mod-carousel .mod-card {
+  width: min(18.75rem, 78vw);
+  flex-shrink: 0;
+}
+
+@keyframes mod-carousel-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mod-carousel-track {
+    animation: none;
+    overflow-x: auto;
+    width: 100%;
+    padding-bottom: 0.5rem;
+    scroll-snap-type: x mandatory;
+  }
+
+  .mod-carousel {
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+
+  .mod-carousel .mod-card {
+    scroll-snap-align: start;
+  }
+}
+
 .mod-img {
   height: 100%;
   background-size: contain;

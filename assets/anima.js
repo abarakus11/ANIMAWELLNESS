@@ -516,6 +516,25 @@
   }
 
   /* =========================================================================
+     Modalities Carousel
+     ========================================================================= */
+  function initModCarousel() {
+    document.querySelectorAll('.mod-carousel').forEach(function (carousel) {
+      var track = carousel.querySelector('.mod-carousel-track');
+      var group = carousel.querySelector('.mod-carousel-group');
+      if (!track || !group || track.dataset.cloned === '1') return;
+
+      var clone = group.cloneNode(true);
+      clone.setAttribute('aria-hidden', 'true');
+      clone.querySelectorAll('.mod-card').forEach(function (card) {
+        card.setAttribute('tabindex', '-1');
+      });
+      track.appendChild(clone);
+      track.dataset.cloned = '1';
+    });
+  }
+
+  /* =========================================================================
      Plan Billing Toggle
      ========================================================================= */
   var PLAN_BILLING_OPTIONS = {
@@ -644,6 +663,7 @@
     initRevealAnimations();
     initCounters();
     initModals();
+    initModCarousel();
     initPlanBilling();
     initFaqAccordion();
     initSmoothScroll();
