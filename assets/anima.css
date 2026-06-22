@@ -1036,7 +1036,9 @@ figure {
 }
 
 .mod-jiu-jitsu {
-  background-image: url('./jiu-jitsu.png');
+  background-image: url('./brand-gi-fighter.png');
+  background-size: cover;
+  background-position: center top;
 }
 
 /* --------------------------------------------------------------------------
