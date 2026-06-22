@@ -639,17 +639,35 @@ figure {
   pointer-events: none;
 }
 
+.hero-yt-shell {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.hero-yt-shell iframe,
 .hero-yt-iframe {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 100vw;
-  height: 56.25vw;
-  min-width: 177.78vh;
-  min-height: 100vh;
-  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  min-width: 100%;
+  min-height: 100%;
+  transform: translate(-50%, -50%) scale(1.25);
   border: 0;
   pointer-events: none;
+}
+
+@media (min-width: 1920px) {
+  .hero-yt-shell iframe,
+  .hero-yt-iframe {
+    width: 3840px;
+    height: 2160px;
+    min-width: 3840px;
+    min-height: 2160px;
+    transform: translate(-50%, -50%) scale(1.08);
+  }
 }
 
 .hero-video-overlay {
