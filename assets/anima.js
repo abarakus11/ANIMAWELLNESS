@@ -346,19 +346,19 @@
       ],
       wa: 'Olá! Gostaria de agendar uma aula experimental de Jiu-Jítsu na ANIMA.'
     },
-    'muay-thai': {
-      tag: 'masculino & feminino · muay thai',
-      title: 'Muay Thai',
-      imgClass: 'mod-muay-thai',
-      desc: 'Chutes, joelhadas e clinch com foco em condicionamento e técnica tailandesa.',
+    'defesa-pessoal': {
+      tag: 'masculino & feminino · defesa pessoal',
+      title: 'Defesa Pessoal',
+      imgClass: 'mod-defesa-pessoal',
+      desc: 'Técnicas práticas de proteção, prevenção e reação para situações reais do dia a dia.',
       features: [
-        'Oito extremidades: punhos, cotovelos, joelhos e canelas',
-        'Trabalho de clinch e saco pesado',
-        'Técnica tailandesa autêntica',
-        'Sparring controlado e supervisionado',
-        'Luvas e protetores inclusos'
+        'Bloqueios, escapes e neutralização de ameaças',
+        'Treino para homens e mulheres',
+        'Situações reais simuladas com segurança',
+        'Desenvolvimento de confiança e consciência situacional',
+        'Instrutores com experiência em artes marciais'
       ],
-      wa: 'Olá! Gostaria de agendar uma aula experimental de Muay Thai na ANIMA.'
+      wa: 'Olá! Gostaria de agendar uma aula experimental de Defesa Pessoal na ANIMA.'
     },
     'kick-boxe': {
       tag: 'treino híbrido · kick boxe',
