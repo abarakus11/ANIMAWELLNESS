@@ -960,9 +960,30 @@ figure {
   background-image: url('https://images.unsplash.com/photo-1769095212827-dbecf1cc3cab?w=700&q=80');
 }
 
+.mod-boxe {
+  background-image: url('./brand-boxe-hero.png');
+  background-size: cover;
+  background-position: center top;
+}
+
+@media (min-width: 768px) {
+  .mod-boxe {
+    background-image: url('./brand-boxe-hero-4k.jpg');
+  }
+}
+
 .mod-kick-boxe,
 .mod-kickboxing {
-  background-image: url('https://images.unsplash.com/photo-1734189605012-f03d97a4d98f?w=700&q=80');
+  background-image: url('./brand-boxe-hero.png');
+  background-size: cover;
+  background-position: center top;
+}
+
+@media (min-width: 768px) {
+  .mod-kick-boxe,
+  .mod-kickboxing {
+    background-image: url('./brand-boxe-hero-4k.jpg');
+  }
 }
 
 .mod-judo {
@@ -1011,10 +1032,6 @@ figure {
   .mod-defesa-pessoal {
     background-image: url('./defesa-pessoal-4k.jpg');
   }
-}
-
-.mod-boxe {
-  background-image: url('./boxe.png');
 }
 
 .mod-jiu-jitsu {
@@ -1874,6 +1891,65 @@ figure {
 }
 
 /* --------------------------------------------------------------------------
+   Brand Showcase
+   -------------------------------------------------------------------------- */
+.brand-showcase {
+  border-top: 1px solid var(--border-gold);
+}
+
+.brand-showcase-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: 1.5rem;
+  margin-top: 3rem;
+  align-items: stretch;
+}
+
+.brand-showcase-main {
+  display: block;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--border-gold-strong);
+  box-shadow: var(--shadow-xl);
+}
+
+.brand-showcase-main img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.brand-showcase-cards {
+  display: grid;
+  gap: 1rem;
+}
+
+.brand-showcase-card {
+  margin: 0;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--border-gold-strong);
+  background: var(--green-800);
+}
+
+.brand-showcase-card img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  display: block;
+}
+
+.brand-showcase-card figcaption {
+  padding: 0.75rem 1rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold-300);
+  font-weight: 600;
+}
+
+/* --------------------------------------------------------------------------
    Marquee
    -------------------------------------------------------------------------- */
 .marquee {
@@ -2113,6 +2189,10 @@ figure {
 
   .two-col {
     grid-template-columns: 1fr !important;
+  }
+
+  .brand-showcase-grid {
+    grid-template-columns: 1fr;
   }
 
   .hero {
