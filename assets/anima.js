@@ -507,6 +507,22 @@
   /* =========================================================================
      Modalities Carousel
      ========================================================================= */
+  function initPartnersCarousel() {
+    document.querySelectorAll('.partners-carousel').forEach(function (carousel) {
+      var track = carousel.querySelector('.partners-carousel-track');
+      var group = carousel.querySelector('.partners-carousel-group');
+      if (!track || !group || track.dataset.cloned === '1') return;
+
+      var clone = group.cloneNode(true);
+      clone.setAttribute('aria-hidden', 'true');
+      clone.querySelectorAll('.partner-carousel-card').forEach(function (card) {
+        card.setAttribute('tabindex', '-1');
+      });
+      track.appendChild(clone);
+      track.dataset.cloned = '1';
+    });
+  }
+
   function initModCarousel() {
     document.querySelectorAll('.mod-carousel').forEach(function (carousel) {
       var track = carousel.querySelector('.mod-carousel-track');
@@ -653,6 +669,7 @@
     initRevealAnimations();
     initCounters();
     initModCarousel();
+    initPartnersCarousel();
     initModals();
     initPlanBilling();
     initFaqAccordion();
