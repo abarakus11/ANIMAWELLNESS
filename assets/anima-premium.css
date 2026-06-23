@@ -522,6 +522,14 @@
   border: 1px solid rgba(180, 144, 48, 0.2);
 }
 
+.kids-space-frame {
+  transition: transform 0.8s var(--ease-out-expo), box-shadow 0.45s var(--ease-out-expo);
+}
+
+.kids-space-media:hover .kids-space-frame {
+  transform: scale(1.02);
+}
+
 /* --- Diff cells hover --- */
 .diff-cell {
   transition: background 0.45s var(--ease-out-expo), transform 0.45s var(--ease-out-expo);
