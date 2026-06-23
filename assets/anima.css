@@ -1118,7 +1118,17 @@ figure {
 }
 
 .mod-gelo-sauna {
-  background-image: url('https://images.unsplash.com/photo-1717356495389-6ab1e5ff9d84?w=700&q=80');
+  background-image: url('./gelo-sauna.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #8b8680;
+}
+
+@media (min-width: 768px) {
+  .mod-gelo-sauna {
+    background-image: url('./gelo-sauna-4k.jpg');
+  }
 }
 
 .mod-defesa-pessoal {
