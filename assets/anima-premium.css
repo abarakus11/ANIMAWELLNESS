@@ -322,7 +322,14 @@
 }
 
 .hero-video-overlay {
-  background: var(--gradient-hero-overlay);
+  background:
+    radial-gradient(
+      ellipse 240px 96px at 50% 50%,
+      rgba(10, 26, 17, 0.98) 0%,
+      rgba(10, 26, 17, 0.72) 55%,
+      transparent 100%
+    ),
+    var(--gradient-hero-overlay);
 }
 
 .hero-glow {
