@@ -2211,6 +2211,12 @@ figure {
   opacity: 1;
 }
 
+.partner-carousel-card--fic img {
+  filter: none;
+  mix-blend-mode: lighten;
+  opacity: 1;
+}
+
 @media (max-width: 768px) {
   .partners-carousel-group {
     gap: 1rem;

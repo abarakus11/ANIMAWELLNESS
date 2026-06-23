@@ -44,7 +44,6 @@ const files = [
   ["rwb.png", 38],
   ["liv-eco-habitats.png", 34],
   ["legalcert.png", 44],
-  ["fic-capital.png", 12],
 ];
 
 for (const [file, threshold] of files) {
