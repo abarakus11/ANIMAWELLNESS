@@ -1071,15 +1071,15 @@ figure {
 
 .mod-kick-boxe,
 .mod-kickboxing {
-  background-image: url('./brand-boxe-hero.png');
+  background-image: url('./kick-boxe.png');
   background-size: cover;
-  background-position: center top;
+  background-position: center;
 }
 
 @media (min-width: 768px) {
   .mod-kick-boxe,
   .mod-kickboxing {
-    background-image: url('./brand-boxe-hero-4k.jpg');
+    background-image: url('./kick-boxe-4k.jpg');
   }
 }
 
