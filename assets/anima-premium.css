@@ -600,6 +600,13 @@
   background-color: #121212;
 }
 
+.mod-img.mod-calistenia {
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #141414;
+}
+
 .mod-img::after {
   content: '';
   position: absolute;

@@ -1097,8 +1097,10 @@ figure {
 
 .mod-calistenia {
   background-image: url('./calistenia.png');
-  background-size: cover;
+  background-size: contain;
   background-position: center;
+  background-repeat: no-repeat;
+  background-color: #141414;
 }
 
 @media (min-width: 768px) {
