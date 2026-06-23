@@ -1095,15 +1095,15 @@ figure {
   }
 }
 
-.mod-crossfit {
-  background-image: url('./crossfit.png');
+.mod-calistenia {
+  background-image: url('./calistenia.png');
   background-size: cover;
   background-position: center;
 }
 
 @media (min-width: 768px) {
-  .mod-crossfit {
-    background-image: url('./crossfit-4k.jpg');
+  .mod-calistenia {
+    background-image: url('./calistenia-4k.jpg');
   }
 }
 

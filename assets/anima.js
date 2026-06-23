@@ -361,19 +361,19 @@
       ],
       wa: 'Olá! Gostaria de agendar uma aula experimental de Judô na ANIMA.'
     },
-    crossfit: {
-      tag: 'corpo & mente · crossfit',
-      title: 'Crossfit',
-      imgClass: 'mod-crossfit',
-      desc: 'Força, condicionamento e performance em treinos funcionais de alta intensidade.',
+    calistenia: {
+      tag: 'corpo & mente · calistenia',
+      title: 'Calistenia',
+      imgClass: 'mod-calistenia',
+      desc: 'Força, mobilidade e controle corporal com treinos de peso corporal e progressões técnicas.',
       features: [
-        'WODs variados com barra, halteres e peso corporal',
-        'Condicionamento cardiovascular e força',
-        'Treinos em grupo com alta energia',
-        'Progressão para todos os níveis',
-        'Acompanhamento técnico constante'
+        'Barra fixa, paralelas e anéis olímpicos',
+        'Planche, muscle-up e skills avançadas',
+        'Força relativa e controle corporal',
+        'Progressão do básico ao avançado',
+        'Acompanhamento técnico especializado'
       ],
-      wa: 'Olá! Gostaria de agendar uma aula experimental de Crossfit na ANIMA.'
+      wa: 'Olá! Gostaria de agendar uma aula experimental de Calistenia na ANIMA.'
     },
     'gelo-sauna': {
       tag: 'terapia integrativa · gelo · sauna',
