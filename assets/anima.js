@@ -184,6 +184,8 @@
           fs: 0,
           cc_load_policy: 0,
           enablejsapi: 1,
+          showinfo: 0,
+          autohide: 1,
           origin: window.location.origin
         },
         events: {
