@@ -985,7 +985,7 @@
 }
 
 .partner-carousel-card {
-  backdrop-filter: blur(8px);
+  backdrop-filter: none;
 }
 
 @media (max-width: 640px) {
