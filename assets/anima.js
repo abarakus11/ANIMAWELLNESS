@@ -144,42 +144,49 @@
   /* =========================================================================
      Hero Video — background only (export do YouTube 7hd429vNaR4)
      ========================================================================= */
-  function initHeroVideo() {
-    var heroVideo = document.getElementById('heroVideo');
-    if (!heroVideo || heroVideo.tagName !== 'VIDEO') return;
+  function initBackgroundVideo(video) {
+    if (!video || video.tagName !== 'VIDEO') return;
 
-    heroVideo.controls = false;
-    heroVideo.removeAttribute('controls');
-    heroVideo.setAttribute('controlsList', 'nodownload nofullscreen noremoteplayback noplaybackrate');
-    heroVideo.setAttribute('disablePictureInPicture', '');
-    heroVideo.setAttribute('disableRemotePlayback', '');
-    heroVideo.setAttribute('aria-hidden', 'true');
-    heroVideo.muted = true;
-    heroVideo.defaultMuted = true;
-    heroVideo.loop = true;
-    heroVideo.playsInline = true;
-    heroVideo.tabIndex = -1;
+    video.controls = false;
+    video.removeAttribute('controls');
+    video.setAttribute('controlsList', 'nodownload nofullscreen noremoteplayback noplaybackrate');
+    video.setAttribute('disablePictureInPicture', '');
+    video.setAttribute('disableRemotePlayback', '');
+    video.setAttribute('aria-hidden', 'true');
+    video.muted = true;
+    video.defaultMuted = true;
+    video.loop = true;
+    video.playsInline = true;
+    video.tabIndex = -1;
 
-    function ensureHeroPlaying() {
-      if (!heroVideo.paused && !heroVideo.ended) return;
-      var playPromise = heroVideo.play();
+    function ensurePlaying() {
+      if (!video.paused && !video.ended) return;
+      var playPromise = video.play();
       if (playPromise && typeof playPromise.catch === 'function') {
         playPromise.catch(function () {});
       }
     }
 
-    heroVideo.addEventListener('pause', ensureHeroPlaying);
-    heroVideo.addEventListener('ended', function () {
-      heroVideo.currentTime = 0;
-      ensureHeroPlaying();
+    video.addEventListener('pause', ensurePlaying);
+    video.addEventListener('ended', function () {
+      video.currentTime = 0;
+      ensurePlaying();
     });
 
     document.addEventListener('visibilitychange', function () {
-      if (!document.hidden) ensureHeroPlaying();
+      if (!document.hidden) ensurePlaying();
     });
 
-    window.addEventListener('focus', ensureHeroPlaying);
-    ensureHeroPlaying();
+    window.addEventListener('focus', ensurePlaying);
+    ensurePlaying();
+  }
+
+  function initHeroVideo() {
+    initBackgroundVideo(document.getElementById('heroVideo'));
+  }
+
+  function initFaqVideo() {
+    initBackgroundVideo(document.getElementById('faqVideo'));
   }
 
   /* =========================================================================
@@ -636,6 +643,7 @@
 
   function init() {
     initHeroVideo();
+    initFaqVideo();
     initHeroLoaded();
     initMobileMenu();
     initNavScroll();

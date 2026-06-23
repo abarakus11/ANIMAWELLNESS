@@ -16,8 +16,8 @@
 <meta property="og:locale" content="pt_BR">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preload" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Manrope:wght@400;500;600;700&display=swap" as="style">
-<link rel="stylesheet" href="assets/anima.css?v=16">
-<link rel="stylesheet" href="assets/anima-premium.css?v=16">
+<link rel="stylesheet" href="assets/anima.css?v=17">
+<link rel="stylesheet" href="assets/anima-premium.css?v=17">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -447,8 +447,25 @@
   </section>
 
   <!-- FAQ -->
-  <section id="faq" class="section section-dark">
-    <div class="container" style="max-width:48rem;">
+  <section id="faq" class="section section-dark faq-section">
+    <div class="faq-video-wrap" aria-hidden="true">
+      <video
+        class="faq-video"
+        id="faqVideo"
+        aria-hidden="true"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="auto"
+        disablepictureinpicture
+        disableremoteplayback
+      >
+        <source src="assets/faq-bg.mp4" type="video/mp4">
+      </video>
+      <div class="faq-video-overlay"></div>
+    </div>
+    <div class="container faq-section__content" style="max-width:48rem;">
       <div class="section-header section-header--center" data-reveal>
         <h2 class="h2">Tire suas dúvidas.</h2>
       </div>
@@ -571,6 +588,6 @@
   <span class="wa-float__label">Agendar aula experimental</span>
 </a>
 
-<script src="assets/anima.js?v=16" defer></script>
+<script src="assets/anima.js?v=17" defer></script>
 </body>
 </html>
