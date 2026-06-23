@@ -2141,6 +2141,114 @@ figure {
   align-items: stretch;
 }
 
+/* --------------------------------------------------------------------------
+   Parceiros
+   -------------------------------------------------------------------------- */
+.partners-section .section-header {
+  margin-bottom: 0;
+}
+
+.partners-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr));
+  gap: 1.125rem;
+  margin-top: 3rem;
+}
+
+.partners-grid:empty {
+  min-height: 11rem;
+  align-content: center;
+  justify-items: center;
+  border: 1px dashed rgba(180, 144, 48, 0.22);
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.partners-grid:empty::after {
+  content: 'Adicione os logos dos parceiros nesta área.';
+  padding: 1.5rem;
+  text-align: center;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: rgba(245, 242, 234, 0.45);
+  max-width: 16rem;
+}
+
+.partner-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 6.75rem;
+  padding: 1.35rem 1.15rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(180, 144, 48, 0.16);
+  border-radius: var(--radius-lg);
+  text-decoration: none;
+  transition:
+    transform 0.35s var(--ease-out-expo),
+    border-color 0.35s,
+    background 0.35s,
+    box-shadow 0.35s;
+}
+
+.partner-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(180, 144, 48, 0.42);
+  background: rgba(255, 255, 255, 0.07);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
+}
+
+.partner-card__logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.partner-card__logo img {
+  display: block;
+  max-width: 100%;
+  max-height: 3.25rem;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  opacity: 0.88;
+  transition: opacity 0.3s;
+}
+
+.partner-card:hover .partner-card__logo img {
+  opacity: 1;
+}
+
+.partners-become {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem 2rem;
+  margin-top: 2.75rem;
+  padding: 1.75rem 2rem;
+  border: 1px solid rgba(180, 144, 48, 0.2);
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+}
+
+.partners-become__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 2.5vw, 1.75rem);
+  font-weight: 600;
+  color: var(--text-inverse);
+  margin-bottom: 0.35rem;
+}
+
+.partners-become__desc {
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: rgba(245, 242, 234, 0.72);
+  max-width: 28rem;
+}
+
 .section-header {
   max-width: 38.75rem;
 }
