@@ -2153,15 +2153,15 @@ figure {
 .partners-carousel {
   overflow: hidden;
   margin-top: 3rem;
-  padding: 1.25rem 0 2rem;
-  -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
-  mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+  padding: 1.5rem 0 2.25rem;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
 }
 
 .partners-carousel-track {
   display: flex;
   width: max-content;
-  animation: partners-carousel-scroll 36s linear infinite;
+  animation: partners-carousel-scroll 32s linear infinite;
   will-change: transform;
 }
 
@@ -2173,7 +2173,7 @@ figure {
 .partners-carousel-group {
   display: flex;
   align-items: center;
-  gap: 2.5rem;
+  gap: 1.5rem;
 }
 
 .partner-carousel-card {
@@ -2181,9 +2181,9 @@ figure {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 20rem;
-  height: 10rem;
-  padding: 0.75rem 1.5rem;
+  width: auto;
+  height: auto;
+  padding: 0;
   background: transparent;
   border: none;
   border-radius: 0;
@@ -2192,17 +2192,15 @@ figure {
 }
 
 .partner-carousel-card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-4px) scale(1.02);
   opacity: 0.95;
 }
 
 .partner-carousel-card img {
   display: block;
   width: auto;
-  height: auto;
-  max-width: 18rem;
-  max-height: 7.5rem;
-  min-height: 5rem;
+  height: 10rem;
+  max-width: min(22rem, 42vw);
   object-fit: contain;
   filter: none;
 }
@@ -2215,19 +2213,12 @@ figure {
 
 @media (max-width: 768px) {
   .partners-carousel-group {
-    gap: 1.75rem;
-  }
-
-  .partner-carousel-card {
-    width: 15rem;
-    height: 7.5rem;
-    padding: 0.5rem 1rem;
+    gap: 1rem;
   }
 
   .partner-carousel-card img {
-    max-width: 13.5rem;
-    max-height: 5.5rem;
-    min-height: 3.75rem;
+    height: 6.5rem;
+    max-width: min(16rem, 58vw);
   }
 }
 
