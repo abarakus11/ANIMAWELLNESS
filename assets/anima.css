@@ -2241,7 +2241,7 @@ figure {
 .partners-carousel-group {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
+  gap: 3.5rem;
 }
 
 .partner-carousel-card {
@@ -2251,7 +2251,7 @@ figure {
   justify-content: center;
   width: auto;
   height: auto;
-  padding: 0;
+  padding: 0 1rem;
   background: transparent;
   border: none;
   border-radius: 0;
@@ -2267,8 +2267,8 @@ figure {
 .partner-carousel-card img {
   display: block;
   width: auto;
-  height: 10rem;
-  max-width: min(22rem, 42vw);
+  height: 9rem;
+  max-width: min(18rem, 36vw);
   object-fit: contain;
   filter: none;
 }
@@ -2280,6 +2280,8 @@ figure {
 }
 
 .partner-carousel-card--fic img {
+  height: 7rem;
+  max-width: min(11.5rem, 28vw);
   filter: none;
   mix-blend-mode: lighten;
   opacity: 1;
@@ -2287,12 +2289,21 @@ figure {
 
 @media (max-width: 768px) {
   .partners-carousel-group {
-    gap: 1rem;
+    gap: 2.25rem;
+  }
+
+  .partner-carousel-card {
+    padding: 0 0.5rem;
   }
 
   .partner-carousel-card img {
-    height: 6.5rem;
-    max-width: min(16rem, 58vw);
+    height: 6rem;
+    max-width: min(14rem, 52vw);
+  }
+
+  .partner-carousel-card--fic img {
+    height: 5rem;
+    max-width: min(9rem, 40vw);
   }
 }
 
