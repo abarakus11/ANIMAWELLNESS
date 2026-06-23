@@ -679,6 +679,9 @@ figure {
   z-index: 0;
   overflow: hidden;
   background: var(--green-900) url('./brand-boxe-hero-4k.jpg') center / cover no-repeat;
+  touch-action: none;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 .hero-video-inner {
@@ -707,11 +710,11 @@ figure {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 300%;
-  height: 300%;
-  min-width: 300%;
-  min-height: 300%;
-  transform: translate(-50%, -50%);
+  width: 177.78vh;
+  height: 100vh;
+  min-width: 100%;
+  min-height: 56.25vw;
+  transform: translate(-50%, -50%) scale(1.18);
   border: 0;
   pointer-events: none;
 }
@@ -723,28 +726,36 @@ figure {
     height: 2160px;
     min-width: 3840px;
     min-height: 2160px;
-    transform: translate(-50%, -50%) scale(1.12);
+    transform: translate(-50%, -50%) scale(1.14);
   }
 }
 
 .hero-video-shield {
   position: absolute;
   inset: 0;
-  z-index: 2;
+  z-index: 3;
   pointer-events: auto;
+  touch-action: none;
   background: transparent;
 }
 
 .hero-video-overlay {
   position: absolute;
   inset: 0;
-  z-index: 1;
-  background: linear-gradient(
-    120deg,
-    rgba(10, 26, 17, 0.88) 0%,
-    rgba(10, 26, 17, 0.72) 45%,
-    rgba(10, 26, 17, 0.55) 100%
-  );
+  z-index: 2;
+  background:
+    radial-gradient(
+      ellipse 240px 96px at 50% 50%,
+      rgba(10, 26, 17, 0.98) 0%,
+      rgba(10, 26, 17, 0.72) 55%,
+      transparent 100%
+    ),
+    linear-gradient(
+      120deg,
+      rgba(10, 26, 17, 0.88) 0%,
+      rgba(10, 26, 17, 0.72) 45%,
+      rgba(10, 26, 17, 0.55) 100%
+    );
   pointer-events: none;
 }
 

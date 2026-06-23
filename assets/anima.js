@@ -190,6 +190,12 @@
         },
         events: {
           onReady: function (event) {
+            var iframe = event.target.getIframe();
+            if (iframe) {
+              iframe.setAttribute('tabindex', '-1');
+              iframe.setAttribute('title', '');
+              iframe.style.pointerEvents = 'none';
+            }
             event.target.mute();
             applyHeroMaxQuality(event.target);
             event.target.playVideo();
@@ -198,8 +204,14 @@
             if (event.data === YT.PlayerState.PLAYING) {
               applyHeroMaxQuality(event.target);
             }
-            if (event.data === YT.PlayerState.ENDED) {
-              event.target.seekTo(0);
+            if (
+              event.data === YT.PlayerState.PAUSED ||
+              event.data === YT.PlayerState.CUED ||
+              event.data === YT.PlayerState.ENDED
+            ) {
+              if (event.data === YT.PlayerState.ENDED) {
+                event.target.seekTo(0);
+              }
               event.target.playVideo();
             }
           }
@@ -234,17 +246,23 @@
     if (heroVideo.tagName === 'DIV') {
       initHeroYoutubePlayer();
 
-      document.addEventListener('visibilitychange', function () {
-        if (document.hidden || !window.heroYtPlayer || !window.heroYtPlayer.playVideo) return;
-        window.heroYtPlayer.playVideo();
+      function keepHeroPlaying() {
+        if (!window.heroYtPlayer || typeof window.heroYtPlayer.getPlayerState !== 'function') return;
+        var state = window.heroYtPlayer.getPlayerState();
+        if (state !== YT.PlayerState.PLAYING && state !== YT.PlayerState.BUFFERING) {
+          window.heroYtPlayer.playVideo();
+        }
         applyHeroMaxQuality(window.heroYtPlayer);
+      }
+
+      setInterval(keepHeroPlaying, 400);
+
+      document.addEventListener('visibilitychange', function () {
+        if (document.hidden) return;
+        keepHeroPlaying();
       });
 
-      window.addEventListener('focus', function () {
-        if (!window.heroYtPlayer || !window.heroYtPlayer.playVideo) return;
-        window.heroYtPlayer.playVideo();
-        applyHeroMaxQuality(window.heroYtPlayer);
-      });
+      window.addEventListener('focus', keepHeroPlaying);
 
       return;
     }
