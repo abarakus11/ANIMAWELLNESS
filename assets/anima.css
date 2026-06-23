@@ -695,6 +695,14 @@ figure {
   pointer-events: none;
 }
 
+.hero-video::-webkit-media-controls,
+.hero-video::-webkit-media-controls-enclosure,
+.hero-video::-webkit-media-controls-panel {
+  display: none !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
 .hero-yt-shell {
   position: absolute;
   inset: 0;
