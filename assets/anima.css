@@ -1136,7 +1136,15 @@ figure {
 }
 
 .mod-psicologo {
-  background-image: url('https://images.unsplash.com/photo-1573497620053-ea5301f7f238?w=700&q=80');
+  background-image: url('./psicologo.png');
+  background-size: cover;
+  background-position: center top;
+}
+
+@media (min-width: 768px) {
+  .mod-psicologo {
+    background-image: url('./psicologo-4k.jpg');
+  }
 }
 
 .mod-personal-trainer {
