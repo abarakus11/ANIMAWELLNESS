@@ -391,6 +391,48 @@
         'Ambiente reservado e silencioso'
       ],
       wa: 'Olá! Gostaria de conhecer os Tratamentos com Frio e Calor na ANIMA.'
+    },
+    terapeuta: {
+      tag: 'terapia corporal · massoterapia',
+      title: 'Terapeuta',
+      imgClass: 'mod-terapeuta',
+      desc: 'Massoterapia e técnicas manuais para alívio de tensões, recuperação muscular e equilíbrio corporal.',
+      features: [
+        'Massagem desportiva e relaxante',
+        'Liberação miofascial e pontos de tensão',
+        'Recuperação pós-treino e lesões leves',
+        'Sessões em ambiente reservado',
+        'Profissionais certificados'
+      ],
+      wa: 'Olá! Gostaria de agendar uma sessão com Terapeuta na ANIMA.'
+    },
+    psicologo: {
+      tag: 'saúde mental · acompanhamento',
+      title: 'Psicólogo',
+      imgClass: 'mod-psicologo',
+      desc: 'Acompanhamento psicológico para bem-estar emocional, performance atlética e qualidade de vida.',
+      features: [
+        'Atendimento individual reservado',
+        'Gestão de estresse e ansiedade',
+        'Performance mental no esporte',
+        'Autoconhecimento e equilíbrio emocional',
+        'Profissionais registrados no CRP'
+      ],
+      wa: 'Olá! Gostaria de agendar uma consulta com Psicólogo na ANIMA.'
+    },
+    'personal-trainer': {
+      tag: 'performance · treino individual',
+      title: 'Personal Trainer',
+      imgClass: 'mod-personal-trainer',
+      desc: 'Treino personalizado com metas claras, técnica segura e acompanhamento contínuo para resultados reais.',
+      features: [
+        'Avaliação física e plano sob medida',
+        'Correção técnica em tempo real',
+        'Periodização e evolução de cargas',
+        'Integração com artes marciais e calistenia',
+        'Sessões individuais ou em dupla'
+      ],
+      wa: 'Olá! Gostaria de agendar uma sessão com Personal Trainer na ANIMA.'
     }
   };
 
