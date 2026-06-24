@@ -14,6 +14,15 @@
     var bar = document.getElementById('navProgress');
     if (!bar) return;
     if (window.CSS && CSS.supports && CSS.supports('animation-timeline', 'scroll()')) return;
+
+    function update() {
+      var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      var progress = docHeight > 0 ? window.scrollY / docHeight : 0;
+      bar.style.transform = 'scaleX(' + Math.min(1, Math.max(0, progress)) + ')';
+    }
+
+    window.addEventListener('scroll', update, { passive: true });
+    update();
   }
 
   /* =========================================================================
@@ -255,6 +264,21 @@
 
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape' && menu.dataset.open === '1') setMenu(false);
+    });
+  }
+
+  /* =========================================================================
+     Stagger Reveal — auto delay on grid children
+     ========================================================================= */
+  function initStaggerReveal() {
+    document.querySelectorAll('[data-stagger]').forEach(function (parent) {
+      var children = parent.querySelectorAll(':scope > [data-reveal]');
+      children.forEach(function (child, index) {
+        if (!child.hasAttribute('data-delay')) {
+          child.setAttribute('data-delay', String(Math.min(index + 1, 8)));
+        }
+      });
+      parent.classList.add('is-stagger-ready');
     });
   }
 
@@ -749,10 +773,29 @@
      ========================================================================= */
   function initHeroLoaded() {
     var hero = document.querySelector('.hero');
-    if (hero) hero.classList.add('is-loaded');
+    var video = document.getElementById('heroVideo');
+
+    function markLoaded() {
+      if (hero) hero.classList.add('is-loaded');
+    }
+
+    if (!video) {
+      markLoaded();
+      return;
+    }
+
+    if (video.readyState >= 2) {
+      markLoaded();
+      return;
+    }
+
+    video.addEventListener('loadeddata', markLoaded, { once: true });
+    video.addEventListener('canplay', markLoaded, { once: true });
+    setTimeout(markLoaded, 2500);
   }
 
   function init() {
+    initStaggerReveal();
     initHeroVideo();
     initEmsVideo();
     initHeroLoaded();

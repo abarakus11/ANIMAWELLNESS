@@ -1,0 +1,312 @@
+/* ==========================================================================
+   ANIMA — Elite Layer v4
+   Design System semântico · motion · depth · conversão
+   ========================================================================== */
+
+:root {
+  /* Semântica de marca */
+  --color-primary: var(--green-800);
+  --color-primary-deep: var(--green-900);
+  --color-secondary: var(--green-600);
+  --color-accent: var(--gold-400);
+  --color-accent-hover: var(--gold-300);
+  --color-premium: var(--gold-500);
+  --color-surface: var(--surface-light);
+  --color-surface-elevated: var(--surface-white);
+  --color-text: var(--text-primary);
+  --color-text-muted: var(--text-muted);
+  --color-text-on-dark: var(--text-inverse);
+  --color-card-light: rgba(255, 255, 255, 0.72);
+  --color-card-dark: rgba(255, 255, 255, 0.05);
+  --color-border-premium: rgba(180, 144, 48, 0.22);
+
+  /* Espaçamento de componentes */
+  --gap-section: clamp(2.5rem, 5vw, 4rem);
+  --gap-card: 1.25rem;
+  --pad-card: clamp(1.25rem, 2.5vw, 1.75rem);
+
+  /* Motion premium */
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-micro: 0.22s;
+  --duration-hover: 0.45s;
+
+  /* Profundidade */
+  --shadow-premium: 0 1px 0 rgba(255, 255, 255, 0.06) inset,
+    0 20px 50px rgba(10, 26, 17, 0.18);
+  --shadow-float: 0 12px 40px rgba(10, 26, 17, 0.24),
+    0 0 0 1px rgba(180, 144, 48, 0.08);
+  --blur-premium: blur(22px);
+}
+
+/* Grain único — evita duplicação com premium layer */
+.page::after {
+  display: none;
+}
+
+/* Skip link */
+.skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: calc(var(--z-nav) + 10);
+  padding: 0.625rem 1rem;
+  border-radius: var(--radius-md);
+  background: var(--green-900);
+  color: var(--text-inverse);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  border: 1px solid var(--color-border-premium);
+  transform: translateY(-200%);
+  transition: transform var(--duration-micro) var(--ease-out-expo);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+/* Nav compacta — muitos links */
+@media (min-width: 901px) {
+  .nav-links {
+    gap: clamp(0.5rem, 1.2vw, 1.125rem);
+  }
+
+  .nav-links a {
+    font-size: clamp(0.72rem, 0.85vw, 0.8125rem);
+    letter-spacing: 0.03em;
+  }
+}
+
+/* Superfícies premium unificadas */
+.glass,
+.diff-cell,
+.plan-card,
+.scholarships-card,
+.scholarships-panel,
+.partners-become,
+.mod-card,
+.ems-benefit,
+.about-card {
+  transition:
+    transform var(--duration-hover) var(--ease-out-expo),
+    box-shadow var(--duration-hover) var(--ease-out-expo),
+    border-color var(--duration-hover) var(--ease-out-expo);
+}
+
+@media (hover: hover) {
+  .diff-cell:hover,
+  .scholarships-card:hover,
+  .ems-benefit:hover,
+  .mod-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-card-hover);
+    border-color: var(--color-border-premium);
+  }
+
+  .plan-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-premium), var(--shadow-glow-gold);
+  }
+
+  .gallery-item:hover {
+    transform: translateY(-4px) scale(1.01);
+  }
+}
+
+/* Cards com profundidade glass */
+.section-dark .scholarships-card,
+.section-dark .partners-become {
+  backdrop-filter: var(--blur-premium);
+  -webkit-backdrop-filter: var(--blur-premium);
+}
+
+/* Hierarquia de seção */
+.section-header--center .section-label {
+  justify-content: center;
+}
+
+.section + .section {
+  scroll-margin-top: 5.625rem;
+}
+
+/* Stagger reveal via data-delay */
+[data-stagger] [data-reveal]:not(.is-visible) {
+  opacity: 0;
+  transform: translateY(1.25rem);
+}
+
+[data-stagger].is-stagger-ready [data-reveal].is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Reveal direcional refinado */
+[data-reveal='right']:not(.is-visible) {
+  transform: translateX(2rem);
+}
+
+[data-reveal='left']:not(.is-visible) {
+  transform: translateX(-2rem);
+}
+
+[data-reveal='scale']:not(.is-visible) {
+  transform: scale(0.94);
+}
+
+/* Galeria cinematográfica */
+.gallery-item {
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  transition: transform var(--duration-hover) var(--ease-out-expo);
+}
+
+.gallery-item img {
+  transition: transform 0.8s var(--ease-out-expo);
+}
+
+.gallery-item:hover img {
+  transform: scale(1.06);
+}
+
+.gallery-item-caption {
+  background: linear-gradient(180deg, transparent 0%, rgba(10, 26, 17, 0.75) 100%);
+}
+
+/* Planos — destaque Master */
+.plan-card-dark {
+  box-shadow: var(--shadow-premium), var(--shadow-glow-gold);
+  border-color: var(--color-border-premium);
+}
+
+/* CTA flutuante premium */
+.wa-float {
+  box-shadow: var(--shadow-float);
+  transition:
+    transform var(--duration-micro) var(--ease-spring),
+    box-shadow var(--duration-hover) var(--ease-out-expo);
+}
+
+@media (hover: hover) {
+  .wa-float:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: var(--shadow-md), 0 0 32px rgba(37, 211, 102, 0.35);
+  }
+}
+
+/* Trust strip refinado */
+.trust-strip {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Hero — micro brilho no CTA */
+.hero-actions .btn-primary {
+  animation: elite-cta-glow 4s ease-in-out infinite;
+}
+
+@keyframes elite-cta-glow {
+  0%, 100% { box-shadow: var(--shadow-btn); }
+  50% { box-shadow: var(--shadow-btn), 0 0 28px rgba(180, 144, 48, 0.28); }
+}
+
+/* Marquee suave */
+.marquee-item {
+  transition: color var(--duration-micro);
+}
+
+.marquee:hover .marquee-item {
+  color: var(--gold-300);
+}
+
+/* Modal premium depth */
+.mod-modal-panel {
+  box-shadow: var(--shadow-modal), 0 0 0 1px rgba(180, 144, 48, 0.12);
+}
+
+/* FAQ accordion polish */
+.faq-item.is-open {
+  border-color: var(--color-border-premium);
+  box-shadow: var(--shadow-sm);
+}
+
+.faq-question-icon {
+  transition: transform var(--duration-micro) var(--ease-out-expo);
+}
+
+.faq-item.is-open .faq-question-icon {
+  transform: rotate(45deg);
+}
+
+/* Footer map frame */
+.footer-map-frame {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+/* Loading state — hero video */
+.hero-video-wrap::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--green-900);
+  opacity: 1;
+  transition: opacity 0.8s var(--ease-smooth);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.hero.is-loaded .hero-video-wrap::after {
+  opacity: 0;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .hero-actions .btn-primary {
+    animation: none;
+  }
+
+  [data-reveal],
+  [data-reveal='right'],
+  [data-reveal='left'],
+  [data-reveal='scale'] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .gallery-item:hover img,
+  .diff-cell:hover,
+  .plan-card:hover,
+  .scholarships-card:hover,
+  .mod-card:hover {
+    transform: none;
+  }
+}
+
+/* 4K — container mais amplo */
+@media (min-width: 1600px) {
+  :root {
+    --container-max: 88rem;
+  }
+
+  .hero-stage {
+    max-width: 92rem;
+  }
+}
+
+/* Mobile — touch targets */
+@media (max-width: 600px) {
+  .btn,
+  .faq-question,
+  .nav-burger {
+    min-height: 44px;
+  }
+
+  .nav-links a {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+}

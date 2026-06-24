@@ -31,6 +31,11 @@
   /* Fade suave só na linha entre seções */
   --section-edge-fade: clamp(1.75rem, 3.5vw, 3rem);
 
+  /* Semantic aliases (design system) */
+  --color-primary: var(--green-800);
+  --color-accent: var(--gold-400);
+  --color-surface: var(--surface-light);
+
   /* Text */
   --text-primary: #0f2719;
   --text-secondary: #3c4a40;
