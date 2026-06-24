@@ -1756,6 +1756,22 @@ figure {
   transform: scale(1.04);
 }
 
+.gallery-item--recepcao picture {
+  aspect-ratio: auto;
+  overflow: hidden;
+  background: #1a1410;
+}
+
+.gallery-item--recepcao .gallery-recepcao-img {
+  width: 100%;
+  height: auto;
+  object-fit: unset;
+}
+
+.gallery-item--recepcao:hover .gallery-recepcao-img {
+  transform: none;
+}
+
 .gallery-item-caption {
   font-size: 0.8125rem;
   font-weight: 600;
