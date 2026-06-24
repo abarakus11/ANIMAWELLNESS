@@ -28,6 +28,9 @@
   --surface-white: #ffffff;
   --surface-muted: #e3ddcd;
 
+  /* Fade suave só na linha entre seções */
+  --section-edge-fade: clamp(1.75rem, 3.5vw, 3rem);
+
   /* Text */
   --text-primary: #0f2719;
   --text-secondary: #3c4a40;
@@ -322,8 +325,14 @@ figure {
 }
 
 .section {
+  position: relative;
   padding-block: var(--section-pad-y);
   scroll-margin-top: 5.625rem;
+}
+
+.section > .container {
+  position: relative;
+  z-index: 1;
 }
 
 .section-light {
@@ -347,6 +356,52 @@ figure {
 .section-deep {
   background: var(--green-700);
   color: var(--text-inverse);
+}
+
+/* Fade suave apenas no topo da seção (cor da seção anterior → transparente) */
+.section-dark + .section-light::before,
+.section-deep + .section-light::before,
+.section-light + .section-dark::before,
+.section-light + .section-deep::before,
+.marquee + .section-light::before,
+.section-dark + .cta-section::before,
+.cta-section + .footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--section-edge-fade);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.section-dark + .section-light::before {
+  background: linear-gradient(180deg, var(--green-800) 0%, transparent 100%);
+}
+
+.section-deep + .section-light::before {
+  background: linear-gradient(180deg, var(--green-700) 0%, transparent 100%);
+}
+
+.section-light + .section-dark::before {
+  background: linear-gradient(180deg, var(--surface-light) 0%, transparent 100%);
+}
+
+.section-light + .section-deep::before {
+  background: linear-gradient(180deg, var(--surface-light) 0%, transparent 100%);
+}
+
+.marquee + .section-light::before {
+  background: linear-gradient(180deg, var(--green-900) 0%, transparent 100%);
+}
+
+.section-dark + .cta-section::before {
+  background: linear-gradient(180deg, var(--green-800) 0%, transparent 100%);
+}
+
+.cta-section + .footer::before {
+  background: linear-gradient(180deg, var(--green-900) 0%, transparent 100%);
 }
 
 .two-col {
@@ -2032,6 +2087,11 @@ figure {
   overflow: hidden;
 }
 
+.cta-section > .container {
+  position: relative;
+  z-index: 1;
+}
+
 .cta-section .h2 {
   color: var(--text-inverse);
   font-size: clamp(2.5rem, 6vw, 4.75rem);
@@ -2089,10 +2149,15 @@ figure {
    Footer
    -------------------------------------------------------------------------- */
 .footer {
+  position: relative;
   background: var(--green-900);
   padding: clamp(4rem, 7vw, 5.625rem) var(--section-pad-x) 2.5rem;
-  border-top: 1px solid var(--border-gold);
   scroll-margin-top: 5.625rem;
+}
+
+.footer > * {
+  position: relative;
+  z-index: 1;
 }
 
 .footer-grid {

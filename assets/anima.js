@@ -142,9 +142,11 @@
   }
 
   /* =========================================================================
-     Hero Video — background only (export do YouTube 7hd429vNaR4)
+     Hero Video — background only (export do YouTube BH6zVRKSOD0)
      ========================================================================= */
-  function initBackgroundVideo(video) {
+  function initBackgroundVideo(video, options) {
+    options = options || {};
+    var loopEndTrim = Number(options.loopEndTrim) || 0;
     if (!video || video.tagName !== 'VIDEO') return;
 
     video.controls = false;
@@ -155,7 +157,7 @@
     video.setAttribute('aria-hidden', 'true');
     video.muted = true;
     video.defaultMuted = true;
-    video.loop = true;
+    video.loop = loopEndTrim <= 0;
     video.playsInline = true;
     video.tabIndex = -1;
 
@@ -167,11 +169,34 @@
       }
     }
 
-    video.addEventListener('pause', ensurePlaying);
-    video.addEventListener('ended', function () {
+    function restartFromStart() {
       video.currentTime = 0;
       ensurePlaying();
-    });
+    }
+
+    video.addEventListener('pause', ensurePlaying);
+
+    if (loopEndTrim > 0) {
+      var loopEnd = null;
+
+      function syncLoopEnd() {
+        if (Number.isFinite(video.duration) && video.duration > loopEndTrim) {
+          loopEnd = video.duration - loopEndTrim;
+        }
+      }
+
+      video.addEventListener('loadedmetadata', syncLoopEnd);
+      video.addEventListener('durationchange', syncLoopEnd);
+      video.addEventListener('timeupdate', function () {
+        if (loopEnd != null && video.currentTime >= loopEnd) {
+          restartFromStart();
+        }
+      });
+      video.addEventListener('ended', restartFromStart);
+      syncLoopEnd();
+    } else {
+      video.addEventListener('ended', restartFromStart);
+    }
 
     document.addEventListener('visibilitychange', function () {
       if (!document.hidden) ensurePlaying();
@@ -182,7 +207,7 @@
   }
 
   function initHeroVideo() {
-    initBackgroundVideo(document.getElementById('heroVideo'));
+    initBackgroundVideo(document.getElementById('heroVideo'), { loopEndTrim: 15 });
   }
 
   function initEmsVideo() {
