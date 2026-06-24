@@ -28,9 +28,6 @@
   --surface-white: #ffffff;
   --surface-muted: #e3ddcd;
 
-  /* Altura do fade entre seções */
-  --section-blend: clamp(3rem, 6vw, 5.5rem);
-
   /* Text */
   --text-primary: #0f2719;
   --text-secondary: #3c4a40;
@@ -325,16 +322,8 @@ figure {
 }
 
 .section {
-  position: relative;
-  isolation: isolate;
   padding-block: var(--section-pad-y);
   scroll-margin-top: 5.625rem;
-}
-
-.section > .container,
-.section > .container.two-col {
-  position: relative;
-  z-index: 1;
 }
 
 .section-light {
@@ -358,67 +347,6 @@ figure {
 .section-deep {
   background: var(--green-700);
   color: var(--text-inverse);
-}
-
-/* Degradê suave só na junção — fundo sólido preservado */
-.section::before,
-.section::after,
-.cta-section::before,
-.footer::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  right: 0;
-  height: var(--section-blend);
-  pointer-events: none;
-  z-index: 0;
-}
-
-.section-dark + .section-light::before,
-.section-deep + .section-light::before {
-  top: 0;
-  background: linear-gradient(180deg, var(--green-800) 0%, transparent 100%);
-}
-
-.section-deep + .section-light::before {
-  background: linear-gradient(180deg, var(--green-700) 0%, transparent 100%);
-}
-
-.section-light + .section-dark::before,
-.section-light + .section-deep::before {
-  top: 0;
-  background: linear-gradient(180deg, var(--surface-light) 0%, transparent 100%);
-}
-
-.section-light:has(+ .section-dark)::after {
-  bottom: 0;
-  background: linear-gradient(0deg, var(--green-800) 0%, transparent 100%);
-}
-
-.section-light:has(+ .section-deep)::after {
-  bottom: 0;
-  background: linear-gradient(0deg, var(--green-700) 0%, transparent 100%);
-}
-
-.section-dark:has(+ .section-light)::after,
-.section-deep:has(+ .section-light)::after {
-  bottom: 0;
-  background: linear-gradient(0deg, var(--surface-light) 0%, transparent 100%);
-}
-
-.marquee + .section-light::before {
-  top: 0;
-  background: linear-gradient(180deg, var(--green-900) 0%, transparent 100%);
-}
-
-.section-dark + .cta-section::before {
-  top: 0;
-  background: linear-gradient(180deg, var(--green-800) 0%, transparent 100%);
-}
-
-.cta-section + .footer::before {
-  top: 0;
-  background: linear-gradient(180deg, var(--green-900) 0%, transparent 100%);
 }
 
 .two-col {
@@ -2098,16 +2026,10 @@ figure {
    -------------------------------------------------------------------------- */
 .cta-section {
   position: relative;
-  isolation: isolate;
   background: radial-gradient(120% 120% at 50% 0%, var(--green-500) 0%, var(--green-800) 55%, var(--green-900) 100%);
   padding: clamp(5.625rem, 11vw, 10rem) var(--section-pad-x);
   text-align: center;
   overflow: hidden;
-}
-
-.cta-section .cta-inner {
-  position: relative;
-  z-index: 1;
 }
 
 .cta-section .h2 {
@@ -2167,19 +2089,10 @@ figure {
    Footer
    -------------------------------------------------------------------------- */
 .footer {
-  position: relative;
-  isolation: isolate;
   background: var(--green-900);
   padding: clamp(4rem, 7vw, 5.625rem) var(--section-pad-x) 2.5rem;
   border-top: 1px solid var(--border-gold);
   scroll-margin-top: 5.625rem;
-}
-
-.footer-grid,
-.footer-map,
-.footer-bottom {
-  position: relative;
-  z-index: 1;
 }
 
 .footer-grid {
