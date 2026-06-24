@@ -28,6 +28,9 @@
   --surface-white: #ffffff;
   --surface-muted: #e3ddcd;
 
+  /* Altura do fade entre seções */
+  --section-blend: clamp(4rem, 9vw, 7rem);
+
   /* Text */
   --text-primary: #0f2719;
   --text-secondary: #3c4a40;
@@ -347,6 +350,110 @@ figure {
 .section-deep {
   background: var(--green-700);
   color: var(--text-inverse);
+}
+
+/* --------------------------------------------------------------------------
+   Section blends — transição suave entre fundos (sem linha dura)
+   -------------------------------------------------------------------------- */
+.section-dark + .section-light,
+.section-deep + .section-light {
+  background: linear-gradient(
+    180deg,
+    var(--green-800) 0%,
+    color-mix(in srgb, var(--green-800) 28%, var(--surface-light)) 42%,
+    var(--surface-light) var(--section-blend),
+    var(--surface-light) 100%
+  );
+}
+
+.section-deep + .section-light {
+  background: linear-gradient(
+    180deg,
+    var(--green-700) 0%,
+    color-mix(in srgb, var(--green-700) 28%, var(--surface-light)) 42%,
+    var(--surface-light) var(--section-blend),
+    var(--surface-light) 100%
+  );
+}
+
+.section-light + .section-dark {
+  background: linear-gradient(
+    180deg,
+    var(--surface-light) 0%,
+    color-mix(in srgb, var(--surface-light) 35%, var(--green-800)) 58%,
+    var(--green-800) 100%
+  );
+}
+
+.section-light + .section-deep {
+  background: linear-gradient(
+    180deg,
+    var(--surface-light) 0%,
+    color-mix(in srgb, var(--surface-light) 35%, var(--green-700)) 58%,
+    var(--green-700) 100%
+  );
+}
+
+.section-deep + .section-light + .section-deep,
+.section-dark + .section-light + .section-deep {
+  background: linear-gradient(
+    180deg,
+    var(--green-700) 0%,
+    color-mix(in srgb, var(--green-700) 22%, var(--surface-light)) 38%,
+    var(--surface-light) var(--section-blend),
+    var(--surface-light) calc(100% - var(--section-blend)),
+    color-mix(in srgb, var(--surface-light) 35%, var(--green-700)) 72%,
+    var(--green-700) 100%
+  );
+}
+
+.marquee + .section-light:has(+ .section-deep),
+.marquee + .section-light:has(+ .section-dark) {
+  background: linear-gradient(
+    180deg,
+    var(--green-900) 0%,
+    color-mix(in srgb, var(--green-900) 25%, var(--surface-light)) 40%,
+    var(--surface-light) var(--section-blend),
+    var(--surface-light) calc(100% - var(--section-blend)),
+    color-mix(in srgb, var(--surface-light) 35%, var(--green-700)) 72%,
+    var(--green-700) 100%
+  );
+}
+
+.section-light:has(+ .section-dark):not(:has(+ .section-light)) {
+  background: linear-gradient(
+    180deg,
+    var(--surface-light) 0%,
+    var(--surface-light) calc(100% - var(--section-blend)),
+    color-mix(in srgb, var(--surface-light) 35%, var(--green-800)) 72%,
+    var(--green-800) 100%
+  );
+}
+
+.section-deep + .section-light:has(+ .section-light) {
+  background: linear-gradient(
+    180deg,
+    var(--green-700) 0%,
+    color-mix(in srgb, var(--green-700) 28%, var(--surface-light)) 42%,
+    var(--surface-light) var(--section-blend),
+    var(--surface-light) 100%
+  );
+}
+
+.section-dark + .cta-section {
+  background:
+    linear-gradient(180deg, var(--green-800) 0%, transparent var(--section-blend)),
+    radial-gradient(120% 120% at 50% 0%, var(--green-500) 0%, var(--green-800) 55%, var(--green-900) 100%);
+}
+
+.cta-section + .footer {
+  background: linear-gradient(
+    180deg,
+    var(--green-900) 0%,
+    color-mix(in srgb, var(--green-900) 40%, var(--green-800)) 45%,
+    var(--green-900) var(--section-blend),
+    var(--green-900) 100%
+  );
 }
 
 .two-col {
@@ -813,8 +920,12 @@ figure {
 .trust-strip {
   position: relative;
   z-index: 2;
-  background: rgba(10, 26, 17, 0.92);
-  border-bottom: 1px solid rgba(180, 144, 48, 0.14);
+  background: linear-gradient(
+    180deg,
+    rgba(10, 26, 17, 0.45) 0%,
+    rgba(10, 26, 17, 0.92) 100%
+  );
+  border-bottom: none;
   padding: 1.125rem 0;
 }
 
@@ -2050,9 +2161,14 @@ figure {
    Marquee
    -------------------------------------------------------------------------- */
 .marquee {
-  background: var(--green-900);
-  border-top: 1px solid rgba(180, 144, 48, 0.14);
-  border-bottom: 1px solid rgba(180, 144, 48, 0.14);
+  background: linear-gradient(
+    180deg,
+    rgba(10, 26, 17, 0.92) 0%,
+    var(--green-900) 38%,
+    var(--green-900) 100%
+  );
+  border-top: none;
+  border-bottom: none;
   padding: 1.25rem 0;
   overflow: hidden;
   white-space: nowrap;
