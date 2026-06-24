@@ -2256,6 +2256,132 @@ figure {
 }
 
 /* --------------------------------------------------------------------------
+   Sistema Inovador — EMS
+   -------------------------------------------------------------------------- */
+.ems-section .section-header {
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+.ems-section .h2 {
+  color: var(--text-inverse);
+  margin-top: 0.75rem;
+}
+
+.ems-intro {
+  max-width: 42rem;
+  margin-inline: auto;
+  color: rgba(245, 242, 234, 0.72);
+}
+
+.ems-layout {
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+.ems-copy .text-body {
+  color: rgba(245, 242, 234, 0.82);
+}
+
+.ems-lead {
+  margin-bottom: 1.25rem;
+}
+
+.ems-lead strong {
+  color: var(--gold-300);
+  font-weight: 700;
+}
+
+.ems-list {
+  list-style: none;
+  padding: 0;
+  margin: 1.75rem 0 2rem;
+  display: grid;
+  gap: 0.875rem;
+}
+
+.ems-list li {
+  position: relative;
+  padding-left: 1.35rem;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: rgba(245, 242, 234, 0.84);
+}
+
+.ems-list li::before {
+  content: '✦';
+  position: absolute;
+  left: 0;
+  color: var(--gold-400);
+}
+
+.ems-media-frame {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid rgba(180, 144, 48, 0.28);
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.28);
+  line-height: 0;
+}
+
+.ems-media-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.ems-badge {
+  position: absolute;
+  top: 1.25rem;
+  left: 1.25rem;
+  padding: 0.45rem 0.85rem;
+  border-radius: var(--radius-sm);
+  background: rgba(10, 26, 17, 0.72);
+  border: 1px solid rgba(180, 144, 48, 0.45);
+  color: var(--gold-300);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.ems-benefits {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 1.25rem;
+}
+
+.ems-benefit {
+  padding: 1.5rem 1.35rem;
+  border-radius: var(--radius-md);
+}
+
+.ems-benefit__label {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--gold-400);
+  margin: 0 0 0.65rem;
+}
+
+.ems-benefit__title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-inverse);
+  margin: 0 0 0.65rem;
+  line-height: 1.25;
+}
+
+.ems-benefit__text {
+  font-size: 0.875rem;
+  line-height: 1.55;
+  color: rgba(245, 242, 234, 0.72);
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
    Parceiros
    -------------------------------------------------------------------------- */
 .partners-section .section-header {
