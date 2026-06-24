@@ -2475,24 +2475,10 @@ figure {
 .partner-carousel-card img {
   display: block;
   width: auto;
-  height: 9rem;
-  max-width: min(18rem, 36vw);
+  height: 7.5rem;
+  max-width: min(16rem, 34vw);
   object-fit: contain;
   filter: none;
-}
-
-.partner-carousel-card--light img,
-.partner-carousel-card--invert img {
-  filter: brightness(0) invert(1);
-  opacity: 1;
-}
-
-.partner-carousel-card--fic img {
-  height: 7rem;
-  max-width: min(11.5rem, 28vw);
-  filter: none;
-  mix-blend-mode: lighten;
-  opacity: 1;
 }
 
 @media (max-width: 768px) {
@@ -2505,13 +2491,8 @@ figure {
   }
 
   .partner-carousel-card img {
-    height: 6rem;
-    max-width: min(14rem, 52vw);
-  }
-
-  .partner-carousel-card--fic img {
-    height: 5rem;
-    max-width: min(9rem, 40vw);
+    height: 5.5rem;
+    max-width: min(12rem, 48vw);
   }
 }
 
