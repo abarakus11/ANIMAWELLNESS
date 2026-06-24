@@ -16,7 +16,7 @@
 <meta property="og:locale" content="pt_BR">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preload" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Manrope:wght@400;500;600;700&display=swap" as="style">
-<link rel="stylesheet" href="assets/anima.css?v=38">
+<link rel="stylesheet" href="assets/anima.css?v=39">
 <link rel="stylesheet" href="assets/anima-premium.css?v=30">
 <script type="application/ld+json">
 {
@@ -341,15 +341,22 @@
         </div>
         <div class="ems-media" data-reveal="right">
           <div class="ems-video-frame">
-            <iframe
-              src="https://www.youtube.com/embed/WTC4ZlnR_KY?rel=0&amp;modestbranding=1"
-              title="Sistema EMS na ANIMA Wellness — Estimulação Muscular Elétrica em ação"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen
-              loading="lazy"
-              referrerpolicy="strict-origin-when-cross-origin"></iframe>
+            <video
+              class="ems-video"
+              id="emsVideo"
+              aria-hidden="true"
+              autoplay
+              muted
+              loop
+              playsinline
+              preload="auto"
+              disablepictureinpicture
+              disableremoteplayback
+            >
+              <source src="assets/ems-demo.mp4" type="video/mp4">
+            </video>
           </div>
-          <p class="ems-video-caption">Assista: EMS na prática na ANIMA</p>
+          <p class="ems-video-caption">EMS na prática na ANIMA</p>
         </div>
       </div>
 
@@ -698,6 +705,6 @@
   <span class="wa-float__label">Agendar aula experimental</span>
 </a>
 
-<script src="assets/anima.js?v=27" defer></script>
+<script src="assets/anima.js?v=28" defer></script>
 </body>
 </html>

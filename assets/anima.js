@@ -185,6 +185,10 @@
     initBackgroundVideo(document.getElementById('heroVideo'));
   }
 
+  function initEmsVideo() {
+    initBackgroundVideo(document.getElementById('emsVideo'));
+  }
+
   /* =========================================================================
      Mobile Menu Toggle
      ========================================================================= */
@@ -712,6 +716,7 @@
 
   function init() {
     initHeroVideo();
+    initEmsVideo();
     initHeroLoaded();
     initMobileMenu();
     initNavScroll();
