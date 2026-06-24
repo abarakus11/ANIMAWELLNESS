@@ -9,6 +9,7 @@ const srcDirs = [
   "C:/Users/FIC/Desktop/emilly dashboards/logos",
   "C:/Users/FIC/Desktop/logos grupo fic",
   "C:/Users/FIC/Desktop/logos projeto lilinhazinha",
+  "C:/Users/FIC/Desktop/ANIMAWELLNESS/assets/partners-source",
 ];
 const outDir = path.join(__dirname, "..", "assets", "partners");
 
@@ -20,7 +21,7 @@ const partners = [
   { out: "legal-expert.png", match: "LEGAL_EXPERT_1", invert: true, threshold: 44 },
   { out: "fic-capital.png", match: "FIC_1", invert: true, threshold: 40 },
   { out: "ficcionarios.png", match: "LOGO_FICCIONARIOS_PRETO", invert: true, threshold: 40 },
-  { out: "metal-invest-pay.png", match: "METAL INVEST PAY", invert: true, threshold: 50 },
+  { out: "metal-invest-pay.png", match: "METAL_1", mode: "thin-dark" },
   { out: "sinatra.png", match: "SINATRA_1", invert: true, threshold: 40 },
   { out: "sunrise-advisors.png", match: "SUNRISE_1", invert: false, threshold: 36 },
   { out: "wall-brazil.png", match: "WALL_BRAZIL_1", invert: true, threshold: 40 },
@@ -42,7 +43,7 @@ function findSource(match) {
 async function loadRaster(input, mode) {
   let pipeline = sharp(input, input.toLowerCase().endsWith(".svg") ? { density: 300 } : {});
 
-  if (mode === "brand-dark") {
+  if (mode === "brand-dark" || mode === "thin-dark") {
     pipeline = pipeline.trim({ threshold: 12 });
   }
 
@@ -52,7 +53,28 @@ async function loadRaster(input, mode) {
 async function knockOut(input, output, { invert, threshold, mode = "default" }) {
   let { data, info } = await loadRaster(input, mode);
 
-  if (mode === "brand-dark") {
+  if (mode === "thin-dark") {
+    for (let i = 0; i < data.length; i += 4) {
+      const a = data[i + 3];
+      if (a < 16) {
+        data[i + 3] = 0;
+        continue;
+      }
+
+      const max = Math.max(data[i], data[i + 1], data[i + 2]);
+      if (max <= 140) {
+        const lift = Math.round(255 * ((140 - max) / 140));
+        const value = Math.min(255, 180 + lift);
+        data[i] = value;
+        data[i + 1] = value;
+        data[i + 2] = value;
+        data[i + 3] = 255;
+        continue;
+      }
+
+      data[i + 3] = 255;
+    }
+  } else if (mode === "brand-dark") {
     for (let i = 0; i < data.length; i += 4) {
       const a = data[i + 3];
       if (a < 16) {
@@ -132,7 +154,7 @@ async function knockOut(input, output, { invert, threshold, mode = "default" }) 
     raw: { width: info.width, height: info.height, channels: 4 },
   });
 
-  if (mode === "brand-dark") {
+  if (mode === "brand-dark" || mode === "thin-dark") {
     outPipeline = outPipeline.trim({ threshold: 12 });
   }
 
