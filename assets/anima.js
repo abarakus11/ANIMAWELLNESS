@@ -142,12 +142,14 @@
   }
 
   /* =========================================================================
-     Hero Video — background only (export do YouTube BH6zVRKSOD0)
+     Hero Video — background only (export do YouTube aJ_FmlqyZj0)
      ========================================================================= */
   function initBackgroundVideo(video, options) {
     options = options || {};
-    var loopEndTrim = Number(options.loopEndTrim) || 0;
     if (!video || video.tagName !== 'VIDEO') return;
+
+    var loopEndTrim = Number(options.loopEndTrim) || 0;
+    var minDurationForTrim = Number(options.minDurationForTrim) || 0;
 
     video.controls = false;
     video.removeAttribute('controls');
@@ -180,8 +182,16 @@
       var loopEnd = null;
 
       function syncLoopEnd() {
-        if (Number.isFinite(video.duration) && video.duration > loopEndTrim) {
+        var shouldTrim = Number.isFinite(video.duration)
+          && video.duration > loopEndTrim
+          && (!minDurationForTrim || video.duration >= minDurationForTrim);
+
+        if (shouldTrim) {
           loopEnd = video.duration - loopEndTrim;
+          video.loop = false;
+        } else {
+          loopEnd = null;
+          video.loop = true;
         }
       }
 
@@ -207,7 +217,10 @@
   }
 
   function initHeroVideo() {
-    initBackgroundVideo(document.getElementById('heroVideo'), { loopEndTrim: 15 });
+    initBackgroundVideo(document.getElementById('heroVideo'), {
+      loopEndTrim: 15,
+      minDurationForTrim: 45
+    });
   }
 
   function initEmsVideo() {
