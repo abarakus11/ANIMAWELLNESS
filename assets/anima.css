@@ -2061,10 +2061,19 @@ figure {
 }
 
 .marquee-track {
-  display: inline-flex;
-  gap: 3.5rem;
+  display: flex;
+  width: max-content;
   align-items: center;
-  animation: anima-marquee 28s linear infinite;
+  animation: anima-marquee 50s linear infinite;
+  will-change: transform;
+}
+
+.marquee-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 3.5rem;
+  flex-shrink: 0;
+  padding-right: 3.5rem;
 }
 
 .marquee-item {

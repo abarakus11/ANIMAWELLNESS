@@ -688,6 +688,21 @@
   }
 
   /* =========================================================================
+     Marquee — loop infinito sem quebra
+     ========================================================================= */
+  function initMarquee() {
+    var track = document.querySelector('.marquee-track');
+    if (!track) return;
+
+    var group = track.querySelector('.marquee-group');
+    if (!group) return;
+
+    var clone = group.cloneNode(true);
+    clone.setAttribute('aria-hidden', 'true');
+    track.appendChild(clone);
+  }
+
+  /* =========================================================================
      Init
      ========================================================================= */
   function initHeroLoaded() {
@@ -707,6 +722,7 @@
     initCounters();
     initModCarousel();
     initPartnersCarousel();
+    initMarquee();
     initModals();
     initPlanBilling();
     initFaqAccordion();
