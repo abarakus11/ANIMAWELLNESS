@@ -622,9 +622,8 @@ figure {
 }
 
 .site-logo--nav {
-  height: 2.75rem;
-  mix-blend-mode: lighten;
-  filter: brightness(1.25) drop-shadow(0 2px 8px rgba(0, 0, 0, 0.35));
+  height: 3.35rem;
+  filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.4));
 }
 
 .nav-scroll-sentinel {
@@ -637,12 +636,11 @@ figure {
 }
 
 .site-logo--hero {
-  mix-blend-mode: lighten;
-  filter: brightness(1.45) saturate(1.1) drop-shadow(0 16px 56px rgba(180, 144, 48, 0.4));
+  filter: drop-shadow(0 16px 48px rgba(0, 0, 0, 0.45)) drop-shadow(0 8px 28px rgba(180, 144, 48, 0.28));
 }
 
 .site-logo--footer {
-  height: 4.25rem;
+  height: 5.5rem;
 }
 
 .site-logo--mark {
