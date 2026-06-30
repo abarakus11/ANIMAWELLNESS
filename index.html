@@ -18,9 +18,14 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Manrope:wght@400;500;600;700&display=swap" as="style">
-<link rel="stylesheet" href="assets/anima.css?v=51">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ANIMA | Clube Família de Artes Marciais e Bem-Estar">
+<meta name="twitter:description" content="Artes marciais, calistenia, EMS e saúde integrativa em São Paulo. Agende sua aula experimental gratuita.">
+<meta name="twitter:image" content="https://animafight.vercel.app/assets/brand-boxe-hero-4k.jpg?v=20260323b">
+<link rel="stylesheet" href="assets/anima.css?v=52">
 <link rel="stylesheet" href="assets/anima-premium.css?v=31">
 <link rel="stylesheet" href="assets/anima-elite.css?v=1">
+<link rel="stylesheet" href="assets/anima-performance.css?v=2">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -63,6 +68,7 @@
     </a>
     <div class="nav-links">
       <a class="a-link" href="#sobre">Sobre</a>
+      <a class="a-link" href="#beneficios">Benefícios</a>
       <a class="a-link" href="#modalidades">Modalidades</a>
       <a class="a-link" href="#sistema-inovador">Sistema Inovador</a>
       <a class="a-link" href="#espaco-infantil">Infantil</a>
@@ -81,6 +87,7 @@
 
   <div id="mobileMenu" class="mobile-menu" data-open="0" aria-hidden="true">
     <a href="#sobre">Sobre</a>
+    <a href="#beneficios">Benefícios</a>
     <a href="#modalidades">Modalidades</a>
     <a href="#sistema-inovador">Sistema Inovador</a>
     <a href="#espaco-infantil">Infantil</a>
@@ -94,7 +101,7 @@
   </div>
 
   <!-- HERO -->
-  <header id="top" class="hero">
+  <header id="top" class="hero hero--performance">
     <div class="hero-video-wrap" aria-hidden="true">
       <div class="hero-video-inner" id="heroParallax">
         <video
@@ -122,21 +129,25 @@
     <img class="hero-watermark site-logo site-logo--mark" src="assets/logo-anima-vertical.png?v=5" alt="" aria-hidden="true">
 
     <div class="hero-stage">
-      <div class="hero-logo-enter">
-        <img class="hero-logo-enter__img site-logo site-logo--hero" src="assets/logo-anima-vertical.png?v=5" alt="ANIMA Fight Wellness Club" width="683" height="1024">
-      </div>
-
       <div class="hero-content">
-      <div class="hero-eyebrow" data-reveal>
-        <span class="hero-eyebrow-line"></span>
-        <span class="hero-eyebrow-text">Clube familiar de artes marciais · São Paulo</span>
-      </div>
-      <h1 class="h1" data-reveal>ANIMA |<br><em>Family Martial Arts Club</em></h1>
-      <p class="hero-lead" data-reveal>Um clube familiar dedicado ao desenvolvimento físico, mental e emocional, por meio das artes marciais, da atividade física e das práticas de saúde integrativa.</p>
-      <div class="hero-actions" data-reveal>
-        <a class="btn btn-primary btn-lg" href="https://wa.me/5511943870655?text=Ol%C3%A1!%20Quero%20agendar%20uma%20aula%20experimental%20na%20ANIMA." target="_blank" rel="noopener">Agendar aula experimental →</a>
-        <a class="btn btn-ghost" href="#planos">Ver planos</a>
-      </div>
+        <p class="hero-kicker">ANIMA Fight Wellness Club · São Paulo</p>
+        <h1 class="hero-title">
+          <span class="hero-title__line">Transforme seu corpo.</span>
+          <span class="hero-title__line hero-title__line--accent">Supere seus limites.</span>
+        </h1>
+        <p class="hero-lead">Um clube familiar dedicado ao desenvolvimento físico, mental e emocional, por meio das artes marciais, da atividade física e das práticas de saúde integrativa.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary btn-lg" href="https://wa.me/5511943870655?text=Ol%C3%A1!%20Quero%20agendar%20uma%20aula%20experimental%20na%20ANIMA." target="_blank" rel="noopener">Agendar aula experimental →</a>
+          <a class="btn btn-ghost" href="#planos">Conheça os planos</a>
+        </div>
+        <div class="hero-proof" aria-label="Indicadores de confiança">
+          <div class="hero-proof__stars" aria-hidden="true">★★★★★</div>
+          <div class="hero-proof__stats">
+            <div><strong>+300</strong><span>alunos</span></div>
+            <div><strong>+5</strong><span>anos</span></div>
+            <div><strong>15+</strong><span>professores</span></div>
+          </div>
+        </div>
       </div>
     </div>
   </header>
@@ -200,29 +211,45 @@
     </div>
   </section>
 
-  <!-- DIFERENCIAIS -->
-  <section class="section section-dark section-deep">
+  <!-- BENEFÍCIOS -->
+  <section id="beneficios" class="section section-dark benefits-section">
     <div class="container">
-      <div class="section-header" data-reveal>
-        <h2 class="h2">O padrão ANIMA em cada detalhe.</h2>
+      <div class="section-header section-header--center" data-reveal>
+        <span class="section-label section-label--gold">Por que a ANIMA</span>
+        <h2 class="h2">Performance, tecnologia e resultado real.</h2>
+        <p class="section-desc">Tudo o que você espera de uma academia premium — com a energia de um clube de artes marciais de verdade.</p>
       </div>
-      <div class="diff-grid" data-stagger>
-        <div class="diff-cell" data-reveal>
-          <h3 class="diff-cell-title">Equipamentos de elite</h3>
-          <p class="diff-cell-desc">Linha premium Technogym, Rogue e curadoria internacional para máxima performance e segurança.</p>
-        </div>
-        <div class="diff-cell" data-reveal>
-          <h3 class="diff-cell-title">Professores certificados</h3>
-          <p class="diff-cell-desc">Equipe com formação internacional em calistenia, lutas e condicionamento esportivo.</p>
-        </div>
-        <div class="diff-cell" data-reveal>
-          <h3 class="diff-cell-title">Ambiente exclusivo</h3>
-          <p class="diff-cell-desc">Espaços climatizados, silenciosos e com fluxo controlado. Treino premium de verdade.</p>
-        </div>
-        <div class="diff-cell" data-reveal>
-          <h3 class="diff-cell-title">Recuperação integrada</h3>
-          <p class="diff-cell-desc">Sauna, banheira de gelo e sala de recuperação para performance sustentável.</p>
-        </div>
+      <div class="benefits-grid" data-stagger>
+        <article class="benefit-card" data-reveal>
+          <div class="benefit-card__icon" aria-hidden="true">⚡</div>
+          <h3 class="benefit-card__title">Equipamentos modernos</h3>
+          <p class="benefit-card__text">Linha Technogym, Rogue e estrutura de calistenia para treinos seguros e de alto rendimento.</p>
+        </article>
+        <article class="benefit-card" data-reveal>
+          <div class="benefit-card__icon" aria-hidden="true">◆</div>
+          <h3 class="benefit-card__title">Profissionais qualificados</h3>
+          <p class="benefit-card__text">Professores certificados em lutas, calistenia e condicionamento — do infantil ao avançado.</p>
+        </article>
+        <article class="benefit-card" data-reveal>
+          <div class="benefit-card__icon" aria-hidden="true">◎</div>
+          <h3 class="benefit-card__title">Treinos personalizados</h3>
+          <p class="benefit-card__text">Avaliação física, protocolos sob medida e acompanhamento para evoluir com consistência.</p>
+        </article>
+        <article class="benefit-card" data-reveal>
+          <div class="benefit-card__icon" aria-hidden="true">❄</div>
+          <h3 class="benefit-card__title">Ambiente climatizado</h3>
+          <p class="benefit-card__text">Espaços premium, silenciosos e organizados para foco total em cada sessão de treino.</p>
+        </article>
+        <article class="benefit-card" data-reveal>
+          <div class="benefit-card__icon" aria-hidden="true">✦</div>
+          <h3 class="benefit-card__title">Acompanhamento integral</h3>
+          <p class="benefit-card__text">EMS, sauna, gelo, terapias e saúde mental no mesmo ecossistema de performance.</p>
+        </article>
+        <article class="benefit-card" data-reveal>
+          <div class="benefit-card__icon" aria-hidden="true">▲</div>
+          <h3 class="benefit-card__title">Resultados reais</h3>
+          <p class="benefit-card__text">Disciplina, evolução mensurável e comunidade que impulsiona sua melhor versão.</p>
+        </article>
       </div>
     </div>
   </section>
@@ -416,26 +443,26 @@
       <div class="section-header section-header--center" data-reveal>
         <h2 class="h2">Um espaço à altura da sua ambição.</h2>
       </div>
-      <div class="gallery-grid" data-reveal>
-        <figure class="gallery-item">
+      <div class="gallery-grid" data-reveal data-gallery>
+        <button type="button" class="gallery-item" data-gallery-src="assets/brand-gi-fighter.png" data-gallery-caption="Tatame">
           <img src="assets/brand-gi-fighter.png" alt="Atleta de Jiu-Jítsu com kimono ANIMA no tatame" loading="lazy" width="800" height="600">
-          <figcaption class="gallery-item-caption">Tatame</figcaption>
-        </figure>
-        <figure class="gallery-item">
+          <span class="gallery-item-caption">Tatame</span>
+        </button>
+        <button type="button" class="gallery-item" data-gallery-src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=1200&q=80" data-gallery-caption="Equipamentos">
           <img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=800&q=75" alt="Equipamentos de alto padrão" loading="lazy" width="800" height="600">
-          <figcaption class="gallery-item-caption">Equipamentos</figcaption>
-        </figure>
-        <figure class="gallery-item">
+          <span class="gallery-item-caption">Equipamentos</span>
+        </button>
+        <button type="button" class="gallery-item" data-gallery-src="https://images.unsplash.com/photo-1717356495389-6ab1e5ff9d84?w=1200&q=80" data-gallery-caption="Recuperação">
           <img src="https://images.unsplash.com/photo-1717356495389-6ab1e5ff9d84?w=800&q=75" alt="Sauna e recuperação" loading="lazy" width="800" height="600">
-          <figcaption class="gallery-item-caption">Recuperação</figcaption>
-        </figure>
-        <figure class="gallery-item gallery-item--recepcao">
+          <span class="gallery-item-caption">Recuperação</span>
+        </button>
+        <button type="button" class="gallery-item gallery-item--recepcao" data-gallery-src="assets/recepcao-4k.jpg?v=1" data-gallery-caption="Recepção">
           <picture>
             <source media="(min-width: 768px)" srcset="assets/recepcao-4k.jpg?v=1">
             <img class="gallery-recepcao-img" src="assets/recepcao.png?v=1" alt="Recepção premium da ANIMA com escada em caracol, piso de madeira e área de treino" width="1024" height="522" loading="lazy" decoding="async">
           </picture>
-          <figcaption class="gallery-item-caption">Recepção</figcaption>
-        </figure>
+          <span class="gallery-item-caption">Recepção</span>
+        </button>
       </div>
     </div>
   </section>
@@ -614,7 +641,7 @@
               <img src="assets/partners/ficcionarios.png?v=5" alt="Ficcionários" loading="lazy" width="360" height="160">
             </div>
             <div class="partner-carousel-card" title="Metal Invest Pay">
-              <img src="assets/partners/metal-invest-pay.png?v=7" alt="Metal Invest Pay" loading="lazy" width="360" height="160">
+              <img src="assets/partners/metal-invest-pay.png?v=6" alt="Metal Invest Pay" loading="lazy" width="360" height="160">
             </div>
             <div class="partner-carousel-card" title="Sinatra">
               <img src="assets/partners/sinatra.png?v=5" alt="Sinatra" loading="lazy" width="360" height="160">
@@ -647,6 +674,67 @@
           <p class="partners-become__desc">Marcas e empresas alinhadas ao bem-estar, performance e estilo de vida ativo.</p>
         </div>
         <a class="btn btn-primary" href="https://wa.me/5511943870655?text=Ol%C3%A1!%20Tenho%20interesse%20em%20ser%20parceiro%20da%20ANIMA." target="_blank" rel="noopener">Falar sobre parceria →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEPOIMENTOS -->
+  <section id="depoimentos" class="section section-dark testimonials-section">
+    <div class="container">
+      <div class="section-header section-header--center" data-reveal>
+        <span class="section-label section-label--gold">Comunidade ANIMA</span>
+        <h2 class="h2">Quem treina, recomenda.</h2>
+        <p class="section-desc">Histórias reais de evolução, disciplina e transformação dentro do clube.</p>
+      </div>
+      <div class="testimonials-track" id="testimonialsTrack" data-reveal>
+        <article class="testimonial-card">
+          <div class="testimonial-card__stars" aria-hidden="true">★★★★★</div>
+          <p class="testimonial-card__quote">“Ambiente impecável, professores atentos e estrutura que realmente passa confiança. Meu filho evoluiu muito no judô.”</p>
+          <div class="testimonial-card__author">
+            <div class="testimonial-card__avatar" aria-hidden="true">RC</div>
+            <div>
+              <p class="testimonial-card__name">Renata Costa</p>
+              <p class="testimonial-card__role">Mãe de aluno · Judô Kids</p>
+            </div>
+          </div>
+        </article>
+        <article class="testimonial-card">
+          <div class="testimonial-card__stars" aria-hidden="true">★★★★★</div>
+          <p class="testimonial-card__quote">“Treino boxe e calistenia na mesma semana. É raro encontrar um clube com esse nível de organização e resultado.”</p>
+          <div class="testimonial-card__author">
+            <div class="testimonial-card__avatar" aria-hidden="true">MF</div>
+            <div>
+              <p class="testimonial-card__name">Marcos Ferreira</p>
+              <p class="testimonial-card__role">Aluno · Boxe &amp; Calistenia</p>
+            </div>
+          </div>
+        </article>
+        <article class="testimonial-card">
+          <div class="testimonial-card__stars" aria-hidden="true">★★★★★</div>
+          <p class="testimonial-card__quote">“O EMS mudou minha recuperação pós-treino. Sensação de academia premium de verdade, sem enrolação.”</p>
+          <div class="testimonial-card__author">
+            <div class="testimonial-card__avatar" aria-hidden="true">AL</div>
+            <div>
+              <p class="testimonial-card__name">Ana Lima</p>
+              <p class="testimonial-card__role">Aluna · EMS &amp; Recovery</p>
+            </div>
+          </div>
+        </article>
+        <article class="testimonial-card">
+          <div class="testimonial-card__stars" aria-hidden="true">★★★★★</div>
+          <p class="testimonial-card__quote">“Família inteira treina aqui. Planos claros, atendimento excelente e clima motivador todos os dias.”</p>
+          <div class="testimonial-card__author">
+            <div class="testimonial-card__avatar" aria-hidden="true">JP</div>
+            <div>
+              <p class="testimonial-card__name">João Pereira</p>
+              <p class="testimonial-card__role">Plano Elite · Família</p>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="testimonials-nav" aria-label="Navegar depoimentos">
+        <button type="button" id="testimonialsPrev" aria-label="Depoimento anterior">‹</button>
+        <button type="button" id="testimonialsNext" aria-label="Próximo depoimento">›</button>
       </div>
     </div>
   </section>
@@ -686,8 +774,8 @@
   <section class="cta-section">
     <img class="cta-watermark site-logo site-logo--mark" src="assets/logo-anima-vertical.png?v=5" alt="" aria-hidden="true">
     <div class="container cta-inner" data-reveal>
-      <h2 class="h2">Sua evolução começa com uma decisão.</h2>
-      <p class="section-desc">Agende sua aula experimental gratuita. Sem contrato e sem pressão: só você, o tatame e o seu potencial.</p>
+      <h2 class="h2">Pronto para evoluir?</h2>
+      <p class="section-desc">Agende sua aula experimental gratuita. Sem contrato, sem pressão — só você, o tatame e o seu potencial.</p>
       <div class="cta-actions">
         <a class="btn btn-primary btn-lg" href="https://wa.me/5511943870655?text=Ol%C3%A1!%20Quero%20agendar%20minha%20aula%20experimental%20GR%C3%81TIS." target="_blank" rel="noopener">Agendar aula experimental →</a>
         <a class="btn btn-ghost" href="https://wa.me/5511943870655" target="_blank" rel="noopener">WhatsApp (11) 94387-0655</a>
@@ -697,21 +785,28 @@
 
   <!-- FOOTER -->
   <footer id="contato" class="footer">
-    <div class="footer-grid">
+    <div class="footer-top">
       <div class="footer-brand">
         <img class="site-logo site-logo--footer" src="assets/logo-anima-vertical.png?v=5" alt="ANIMA Fight Wellness Club" width="683" height="1024">
         <p>Corpo, mente e performance em um só lugar. A academia premium que São Paulo esperava.</p>
+        <div class="footer-social" aria-label="Redes sociais">
+          <a href="#" aria-label="Instagram">IG</a>
+          <a href="#" aria-label="Facebook">FB</a>
+          <a href="#" aria-label="YouTube">YT</a>
+        </div>
+        <p class="footer-hours"><strong>Horário:</strong> Seg a Dom · 7h às 23h</p>
       </div>
       <div>
         <h4 class="footer-heading">NAVEGAÇÃO</h4>
         <ul class="footer-links">
           <li><a class="a-link" href="#sobre">Sobre</a></li>
+          <li><a class="a-link" href="#beneficios">Benefícios</a></li>
           <li><a class="a-link" href="#modalidades">Modalidades</a></li>
           <li><a class="a-link" href="#sistema-inovador">Sistema Inovador</a></li>
           <li><a class="a-link" href="#espaco-infantil">Espaço Infantil</a></li>
           <li><a class="a-link" href="#planos">Planos</a></li>
           <li><a class="a-link" href="#bolsas">Bolsas</a></li>
-          <li><a class="a-link" href="#parceiros">Parceiros</a></li>
+          <li><a class="a-link" href="#depoimentos">Depoimentos</a></li>
           <li><a class="a-link" href="#faq">FAQ</a></li>
         </ul>
       </div>
@@ -719,17 +814,14 @@
         <h4 class="footer-heading">CONTATO</h4>
         <ul class="footer-links">
           <li><a class="a-link" href="https://wa.me/5511943870655" target="_blank" rel="noopener">WhatsApp · (11) 94387-0655</a></li>
+          <li><a class="a-link" href="tel:+5511943870655">Telefone · (11) 94387-0655</a></li>
           <li><a class="a-link" href="https://www.google.com/maps/search/?api=1&amp;query=Rua+Enxovia,+394,+São+Paulo,+SP" target="_blank" rel="noopener">Rua Enxovia, 394 · São Paulo</a></li>
-          <li>Seg a Dom · 7h às 23h</li>
         </ul>
       </div>
       <div>
-        <h4 class="footer-heading">REDES</h4>
-        <ul class="footer-links">
-          <li><a class="a-link" href="#">Instagram</a></li>
-          <li><a class="a-link" href="#">Facebook</a></li>
-          <li><a class="a-link" href="#">YouTube</a></li>
-        </ul>
+        <h4 class="footer-heading">AGENDE AGORA</h4>
+        <p class="footer-hours">Aula experimental gratuita para novos alunos. Vagas limitadas.</p>
+        <a class="btn btn-primary" style="margin-top:1rem;" href="https://wa.me/5511943870655?text=Ol%C3%A1!%20Quero%20agendar%20uma%20aula%20experimental%20na%20ANIMA." target="_blank" rel="noopener">Agendar aula →</a>
       </div>
     </div>
     <div class="footer-map">
@@ -774,11 +866,17 @@
   </div>
 </div>
 
+<div id="galleryLightbox" class="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Visualização da galeria">
+  <button type="button" class="lightbox__close" id="lightboxClose" aria-label="Fechar">&times;</button>
+  <img class="lightbox__img" id="lightboxImg" src="" alt="">
+  <p class="lightbox__caption" id="lightboxCaption"></p>
+</div>
+
 <a class="wa-float" href="https://wa.me/5511943870655?text=Ol%C3%A1!%20Quero%20agendar%20uma%20aula%20experimental%20na%20ANIMA." target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
   <span class="wa-float__icon" aria-hidden="true">💬</span>
   <span class="wa-float__label">Agendar aula experimental</span>
 </a>
 
-<script src="assets/anima.js?v=33" defer></script>
+<script src="assets/anima.js?v=34" defer></script>
 </body>
 </html>

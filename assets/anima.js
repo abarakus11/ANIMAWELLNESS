@@ -769,6 +769,70 @@
   }
 
   /* =========================================================================
+     Gallery Lightbox
+     ========================================================================= */
+  function initGalleryLightbox() {
+    var lightbox = document.getElementById('galleryLightbox');
+    var img = document.getElementById('lightboxImg');
+    var caption = document.getElementById('lightboxCaption');
+    var closeBtn = document.getElementById('lightboxClose');
+    if (!lightbox || !img) return;
+
+    function open(src, cap, alt) {
+      img.src = src;
+      img.alt = alt || cap || '';
+      if (caption) caption.textContent = cap || '';
+      lightbox.classList.add('is-open');
+      lightbox.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function close() {
+      lightbox.classList.remove('is-open');
+      lightbox.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      img.src = '';
+    }
+
+    document.querySelectorAll('[data-gallery-src]').forEach(function (item) {
+      item.addEventListener('click', function () {
+        var src = item.getAttribute('data-gallery-src');
+        var cap = item.getAttribute('data-gallery-caption') || '';
+        var altEl = item.querySelector('img');
+        open(src, cap, altEl ? altEl.getAttribute('alt') : '');
+      });
+    });
+
+    if (closeBtn) closeBtn.addEventListener('click', close);
+    lightbox.addEventListener('click', function (e) {
+      if (e.target === lightbox) close();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && lightbox.classList.contains('is-open')) close();
+    });
+  }
+
+  /* =========================================================================
+     Testimonials carousel nav
+     ========================================================================= */
+  function initTestimonials() {
+    var track = document.getElementById('testimonialsTrack');
+    var prev = document.getElementById('testimonialsPrev');
+    var next = document.getElementById('testimonialsNext');
+    if (!track || !prev || !next) return;
+
+    function scrollByCard(dir) {
+      var card = track.querySelector('.testimonial-card');
+      var gap = 20;
+      var amount = card ? card.offsetWidth + gap : 320;
+      track.scrollBy({ left: dir * amount, behavior: 'smooth' });
+    }
+
+    prev.addEventListener('click', function () { scrollByCard(-1); });
+    next.addEventListener('click', function () { scrollByCard(1); });
+  }
+
+  /* =========================================================================
      Init
      ========================================================================= */
   function initHeroLoaded() {
@@ -813,6 +877,8 @@
     initPlanBilling();
     initFaqAccordion();
     initSmoothScroll();
+    initGalleryLightbox();
+    initTestimonials();
   }
 
   if (document.readyState === 'loading') {
