@@ -47,14 +47,22 @@
      Nav Active Section
      ========================================================================= */
   function initNavActive() {
-    var links = document.querySelectorAll('.nav-links a[href^="#"]');
+    var links = document.querySelectorAll(
+      '.nav-links a[href^="#"], .mobile-menu__links a[href^="#"]'
+    );
     if (!links.length || !('IntersectionObserver' in window)) return;
 
     var sections = [];
+    var seen = {};
+
     links.forEach(function (link) {
       var id = link.getAttribute('href');
+      if (seen[id]) return;
       var section = document.querySelector(id);
-      if (section) sections.push({ link: link, section: section });
+      if (section) {
+        seen[id] = true;
+        sections.push({ id: id, section: section });
+      }
     });
 
     var io = new IntersectionObserver(
@@ -64,8 +72,10 @@
             links.forEach(function (l) {
               l.classList.remove('is-active');
             });
-            sections.forEach(function (s) {
-              if (s.section === entry.target) s.link.classList.add('is-active');
+            links.forEach(function (l) {
+              if (l.getAttribute('href') === '#' + entry.target.id) {
+                l.classList.add('is-active');
+              }
             });
           }
         });
@@ -79,10 +89,42 @@
   }
 
   /* =========================================================================
-     Hero Parallax — static scale only (taste-skill: no scroll listeners)
+     Hero Parallax — leve deslocamento no scroll (performance-safe)
      ========================================================================= */
   function initParallax() {
-    /* Parallax via scroll is intentionally disabled. Hero uses CSS scale only. */
+    var inner = document.getElementById('heroParallax');
+    var hero = document.querySelector('.hero--performance');
+    if (!inner || !hero) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    var ticking = false;
+
+    function update() {
+      var rect = hero.getBoundingClientRect();
+      if (rect.bottom <= 0 || rect.top >= window.innerHeight) {
+        ticking = false;
+        return;
+      }
+
+      var progress = Math.min(Math.max(-rect.top / Math.max(rect.height, 1), 0), 1);
+      var y = progress * 48;
+      var scale = 1.1 + progress * 0.05;
+      inner.style.transform = 'translate3d(0, ' + y + 'px, 0) scale(' + scale + ')';
+      ticking = false;
+    }
+
+    window.addEventListener(
+      'scroll',
+      function () {
+        if (!ticking) {
+          ticking = true;
+          requestAnimationFrame(update);
+        }
+      },
+      { passive: true }
+    );
+
+    update();
   }
 
   /* =========================================================================
@@ -242,19 +284,41 @@
   function initMobileMenu() {
     var menu = document.getElementById('mobileMenu');
     var toggle = document.getElementById('menuToggle');
+    var closeBtn = document.getElementById('menuClose');
+    var backdrop = document.getElementById('mobileMenuBackdrop');
     if (!menu || !toggle) return;
 
     function setMenu(open) {
       menu.classList.toggle('is-open', open);
       menu.dataset.open = open ? '1' : '0';
+      menu.setAttribute('aria-hidden', open ? 'false' : 'true');
       toggle.classList.toggle('is-active', open);
       toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      toggle.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
       document.body.style.overflow = open ? 'hidden' : '';
+
+      if (open && closeBtn) {
+        closeBtn.focus();
+      } else if (!open) {
+        toggle.focus();
+      }
     }
 
     toggle.addEventListener('click', function () {
       setMenu(menu.dataset.open !== '1');
     });
+
+    if (closeBtn) {
+      closeBtn.addEventListener('click', function () {
+        setMenu(false);
+      });
+    }
+
+    if (backdrop) {
+      backdrop.addEventListener('click', function () {
+        setMenu(false);
+      });
+    }
 
     menu.querySelectorAll('a').forEach(function (link) {
       link.addEventListener('click', function () {
@@ -275,7 +339,7 @@
       var children = parent.querySelectorAll(':scope > [data-reveal]');
       children.forEach(function (child, index) {
         if (!child.hasAttribute('data-delay')) {
-          child.setAttribute('data-delay', String(Math.min(index + 1, 8)));
+          child.setAttribute('data-delay', String(Math.min(index + 1, 10)));
         }
       });
       parent.classList.add('is-stagger-ready');
@@ -663,12 +727,25 @@
     var amountEl = card.querySelector('[data-plan-amount]');
     var periodEl = card.querySelector('[data-plan-period]');
     var detailEl = card.querySelector('[data-plan-billing-detail]');
+    var oldPriceEl = card.querySelector('[data-plan-price-old]');
     var ctaEl = card.querySelector('[data-plan-cta]');
     var monthlyEquivalent = monthly * (1 - option.discount);
     var total = monthly * option.months * (1 - option.discount);
 
     if (amountEl) {
       amountEl.textContent = formatPlanMoney(monthlyEquivalent);
+    }
+
+    if (oldPriceEl) {
+      if (option.discount > 0) {
+        oldPriceEl.hidden = false;
+        oldPriceEl.setAttribute('aria-hidden', 'false');
+        oldPriceEl.textContent = 'R$ ' + formatPlanMoney(monthly) + '/mês';
+      } else {
+        oldPriceEl.hidden = true;
+        oldPriceEl.setAttribute('aria-hidden', 'true');
+        oldPriceEl.textContent = '';
+      }
     }
 
     if (periodEl) {
@@ -775,16 +852,34 @@
     var lightbox = document.getElementById('galleryLightbox');
     var img = document.getElementById('lightboxImg');
     var caption = document.getElementById('lightboxCaption');
+    var counter = document.getElementById('lightboxCounter');
     var closeBtn = document.getElementById('lightboxClose');
+    var prevBtn = document.getElementById('lightboxPrev');
+    var nextBtn = document.getElementById('lightboxNext');
     if (!lightbox || !img) return;
 
-    function open(src, cap, alt) {
+    var items = Array.prototype.slice.call(document.querySelectorAll('[data-gallery-src]'));
+    var currentIndex = 0;
+
+    function show(index) {
+      if (!items.length) return;
+      currentIndex = (index + items.length) % items.length;
+      var item = items[currentIndex];
+      var src = item.getAttribute('data-gallery-src');
+      var cap = item.getAttribute('data-gallery-caption') || '';
+      var altEl = item.querySelector('img');
       img.src = src;
-      img.alt = alt || cap || '';
-      if (caption) caption.textContent = cap || '';
+      img.alt = altEl ? altEl.getAttribute('alt') || cap : cap;
+      if (caption) caption.textContent = cap;
+      if (counter) counter.textContent = currentIndex + 1 + ' / ' + items.length;
+    }
+
+    function openAt(index) {
+      show(index);
       lightbox.classList.add('is-open');
       lightbox.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
+      if (closeBtn) closeBtn.focus();
     }
 
     function close() {
@@ -792,23 +887,32 @@
       lightbox.setAttribute('aria-hidden', 'true');
       document.body.style.overflow = '';
       img.src = '';
+      img.alt = '';
     }
 
-    document.querySelectorAll('[data-gallery-src]').forEach(function (item) {
+    function step(dir) {
+      show(currentIndex + dir);
+    }
+
+    items.forEach(function (item, index) {
       item.addEventListener('click', function () {
-        var src = item.getAttribute('data-gallery-src');
-        var cap = item.getAttribute('data-gallery-caption') || '';
-        var altEl = item.querySelector('img');
-        open(src, cap, altEl ? altEl.getAttribute('alt') : '');
+        openAt(index);
       });
     });
 
     if (closeBtn) closeBtn.addEventListener('click', close);
+    if (prevBtn) prevBtn.addEventListener('click', function () { step(-1); });
+    if (nextBtn) nextBtn.addEventListener('click', function () { step(1); });
+
     lightbox.addEventListener('click', function (e) {
       if (e.target === lightbox) close();
     });
+
     document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && lightbox.classList.contains('is-open')) close();
+      if (!lightbox.classList.contains('is-open')) return;
+      if (e.key === 'Escape') close();
+      if (e.key === 'ArrowLeft') step(-1);
+      if (e.key === 'ArrowRight') step(1);
     });
   }
 

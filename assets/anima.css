@@ -2816,6 +2816,8 @@ figure {
 [data-reveal][data-delay='6'] { transition-delay: 0.48s; }
 [data-reveal][data-delay='7'] { transition-delay: 0.56s; }
 [data-reveal][data-delay='8'] { transition-delay: 0.64s; }
+[data-reveal][data-delay='9'] { transition-delay: 0.72s; }
+[data-reveal][data-delay='10'] { transition-delay: 0.8s; }
 
 /* Hero: never hide first fold behind reveal */
 .hero [data-reveal],
