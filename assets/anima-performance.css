@@ -1510,11 +1510,6 @@
   will-change: transform;
 }
 
-.gallery-carousel:hover .gallery-carousel__track,
-.gallery-carousel:focus-within .gallery-carousel__track {
-  animation-play-state: paused;
-}
-
 .gallery-carousel__group {
   display: flex;
   align-items: stretch;
