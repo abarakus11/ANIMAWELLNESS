@@ -26,6 +26,7 @@
 <link rel="stylesheet" href="assets/anima-premium.css?v=32">
 <link rel="stylesheet" href="assets/anima-elite.css?v=2">
 <link rel="stylesheet" href="assets/anima-performance.css?v=16">
+<link rel="stylesheet" href="assets/anima-plans-premium.css?v=1">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -557,11 +558,12 @@
           <a class="btn btn-secondary plan-card-cta" data-plan-cta href="https://wa.me/5511943870655?text=Quero%20reservar%20uma%20aula%20avulsa%20(plano%20Di%C3%A1rio)" target="_blank" rel="noopener noreferrer">Reservar Aula Avulsa</a>
         </article>
 
-        <article class="plan-card" data-reveal="scale" data-plan-id="pro" data-plan-label="Pro" data-monthly="300" aria-labelledby="plan-pro-title">
+        <article class="plan-card plan-card--pro" data-reveal="scale" data-plan-id="pro" data-plan-label="Pro" data-monthly="300" aria-labelledby="plan-pro-title">
           <header class="plan-card__head">
             <span class="plan-card-tier" id="plan-pro-title">PRO</span>
             <p class="plan-card-tagline">Ideal para começar com flexibilidade.</p>
             <div class="plan-billing" role="tablist" aria-label="Periodicidade do plano Pro">
+              <span class="plan-billing__slider" aria-hidden="true"></span>
               <button type="button" class="plan-billing-btn is-active" role="tab" aria-selected="true" data-billing="mensal">Mensal</button>
               <button type="button" class="plan-billing-btn" role="tab" aria-selected="false" data-billing="trimestral">Trimestral</button>
               <button type="button" class="plan-billing-btn" role="tab" aria-selected="false" data-billing="anual">Anual</button>
@@ -569,9 +571,12 @@
           </header>
           <div class="plan-card__price-wrap">
             <p class="plan-card-price-old" data-plan-price-old hidden aria-hidden="true"></p>
+            <span class="plan-savings-badge" data-plan-savings hidden aria-hidden="true"></span>
             <div class="plan-card-price" aria-live="polite">
               <span class="plan-card-currency">R$</span>
-              <span class="plan-card-amount" data-plan-amount>300</span>
+              <span class="plan-card-amount-wrap" data-plan-amount-wrap>
+                <span class="plan-card-amount" data-plan-amount>300</span>
+              </span>
               <span class="plan-card-period" data-plan-period>/mês</span>
             </div>
             <p class="plan-card-billing-detail" data-plan-billing-detail hidden></p>
@@ -597,6 +602,7 @@
             <span class="plan-card-tier" id="plan-master-title">MASTER</span>
             <p class="plan-card-tagline">O plano mais escolhido para evoluir de verdade.</p>
             <div class="plan-billing" role="tablist" aria-label="Periodicidade do plano Master">
+              <span class="plan-billing__slider" aria-hidden="true"></span>
               <button type="button" class="plan-billing-btn is-active" role="tab" aria-selected="true" data-billing="mensal">Mensal</button>
               <button type="button" class="plan-billing-btn" role="tab" aria-selected="false" data-billing="trimestral">Trimestral</button>
               <button type="button" class="plan-billing-btn" role="tab" aria-selected="false" data-billing="anual">Anual</button>
@@ -604,9 +610,12 @@
           </header>
           <div class="plan-card__price-wrap">
             <p class="plan-card-price-old" data-plan-price-old hidden aria-hidden="true"></p>
+            <span class="plan-savings-badge" data-plan-savings hidden aria-hidden="true"></span>
             <div class="plan-card-price" aria-live="polite">
               <span class="plan-card-currency">R$</span>
-              <span class="plan-card-amount" data-plan-amount>650</span>
+              <span class="plan-card-amount-wrap" data-plan-amount-wrap>
+                <span class="plan-card-amount" data-plan-amount>650</span>
+              </span>
               <span class="plan-card-period" data-plan-period>/mês</span>
             </div>
             <p class="plan-card-billing-detail" data-plan-billing-detail hidden></p>
@@ -626,11 +635,13 @@
           <a class="btn btn-primary plan-card-cta plan-card-cta--featured" data-plan-cta href="https://wa.me/5511943870655?text=Quero%20o%20plano%20Master%20(mensalidade%20mensal)" target="_blank" rel="noopener noreferrer">Começar Agora</a>
         </article>
 
-        <article class="plan-card" data-reveal="scale" data-plan-id="elite" data-plan-label="Elite" data-monthly="1500" aria-labelledby="plan-elite-title">
+        <article class="plan-card plan-card--elite" data-reveal="scale" data-plan-id="elite" data-plan-label="Elite" data-monthly="1500" aria-labelledby="plan-elite-title">
+          <span class="plan-card-badge plan-card-badge--elite">👑 Plano Exclusivo</span>
           <header class="plan-card__head">
             <span class="plan-card-tier" id="plan-elite-title">ELITE</span>
             <p class="plan-card-tagline">Plano família completo — marido, mulher e 1 filho.</p>
             <div class="plan-billing" role="tablist" aria-label="Periodicidade do plano Elite">
+              <span class="plan-billing__slider" aria-hidden="true"></span>
               <button type="button" class="plan-billing-btn is-active" role="tab" aria-selected="true" data-billing="mensal">Mensal</button>
               <button type="button" class="plan-billing-btn" role="tab" aria-selected="false" data-billing="trimestral">Trimestral</button>
               <button type="button" class="plan-billing-btn" role="tab" aria-selected="false" data-billing="anual">Anual</button>
@@ -638,9 +649,12 @@
           </header>
           <div class="plan-card__price-wrap">
             <p class="plan-card-price-old" data-plan-price-old hidden aria-hidden="true"></p>
+            <span class="plan-savings-badge" data-plan-savings hidden aria-hidden="true"></span>
             <div class="plan-card-price" aria-live="polite">
               <span class="plan-card-currency">R$</span>
-              <span class="plan-card-amount" data-plan-amount>1.500</span>
+              <span class="plan-card-amount-wrap" data-plan-amount-wrap>
+                <span class="plan-card-amount" data-plan-amount>1.500</span>
+              </span>
               <span class="plan-card-period" data-plan-period>/mês</span>
             </div>
             <p class="plan-card-billing-detail" data-plan-billing-detail hidden></p>

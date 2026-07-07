@@ -708,16 +708,60 @@
   }
 
   /* =========================================================================
-     Plan Billing Toggle
+     Plan Billing Toggle — constantes de desconto (fácil de alterar)
      ========================================================================= */
+  var PLAN_BILLING_DISCOUNTS = {
+    trimestral: 0.1,
+    anual: 0.2
+  };
+
   var PLAN_BILLING_OPTIONS = {
     mensal: { months: 1, discount: 0, label: 'mensal' },
-    trimestral: { months: 3, discount: 0.1, label: 'trimestral' },
-    anual: { months: 12, discount: 0.15, label: 'anual' }
+    trimestral: { months: 3, discount: PLAN_BILLING_DISCOUNTS.trimestral, label: 'trimestral' },
+    anual: { months: 12, discount: PLAN_BILLING_DISCOUNTS.anual, label: 'anual' }
   };
+
+  var PLAN_PRICE_ANIM_MS = 300;
+  var planBillingResizeTimer = 0;
 
   function formatPlanMoney(value) {
     return Math.round(value).toLocaleString('pt-BR');
+  }
+
+  function positionBillingSlider(billing) {
+    var slider = billing.querySelector('.plan-billing__slider');
+    var active = billing.querySelector('.plan-billing-btn.is-active');
+    if (!slider || !active) return;
+
+    var left = active.offsetLeft;
+    slider.style.width = active.offsetWidth + 'px';
+    slider.style.transform = 'translateX(' + left + 'px)';
+  }
+
+  function positionAllBillingSliders() {
+    document.querySelectorAll('.plans-section .plan-billing').forEach(positionBillingSlider);
+  }
+
+  function animatePlanPrice(amountWrap, amountEl, nextValue, reducedMotion) {
+    if (!amountEl) return;
+
+    if (reducedMotion || !amountWrap) {
+      amountEl.textContent = nextValue;
+      return;
+    }
+
+    amountWrap.classList.remove('is-entering');
+    amountWrap.classList.add('is-exiting');
+
+    window.setTimeout(function () {
+      amountEl.textContent = nextValue;
+      amountWrap.classList.remove('is-exiting');
+      amountWrap.classList.add('is-entering');
+
+      window.setTimeout(function () {
+        amountWrap.classList.remove('is-entering');
+      }, PLAN_PRICE_ANIM_MS);
+    }, Math.round(PLAN_PRICE_ANIM_MS * 0.5));
   }
 
   function updatePlanBilling(card, billingKey) {
@@ -725,16 +769,19 @@
     var planLabel = card.dataset.planLabel || 'Plano';
     var option = PLAN_BILLING_OPTIONS[billingKey] || PLAN_BILLING_OPTIONS.mensal;
     var amountEl = card.querySelector('[data-plan-amount]');
+    var amountWrap = card.querySelector('[data-plan-amount-wrap]');
     var periodEl = card.querySelector('[data-plan-period]');
     var detailEl = card.querySelector('[data-plan-billing-detail]');
     var oldPriceEl = card.querySelector('[data-plan-price-old]');
+    var savingsEl = card.querySelector('[data-plan-savings]');
     var ctaEl = card.querySelector('[data-plan-cta]');
+    var billingEl = card.querySelector('.plan-billing');
     var monthlyEquivalent = monthly * (1 - option.discount);
     var total = monthly * option.months * (1 - option.discount);
+    var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var nextAmount = formatPlanMoney(monthlyEquivalent);
 
-    if (amountEl) {
-      amountEl.textContent = formatPlanMoney(monthlyEquivalent);
-    }
+    animatePlanPrice(amountWrap, amountEl, nextAmount, reducedMotion);
 
     if (oldPriceEl) {
       if (option.discount > 0) {
@@ -745,6 +792,18 @@
         oldPriceEl.hidden = true;
         oldPriceEl.setAttribute('aria-hidden', 'true');
         oldPriceEl.textContent = '';
+      }
+    }
+
+    if (savingsEl) {
+      if (option.discount > 0) {
+        savingsEl.hidden = false;
+        savingsEl.setAttribute('aria-hidden', 'false');
+        savingsEl.textContent = 'Economize ' + Math.round(option.discount * 100) + '%';
+      } else {
+        savingsEl.hidden = true;
+        savingsEl.setAttribute('aria-hidden', 'true');
+        savingsEl.textContent = '';
       }
     }
 
@@ -763,10 +822,7 @@
           formatPlanMoney(total) +
           ' · ' +
           option.months +
-          (option.months === 1 ? ' mês' : ' meses') +
-          ' · economia de ' +
-          Math.round(option.discount * 100) +
-          '%';
+          (option.months === 1 ? ' mês' : ' meses');
       }
     }
 
@@ -787,6 +843,12 @@
       btn.classList.toggle('is-active', isActive);
       btn.setAttribute('aria-selected', isActive ? 'true' : 'false');
     });
+
+    if (billingEl) {
+      window.requestAnimationFrame(function () {
+        positionBillingSlider(billingEl);
+      });
+    }
   }
 
   function initPlanBilling() {
@@ -796,6 +858,10 @@
 
       card.querySelectorAll('.plan-billing-btn').forEach(function (btn) {
         btn.addEventListener('click', function () {
+          btn.classList.add('is-pressed');
+          window.setTimeout(function () {
+            btn.classList.remove('is-pressed');
+          }, 180);
           updatePlanBilling(card, btn.dataset.billing || 'mensal');
         });
       });
@@ -818,6 +884,13 @@
             'Quero reservar uma aula avulsa (plano ' + planLabel + ' · R$ ' + formatPlanMoney(daily) + '/dia)'
           );
       }
+    });
+
+    window.requestAnimationFrame(positionAllBillingSliders);
+
+    window.addEventListener('resize', function () {
+      window.clearTimeout(planBillingResizeTimer);
+      planBillingResizeTimer = window.setTimeout(positionAllBillingSliders, 120);
     });
   }
 
