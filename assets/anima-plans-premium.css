@@ -10,17 +10,26 @@
     0 28px 60px rgba(10, 26, 17, 0.14);
 }
 
+.plans-section__toggle {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  margin-top: 1.25rem;
+}
+
 .plans-section__daily-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  margin-top: 1.25rem;
+  margin-top: 0;
   padding: 0.65rem 1.35rem;
   font-size: 0.8125rem;
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  text-decoration: none;
+  font-family: inherit;
   color: var(--green-800);
   background: rgba(255, 255, 255, 0.85);
   border: 1px solid rgba(34, 120, 70, 0.22);
@@ -31,7 +40,15 @@
     transform var(--plan-transition),
     box-shadow var(--plan-transition),
     border-color var(--plan-transition),
-    background var(--plan-transition);
+    background var(--plan-transition),
+    color var(--plan-transition);
+}
+
+.plans-section.is-daily-visible .plans-section__daily-btn {
+  background: var(--green-800);
+  border-color: var(--green-800);
+  color: var(--white-pure);
+  box-shadow: 0 8px 24px rgba(10, 26, 17, 0.18);
 }
 
 .plans-section__daily-btn:hover {
@@ -41,9 +58,78 @@
   box-shadow: 0 8px 24px rgba(10, 26, 17, 0.1);
 }
 
-.plans-section__daily-btn:focus-visible {
+.plans-section.is-daily-visible .plans-section__daily-btn:hover {
+  background: #0d2418;
+  border-color: #0d2418;
+  color: var(--white-pure);
+}
+
+.plans-section__daily-btn:focus-visible,
+.plans-section__monthly-btn:focus-visible {
   outline: 2px solid var(--energy-green);
   outline-offset: 3px;
+}
+
+.plans-section__monthly-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.65rem 1.15rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  font-family: inherit;
+  letter-spacing: 0.03em;
+  color: var(--text-muted);
+  background: transparent;
+  border: 1px solid rgba(17, 41, 27, 0.12);
+  border-radius: 999px;
+  cursor: pointer;
+  transition:
+    transform var(--plan-transition),
+    border-color var(--plan-transition),
+    color var(--plan-transition);
+}
+
+.plans-section__monthly-btn:hover {
+  color: var(--green-800);
+  border-color: rgba(34, 120, 70, 0.28);
+  transform: translateY(-1px);
+}
+
+.plans-section:not(.is-daily-visible) .plan-card--daily {
+  display: none;
+}
+
+.plans-section.is-daily-visible .plan-card:not(.plan-card--daily) {
+  display: none;
+}
+
+.plans-section.is-daily-visible .plans-grid {
+  grid-template-columns: 1fr;
+  max-width: 24rem;
+  margin-inline: auto;
+}
+
+.plans-section.is-daily-visible .plan-card--daily {
+  display: flex;
+  animation: plan-daily-reveal 380ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+@keyframes plan-daily-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .plans-section.is-daily-visible .plan-card--daily {
+    animation: none;
+  }
 }
 
 /* --- Cards base --- */

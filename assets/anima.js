@@ -894,6 +894,33 @@
     });
   }
 
+  function initPlanDailyToggle() {
+    var section = document.querySelector('.plans-section');
+    var dailyBtn = document.getElementById('planDailyToggle');
+    var monthlyBtn = document.getElementById('planMonthlyToggle');
+    var dailyCard = document.getElementById('plano-diario');
+    if (!section || !dailyBtn || !monthlyBtn || !dailyCard) return;
+
+    function showDaily() {
+      section.classList.add('is-daily-visible');
+      dailyBtn.setAttribute('aria-expanded', 'true');
+      monthlyBtn.hidden = false;
+      dailyCard.classList.add('is-visible');
+      window.requestAnimationFrame(function () {
+        dailyCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      });
+    }
+
+    function showMonthly() {
+      section.classList.remove('is-daily-visible');
+      dailyBtn.setAttribute('aria-expanded', 'false');
+      monthlyBtn.hidden = true;
+    }
+
+    dailyBtn.addEventListener('click', showDaily);
+    monthlyBtn.addEventListener('click', showMonthly);
+  }
+
   /* =========================================================================
      Smooth Anchor Scroll
      ========================================================================= */
@@ -1092,6 +1119,7 @@
     initMarquee();
     initModals();
     initPlanBilling();
+    initPlanDailyToggle();
     initFaqAccordion();
     initSmoothScroll();
     initGalleryCarousel();
