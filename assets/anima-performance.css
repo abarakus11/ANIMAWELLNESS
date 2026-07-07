@@ -1113,10 +1113,34 @@
 
 .plans-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: clamp(1rem, 2vw, 1.35rem);
   align-items: stretch;
   margin-top: clamp(2.75rem, 5vw, 3.75rem);
+}
+
+.plans-section .plan-card--daily .plan-card-visit-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1.125rem 0 0;
+  padding: 0.625rem 0.75rem;
+  border-radius: var(--radius-md);
+  background: rgba(10, 26, 17, 0.04);
+  border: 1px solid rgba(17, 41, 27, 0.06);
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--green-800);
+}
+
+.plans-section .plan-card--daily .plan-card-billing-detail {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 0.8125rem;
+  line-height: 1.45;
+  color: var(--text-muted);
 }
 
 .plans-section .plan-card {
@@ -1436,6 +1460,12 @@
   .plans-section .plan-card-cta:not(.plan-card-cta--featured):hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 24px rgba(10, 26, 17, 0.12);
+  }
+}
+
+@media (max-width: 1200px) {
+  .plans-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 

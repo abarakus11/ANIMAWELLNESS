@@ -791,8 +791,6 @@
 
   function initPlanBilling() {
     var cards = document.querySelectorAll('.plan-card[data-monthly]');
-    if (!cards.length) return;
-
     cards.forEach(function (card) {
       updatePlanBilling(card, 'mensal');
 
@@ -801,6 +799,25 @@
           updatePlanBilling(card, btn.dataset.billing || 'mensal');
         });
       });
+    });
+
+    document.querySelectorAll('.plan-card[data-daily]').forEach(function (card) {
+      var daily = parseFloat(card.dataset.daily || '0', 10);
+      var planLabel = card.dataset.planLabel || 'Diário';
+      var amountEl = card.querySelector('[data-plan-amount]');
+      var periodEl = card.querySelector('[data-plan-period]');
+      var ctaEl = card.querySelector('[data-plan-cta]');
+
+      if (amountEl) amountEl.textContent = formatPlanMoney(daily);
+      if (periodEl) periodEl.textContent = '/dia';
+      if (ctaEl) {
+        ctaEl.href =
+          WA_BASE +
+          '?text=' +
+          encodeURIComponent(
+            'Quero reservar uma aula avulsa (plano ' + planLabel + ' · R$ ' + formatPlanMoney(daily) + '/dia)'
+          );
+      }
     });
   }
 
