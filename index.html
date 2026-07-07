@@ -25,7 +25,7 @@
 <link rel="stylesheet" href="assets/anima.css?v=56">
 <link rel="stylesheet" href="assets/anima-premium.css?v=32">
 <link rel="stylesheet" href="assets/anima-elite.css?v=2">
-<link rel="stylesheet" href="assets/anima-performance.css?v=12">
+<link rel="stylesheet" href="assets/anima-performance.css?v=13">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -491,30 +491,49 @@
         <h2 id="estrutura-heading" class="h2">Um espaço à altura da sua ambição.</h2>
         <p class="section-desc">Tatame, boxe, mentoria e o dia a dia da ANIMA em fotos reais.</p>
       </div>
-      <div class="gallery-grid" data-reveal data-gallery>
-        <button type="button" class="gallery-item" data-gallery-src="assets/brand-judo-throw.jpg?v=1" data-gallery-caption="Tatame">
-          <img src="assets/brand-judo-throw.jpg?v=1" alt="Praticantes de judô em queda no tatame da ANIMA" loading="lazy" width="800" height="1000" decoding="async">
-          <span class="gallery-item-caption">Tatame</span>
-        </button>
-        <button type="button" class="gallery-item" data-gallery-src="assets/brand-boxe-gloves.jpg?v=1" data-gallery-caption="Boxe">
-          <img src="assets/brand-boxe-gloves.jpg?v=1" alt="Luvas de boxe ANIMA Wellness Club sendo ajustadas antes do treino" loading="lazy" width="800" height="1000" decoding="async">
-          <span class="gallery-item-caption">Boxe</span>
-        </button>
-        <button type="button" class="gallery-item" data-gallery-src="assets/brand-mentoria.jpg?v=1" data-gallery-caption="Mentoria">
-          <img src="assets/brand-mentoria.jpg?v=1" alt="Professor e aluno conversando no tatame com kimonos ANIMA" loading="lazy" width="800" height="1000" decoding="async">
-          <span class="gallery-item-caption">Mentoria</span>
-        </button>
-        <button type="button" class="gallery-item" data-gallery-src="assets/brand-gi-mezzanine.jpg?v=1" data-gallery-caption="Artes Marciais">
-          <img src="assets/brand-gi-mezzanine.jpg?v=1" alt="Praticantes de artes marciais com kimonos ANIMA no mezanino do clube" loading="lazy" width="800" height="1000" decoding="async">
-          <span class="gallery-item-caption">Artes Marciais</span>
-        </button>
-        <button type="button" class="gallery-item gallery-item--recepcao" data-gallery-src="assets/recepcao-4k.jpg?v=1" data-gallery-caption="Recepção">
-          <picture>
-            <source media="(min-width: 768px)" srcset="assets/recepcao-4k.jpg?v=1">
-            <img class="gallery-recepcao-img" src="assets/recepcao.png?v=1" alt="Recepção premium da ANIMA com escada em caracol, piso de madeira e área de treino" width="1024" height="522" loading="lazy" decoding="async">
-          </picture>
-          <span class="gallery-item-caption">Recepção</span>
-        </button>
+      <div class="ferris-gallery" data-reveal data-gallery aria-label="Galeria de fotos em carrossel roda gigante">
+        <div class="ferris-gallery__scene">
+          <div class="ferris-gallery__rim" aria-hidden="true"></div>
+          <div class="ferris-gallery__spokes" aria-hidden="true"></div>
+          <div class="ferris-gallery__hub" aria-hidden="true"></div>
+          <div class="ferris-gallery__wheel" id="ferrisWheel">
+            <button type="button" class="ferris-gallery__cabin" data-gallery-src="assets/brand-judo-throw.jpg?v=1" data-gallery-caption="Tatame">
+              <span class="ferris-gallery__cabin-frame">
+                <img src="assets/brand-judo-throw.jpg?v=1" alt="Praticantes de judô em queda no tatame da ANIMA" loading="lazy" width="800" height="1000" decoding="async">
+                <span class="ferris-gallery__caption">Tatame</span>
+              </span>
+            </button>
+            <button type="button" class="ferris-gallery__cabin" data-gallery-src="assets/brand-boxe-gloves.jpg?v=1" data-gallery-caption="Boxe">
+              <span class="ferris-gallery__cabin-frame">
+                <img src="assets/brand-boxe-gloves.jpg?v=1" alt="Luvas de boxe ANIMA Wellness Club sendo ajustadas antes do treino" loading="lazy" width="800" height="1000" decoding="async">
+                <span class="ferris-gallery__caption">Boxe</span>
+              </span>
+            </button>
+            <button type="button" class="ferris-gallery__cabin" data-gallery-src="assets/brand-mentoria.jpg?v=1" data-gallery-caption="Mentoria">
+              <span class="ferris-gallery__cabin-frame">
+                <img src="assets/brand-mentoria.jpg?v=1" alt="Professor e aluno conversando no tatame com kimonos ANIMA" loading="lazy" width="800" height="1000" decoding="async">
+                <span class="ferris-gallery__caption">Mentoria</span>
+              </span>
+            </button>
+            <button type="button" class="ferris-gallery__cabin" data-gallery-src="assets/brand-gi-mezzanine.jpg?v=1" data-gallery-caption="Artes Marciais">
+              <span class="ferris-gallery__cabin-frame">
+                <img src="assets/brand-gi-mezzanine.jpg?v=1" alt="Praticantes de artes marciais com kimonos ANIMA no mezanino do clube" loading="lazy" width="800" height="1000" decoding="async">
+                <span class="ferris-gallery__caption">Artes Marciais</span>
+              </span>
+            </button>
+            <button type="button" class="ferris-gallery__cabin" data-gallery-src="assets/recepcao-4k.jpg?v=1" data-gallery-caption="Recepção">
+              <span class="ferris-gallery__cabin-frame">
+                <img src="assets/recepcao-4k.jpg?v=1" alt="Recepção premium da ANIMA com escada em caracol, piso de madeira e área de treino" loading="lazy" width="1024" height="1280" decoding="async">
+                <span class="ferris-gallery__caption">Recepção</span>
+              </span>
+            </button>
+          </div>
+        </div>
+        <div class="ferris-gallery__controls">
+          <button type="button" class="ferris-gallery__btn" id="ferrisPrev" aria-label="Foto anterior">‹</button>
+          <div class="ferris-gallery__dots" id="ferrisDots" role="tablist" aria-label="Selecionar foto"></div>
+          <button type="button" class="ferris-gallery__btn" id="ferrisNext" aria-label="Próxima foto">›</button>
+        </div>
       </div>
     </div>
   </section>

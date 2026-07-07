@@ -846,6 +846,136 @@
   }
 
   /* =========================================================================
+     Ferris wheel gallery
+     ========================================================================= */
+  function initFerrisGallery() {
+    var wheel = document.getElementById('ferrisWheel');
+    var dotsRoot = document.getElementById('ferrisDots');
+    var prevBtn = document.getElementById('ferrisPrev');
+    var nextBtn = document.getElementById('ferrisNext');
+    var gallery = document.querySelector('.ferris-gallery');
+    if (!wheel || !gallery) return;
+
+    var cabins = Array.prototype.slice.call(wheel.querySelectorAll('.ferris-gallery__cabin'));
+    var count = cabins.length;
+    if (!count) return;
+
+    var step = 360 / count;
+    var angle = 0;
+    var activeIndex = 0;
+    var rafId = 0;
+    var lastTs = 0;
+    var paused = false;
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var speed = reduceMotion ? 0 : 9;
+
+    function mod(n, m) {
+      return ((n % m) + m) % m;
+    }
+
+    function getActiveIndex() {
+      return mod(Math.round(-angle / step), count);
+    }
+
+    function layout() {
+      cabins.forEach(function (cabin, i) {
+        var a = i * step + angle;
+        var frame = cabin.querySelector('.ferris-gallery__cabin-frame');
+        cabin.style.transform = 'rotateX(' + a + 'deg) translateZ(var(--ferris-radius))';
+        if (frame) frame.style.transform = 'rotateX(' + (-a) + 'deg)';
+      });
+
+      var nextActive = getActiveIndex();
+      if (nextActive !== activeIndex) {
+        activeIndex = nextActive;
+        cabins.forEach(function (cabin, i) {
+          cabin.classList.toggle('is-active', i === activeIndex);
+        });
+        if (dotsRoot) {
+          var dots = dotsRoot.querySelectorAll('.ferris-gallery__dot');
+          dots.forEach(function (dot, i) {
+            dot.classList.toggle('is-active', i === activeIndex);
+            dot.setAttribute('aria-selected', i === activeIndex ? 'true' : 'false');
+          });
+        }
+      }
+    }
+
+    function tick(ts) {
+      if (!lastTs) lastTs = ts;
+      var delta = ts - lastTs;
+      lastTs = ts;
+
+      if (!paused && speed) {
+        angle -= (delta / 1000) * speed;
+        layout();
+      }
+
+      rafId = window.requestAnimationFrame(tick);
+    }
+
+    function goTo(index) {
+      var target = -index * step;
+      var current = angle;
+      var diff = mod(target - current + 180, 360) - 180;
+      angle = current + diff;
+      layout();
+    }
+
+    function stepBy(dir) {
+      goTo(mod(activeIndex + dir, count));
+    }
+
+    if (dotsRoot) {
+      cabins.forEach(function (_cabin, i) {
+        var dot = document.createElement('button');
+        dot.type = 'button';
+        dot.className = 'ferris-gallery__dot' + (i === 0 ? ' is-active' : '');
+        dot.setAttribute('role', 'tab');
+        dot.setAttribute('aria-label', 'Ir para foto ' + (i + 1));
+        dot.setAttribute('aria-selected', i === 0 ? 'true' : 'false');
+        dot.addEventListener('click', function () {
+          goTo(i);
+        });
+        dotsRoot.appendChild(dot);
+      });
+    }
+
+    if (prevBtn) prevBtn.addEventListener('click', function () { stepBy(-1); });
+    if (nextBtn) nextBtn.addEventListener('click', function () { stepBy(1); });
+
+    gallery.addEventListener('mouseenter', function () {
+      paused = true;
+      gallery.classList.add('is-paused');
+    });
+
+    gallery.addEventListener('mouseleave', function () {
+      paused = false;
+      gallery.classList.remove('is-paused');
+    });
+
+    gallery.addEventListener('focusin', function () {
+      paused = true;
+      gallery.classList.add('is-paused');
+    });
+
+    gallery.addEventListener('focusout', function (e) {
+      if (!gallery.contains(e.relatedTarget)) {
+        paused = false;
+        gallery.classList.remove('is-paused');
+      }
+    });
+
+    layout();
+    cabins[0].classList.add('is-active');
+    if (!reduceMotion) rafId = window.requestAnimationFrame(tick);
+
+    window.addEventListener('beforeunload', function () {
+      if (rafId) window.cancelAnimationFrame(rafId);
+    });
+  }
+
+  /* =========================================================================
      Gallery Lightbox
      ========================================================================= */
   function initGalleryLightbox() {
@@ -982,6 +1112,7 @@
     initFaqAccordion();
     initSmoothScroll();
     initGalleryLightbox();
+    initFerrisGallery();
     initTestimonials();
   }
 
