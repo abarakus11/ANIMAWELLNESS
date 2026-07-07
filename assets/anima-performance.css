@@ -1493,217 +1493,115 @@
   }
 }
 
-/* --- Galeria roda gigante --- */
-.ferris-gallery {
-  --ferris-radius: clamp(11rem, 24vw, 16.5rem);
-  --ferris-cabin-w: clamp(9.5rem, 16vw, 12.5rem);
+/* --- Galeria — carrossel infinito --- */
+.gallery-carousel {
+  overflow: hidden;
   margin-top: clamp(2rem, 4vw, 3rem);
+  margin-inline: calc(-1 * clamp(1rem, 4vw, 2rem));
+  padding: 0.5rem 0 1rem;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
 }
 
-.ferris-gallery__scene {
-  position: relative;
-  height: clamp(26rem, 58vw, 36rem);
+.gallery-carousel__track {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  perspective: 1200px;
-  perspective-origin: 50% 42%;
-  overflow: visible;
+  width: max-content;
+  animation: gallery-carousel-scroll 42s linear infinite;
+  will-change: transform;
 }
 
-.ferris-gallery__rim {
-  position: absolute;
-  width: calc(var(--ferris-radius) * 2 + var(--ferris-cabin-w) * 0.35);
-  height: calc(var(--ferris-radius) * 2 + var(--ferris-cabin-w) * 0.35);
-  border: 2px solid rgba(201, 162, 39, 0.28);
-  border-radius: 50%;
-  transform: rotateY(-14deg) rotateX(4deg);
-  box-shadow:
-    0 0 0 1px rgba(255, 255, 255, 0.04) inset,
-    0 24px 60px rgba(10, 26, 17, 0.08);
-  pointer-events: none;
+.gallery-carousel:hover .gallery-carousel__track,
+.gallery-carousel:focus-within .gallery-carousel__track {
+  animation-play-state: paused;
 }
 
-.ferris-gallery__spokes {
-  position: absolute;
-  width: calc(var(--ferris-radius) * 2);
-  height: calc(var(--ferris-radius) * 2);
-  transform: rotateY(-14deg) rotateX(4deg);
-  background:
-    linear-gradient(0deg, transparent 49.5%, rgba(201, 162, 39, 0.12) 50%, transparent 50.5%),
-    linear-gradient(90deg, transparent 49.5%, rgba(201, 162, 39, 0.12) 50%, transparent 50.5%),
-    linear-gradient(45deg, transparent 49.5%, rgba(201, 162, 39, 0.08) 50%, transparent 50.5%),
-    linear-gradient(-45deg, transparent 49.5%, rgba(201, 162, 39, 0.08) 50%, transparent 50.5%);
-  border-radius: 50%;
-  pointer-events: none;
+.gallery-carousel__group {
+  display: flex;
+  align-items: stretch;
+  gap: clamp(1rem, 2vw, 1.35rem);
+  padding-inline: clamp(1rem, 2vw, 1.35rem);
 }
 
-.ferris-gallery__hub {
-  position: absolute;
-  width: 1.35rem;
-  height: 1.35rem;
-  border-radius: 50%;
-  background: linear-gradient(145deg, #d4af37, #8b6914);
-  box-shadow: 0 0 0 4px rgba(201, 162, 39, 0.15), 0 8px 20px rgba(10, 26, 17, 0.18);
-  transform: translateZ(2px) rotateY(-14deg);
-  pointer-events: none;
-}
-
-.ferris-gallery__wheel {
-  position: relative;
-  width: var(--ferris-cabin-w);
-  height: var(--ferris-cabin-w);
-  transform-style: preserve-3d;
-  transform: rotateY(-14deg);
-}
-
-.ferris-gallery__cabin {
-  position: absolute;
-  inset: 0;
+.gallery-carousel__slide {
+  flex: 0 0 auto;
+  width: clamp(11rem, 22vw, 16rem);
   margin: 0;
   padding: 0;
   border: none;
   background: none;
   cursor: pointer;
-  transform-style: preserve-3d;
-  transition: filter 0.35s ease;
-}
-
-.ferris-gallery__cabin-frame {
-  display: block;
-  width: var(--ferris-cabin-w);
-  transform-style: preserve-3d;
-  backface-visibility: hidden;
+  text-align: left;
+  font: inherit;
+  color: inherit;
   border-radius: var(--radius-md);
   overflow: hidden;
-  box-shadow: 0 18px 40px rgba(10, 26, 17, 0.18);
+  box-shadow: 0 16px 36px rgba(10, 26, 17, 0.12);
   transition:
-    transform 0.45s var(--ease-out-expo),
-    box-shadow 0.45s var(--ease-out-expo);
+    transform 0.4s var(--ease-out-expo),
+    box-shadow 0.4s var(--ease-out-expo);
 }
 
-.ferris-gallery__cabin img {
+.gallery-carousel__slide img {
   display: block;
   width: 100%;
   aspect-ratio: 4 / 5;
   object-fit: cover;
+  transition: transform 0.6s var(--ease-out-expo);
 }
 
-.ferris-gallery__caption {
+.gallery-carousel__caption {
   display: block;
   padding: 0.65rem 0.75rem;
   font-size: 0.8125rem;
   font-weight: 600;
   letter-spacing: 0.04em;
   color: #fff;
-  background: linear-gradient(180deg, transparent, rgba(5, 8, 7, 0.82));
+  background: linear-gradient(180deg, transparent, rgba(5, 8, 7, 0.85));
   margin-top: -2.4rem;
   position: relative;
 }
 
-.ferris-gallery__cabin:not(.is-active) {
-  filter: saturate(0.82) brightness(0.88);
+.gallery-carousel__slide:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 22px 44px rgba(10, 26, 17, 0.18);
 }
 
-.ferris-gallery__cabin.is-active .ferris-gallery__cabin-frame {
-  box-shadow:
-    0 24px 50px rgba(10, 26, 17, 0.28),
-    0 0 0 2px rgba(201, 162, 39, 0.45);
+.gallery-carousel__slide:hover img {
+  transform: scale(1.04);
 }
 
-.ferris-gallery__cabin:focus-visible .ferris-gallery__cabin-frame {
+.gallery-carousel__slide:focus-visible {
   outline: 2px solid var(--energy-green);
   outline-offset: 4px;
 }
 
-.ferris-gallery__controls {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  margin-top: clamp(1.25rem, 3vw, 2rem);
-}
-
-.ferris-gallery__btn {
-  width: 2.75rem;
-  height: 2.75rem;
-  border-radius: 50%;
-  border: 1px solid rgba(10, 26, 17, 0.12);
-  background: rgba(255, 255, 255, 0.72);
-  color: var(--forest-900, #0a1a11);
-  font-size: 1.5rem;
-  line-height: 1;
-  cursor: pointer;
-  transition:
-    transform 0.25s ease,
-    border-color 0.25s ease,
-    background 0.25s ease;
-}
-
-.ferris-gallery__btn:hover {
-  transform: translateY(-2px);
-  border-color: rgba(201, 162, 39, 0.45);
-  background: #fff;
-}
-
-.ferris-gallery__btn:focus-visible {
-  outline: 2px solid var(--energy-green);
-  outline-offset: 3px;
-}
-
-.ferris-gallery__dots {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.ferris-gallery__dot {
-  width: 0.55rem;
-  height: 0.55rem;
-  border-radius: 50%;
-  border: none;
-  padding: 0;
-  background: rgba(10, 26, 17, 0.18);
-  cursor: pointer;
-  transition:
-    transform 0.25s ease,
-    background 0.25s ease;
-}
-
-.ferris-gallery__dot.is-active {
-  transform: scale(1.25);
-  background: #c9a227;
-}
-
-.ferris-gallery__dot:focus-visible {
-  outline: 2px solid var(--energy-green);
-  outline-offset: 2px;
-}
-
-.ferris-gallery.is-paused .ferris-gallery__rim {
-  animation-play-state: paused;
-}
-
-@media (max-width: 640px) {
-  .ferris-gallery {
-    --ferris-radius: clamp(9rem, 34vw, 11.5rem);
-    --ferris-cabin-w: clamp(7.5rem, 28vw, 9.5rem);
-  }
-
-  .ferris-gallery__scene {
-    height: clamp(22rem, 72vw, 28rem);
-  }
+@keyframes gallery-carousel-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .ferris-gallery__cabin,
-  .ferris-gallery__cabin-frame {
-    transition: none;
+  .gallery-carousel__track {
+    animation: none;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .gallery-carousel {
+    -webkit-mask-image: none;
+    mask-image: none;
+    margin-inline: 0;
+  }
+
+  .gallery-carousel__group {
+    flex-wrap: wrap;
+    justify-content: center;
   }
 }
 
 /* --- Lightbox --- */
-.ferris-gallery__cabin:focus-visible,
+.gallery-carousel__slide:focus-visible,
 .gallery-item:focus-visible {
   outline: 2px solid var(--energy-green);
   outline-offset: 4px;
