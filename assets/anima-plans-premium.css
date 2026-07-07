@@ -1,7 +1,3 @@
-/* ==========================================================================
-   ANIMA — Planos Premium (Stripe / Linear inspired)
-   ========================================================================== */
-
 .plans-section {
   --plan-radius: 24px;
   --plan-hover-lift: -10px;
@@ -12,6 +8,42 @@
   --plan-shadow-hover:
     0 1px 0 rgba(255, 255, 255, 0.9) inset,
     0 28px 60px rgba(10, 26, 17, 0.14);
+}
+
+.plans-section__daily-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1.25rem;
+  padding: 0.65rem 1.35rem;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--green-800);
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(34, 120, 70, 0.22);
+  border-radius: 999px;
+  box-shadow: 0 4px 16px rgba(10, 26, 17, 0.06);
+  cursor: pointer;
+  transition:
+    transform var(--plan-transition),
+    box-shadow var(--plan-transition),
+    border-color var(--plan-transition),
+    background var(--plan-transition);
+}
+
+.plans-section__daily-btn:hover {
+  transform: translateY(-2px) scale(1.02);
+  border-color: rgba(34, 168, 90, 0.38);
+  background: #fff;
+  box-shadow: 0 8px 24px rgba(10, 26, 17, 0.1);
+}
+
+.plans-section__daily-btn:focus-visible {
+  outline: 2px solid var(--energy-green);
+  outline-offset: 3px;
 }
 
 /* --- Cards base --- */
