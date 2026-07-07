@@ -104,10 +104,23 @@
   display: none;
 }
 
+.plans-section > .container {
+  max-width: min(88rem, 100%);
+}
+
+.plans-section__header {
+  margin-bottom: 0.5rem;
+}
+
+.plans-section:not(.is-daily-visible) .plans-grid {
+  grid-template-columns: repeat(3, minmax(17rem, 1fr));
+}
+
 .plans-section.is-daily-visible .plans-grid {
   grid-template-columns: 1fr;
-  max-width: 24rem;
+  max-width: 26rem;
   margin-inline: auto;
+  gap: 1.5rem;
 }
 
 .plans-section.is-daily-visible .plan-card--daily {

@@ -1113,9 +1113,11 @@
 
 .plans-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: clamp(1rem, 2vw, 1.35rem);
+  grid-template-columns: repeat(3, minmax(17rem, 1fr));
+  gap: clamp(1.35rem, 2.8vw, 2.25rem);
   align-items: stretch;
+  max-width: 72rem;
+  margin-inline: auto;
   margin-top: clamp(2.75rem, 5vw, 3.75rem);
 }
 
@@ -1353,7 +1355,7 @@
 @media (min-width: 901px) {
   .plans-section .plan-card--featured {
     padding: clamp(2rem, 2.8vw, 2.5rem) clamp(1.65rem, 2.2vw, 2rem);
-    margin-block: -0.65rem;
+    margin-block: 0;
   }
 }
 
@@ -1465,15 +1467,25 @@
 
 @media (max-width: 1200px) {
   .plans-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(16rem, 1fr));
+    gap: clamp(1.25rem, 3vw, 1.75rem);
+    max-width: 44rem;
+  }
+
+  .plans-section:not(.is-daily-visible) .plans-grid .plan-card--elite {
+    grid-column: 1 / -1;
+    max-width: 22rem;
+    width: 100%;
+    justify-self: center;
   }
 }
 
 @media (max-width: 900px) {
   .plans-grid {
     grid-template-columns: 1fr;
-    max-width: 24rem;
+    max-width: 26rem;
     margin-inline: auto;
+    gap: 1.35rem;
   }
 
   .plans-section .plan-card--featured {
