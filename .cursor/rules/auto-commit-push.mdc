@@ -15,4 +15,11 @@ Após concluir alterações neste repositório (`ANIMAWELLNESS`):
 
 Não deixe alterações locais pendentes sem commit/push, salvo se o usuário pedir explicitamente para não enviar.
 
+Se `git commit` falhar por identidade ausente, use as variáveis de ambiente (sem alterar `git config`):
+
+- `GIT_AUTHOR_NAME=abarakus11`
+- `GIT_AUTHOR_EMAIL=abarakus11@users.noreply.github.com`
+- `GIT_COMMITTER_NAME=abarakus11`
+- `GIT_COMMITTER_EMAIL=abarakus11@users.noreply.github.com`
+
 Repositório remoto: `https://github.com/abarakus11/ANIMAWELLNESS.git`
