@@ -609,10 +609,9 @@
 }
 
 .mod-img.mod-calistenia {
-  background-size: contain;
-  background-position: center;
+  background-size: cover;
+  background-position: center 20%;
   background-repeat: no-repeat;
-  background-color: #141414;
 }
 
 .mod-img.mod-gelo-sauna {

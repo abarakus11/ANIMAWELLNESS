@@ -1160,16 +1160,15 @@ figure {
 }
 
 .mod-calistenia {
-  background-image: url('./calistenia.png');
-  background-size: contain;
-  background-position: center;
+  background-image: url('./calistenia.jpg?v=2');
+  background-size: cover;
+  background-position: center 20%;
   background-repeat: no-repeat;
-  background-color: #141414;
 }
 
 @media (min-width: 768px) {
   .mod-calistenia {
-    background-image: url('./calistenia-4k.jpg');
+    background-image: url('./calistenia-4k.jpg?v=2');
   }
 }
 
