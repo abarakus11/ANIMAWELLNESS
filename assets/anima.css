@@ -1180,6 +1180,32 @@ figure {
   background-image: url('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=700&q=80');
 }
 
+.mod-banho-gelo {
+  background-image: url('./banho-gelo.jpg?v=1');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+@media (min-width: 768px) {
+  .mod-banho-gelo {
+    background-image: url('./banho-gelo-4k.jpg?v=1');
+  }
+}
+
+.mod-sauna {
+  background-image: url('./sauna.jpg?v=1');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+@media (min-width: 768px) {
+  .mod-sauna {
+    background-image: url('./sauna-4k.jpg?v=1');
+  }
+}
+
 .mod-gelo-sauna {
   background-image: url('./gelo-sauna.png');
   background-size: contain;
@@ -2298,6 +2324,10 @@ figure {
     grid-column: 1 / -1;
     width: calc((100% - 4.5rem) / 4);
     margin-inline: auto;
+  }
+
+  .grid-auto--six {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 

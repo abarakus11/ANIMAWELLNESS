@@ -507,19 +507,33 @@
       ],
       wa: 'Olá! Gostaria de agendar uma aula experimental de Calistenia na ANIMA.'
     },
-    'gelo-sauna': {
-      tag: 'terapia integrativa · gelo · sauna',
-      title: 'Banho de Gelo & Sauna',
-      imgClass: 'mod-gelo-sauna',
-      desc: 'Tratamentos terapêuticos com frio e calor para recuperação, imunidade e longevidade.',
+    'banho-gelo': {
+      tag: 'terapia integrativa · crioterapia',
+      title: 'Banho de Gelo',
+      imgClass: 'mod-banho-gelo',
+      desc: 'Crioterapia premium para recuperação muscular, redução de inflamação e performance pós-treino.',
       features: [
-        'Banheira de gelo premium',
-        'Sauna seca e úmida',
-        'Terapia de contraste calor/frio',
-        'Recuperação pós-treino',
+        'Banheiras de gelo premium',
+        'Protocolos de imersão guiados',
+        'Recuperação pós-treino e competição',
+        'Terapia de contraste com sauna',
         'Ambiente reservado e silencioso'
       ],
-      wa: 'Olá! Gostaria de conhecer os Tratamentos com Frio e Calor na ANIMA.'
+      wa: 'Olá! Gostaria de conhecer o Banho de Gelo na ANIMA.'
+    },
+    sauna: {
+      tag: 'terapia integrativa · sauna',
+      title: 'Sauna',
+      imgClass: 'mod-sauna',
+      desc: 'Sauna seca e úmida para relaxamento profundo, detoxificação e longevidade.',
+      features: [
+        'Sauna seca e úmida premium',
+        'Cabine de madeira com controle térmico',
+        'Relaxamento muscular e circulação',
+        'Combina com banho de gelo e EMS',
+        'Ambiente reservado e silencioso'
+      ],
+      wa: 'Olá! Gostaria de conhecer a Sauna na ANIMA.'
     },
     terapeuta: {
       tag: 'terapia corporal · massoterapia',

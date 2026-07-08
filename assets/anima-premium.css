@@ -614,6 +614,13 @@
   background-repeat: no-repeat;
 }
 
+.mod-img.mod-banho-gelo,
+.mod-img.mod-sauna {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 .mod-img.mod-gelo-sauna {
   background-size: contain;
   background-position: center;
