@@ -1181,7 +1181,7 @@ figure {
 }
 
 .mod-banho-gelo {
-  background-image: url('./banho-gelo.jpg?v=1');
+  background-image: url('./banho-gelo.jpg?v=2');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -1189,7 +1189,7 @@ figure {
 
 @media (min-width: 768px) {
   .mod-banho-gelo {
-    background-image: url('./banho-gelo-4k.jpg?v=1');
+    background-image: url('./banho-gelo-4k.jpg?v=2');
   }
 }
 
