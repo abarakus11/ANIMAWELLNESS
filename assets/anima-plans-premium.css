@@ -65,9 +65,55 @@
 }
 
 .plans-section__daily-btn:focus-visible,
+.plans-section__familia-btn:focus-visible,
 .plans-section__monthly-btn:focus-visible {
   outline: 2px solid var(--energy-green);
   outline-offset: 3px;
+}
+
+.plans-section__familia-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0;
+  padding: 0.65rem 1.35rem;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-family: inherit;
+  color: var(--green-800);
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(34, 120, 70, 0.22);
+  border-radius: 999px;
+  box-shadow: 0 4px 16px rgba(10, 26, 17, 0.06);
+  cursor: pointer;
+  transition:
+    transform var(--plan-transition),
+    box-shadow var(--plan-transition),
+    border-color var(--plan-transition),
+    background var(--plan-transition),
+    color var(--plan-transition);
+}
+
+.plans-section.is-familia-visible .plans-section__familia-btn {
+  background: var(--green-800);
+  border-color: var(--green-800);
+  color: var(--white-pure);
+  box-shadow: 0 8px 24px rgba(10, 26, 17, 0.18);
+}
+
+.plans-section__familia-btn:hover {
+  transform: translateY(-2px) scale(1.02);
+  border-color: rgba(34, 168, 90, 0.38);
+  background: #fff;
+  box-shadow: 0 8px 24px rgba(10, 26, 17, 0.1);
+}
+
+.plans-section.is-familia-visible .plans-section__familia-btn:hover {
+  background: #0d2418;
+  border-color: #0d2418;
+  color: var(--white-pure);
 }
 
 .plans-section__monthly-btn {
@@ -97,11 +143,16 @@
   transform: translateY(-1px);
 }
 
-.plans-section:not(.is-daily-visible) .plan-card--daily {
+.plans-section:not(.is-daily-visible):not(.is-familia-visible) .plan-card--daily,
+.plans-section:not(.is-daily-visible):not(.is-familia-visible) .plan-card--familia {
   display: none;
 }
 
 .plans-section.is-daily-visible .plan-card:not(.plan-card--daily) {
+  display: none;
+}
+
+.plans-section.is-familia-visible .plan-card:not(.plan-card--familia) {
   display: none;
 }
 
@@ -113,18 +164,20 @@
   margin-bottom: 0.5rem;
 }
 
-.plans-section:not(.is-daily-visible) .plans-grid {
+.plans-section:not(.is-daily-visible):not(.is-familia-visible) .plans-grid {
   grid-template-columns: repeat(3, minmax(17rem, 1fr));
 }
 
-.plans-section.is-daily-visible .plans-grid {
+.plans-section.is-daily-visible .plans-grid,
+.plans-section.is-familia-visible .plans-grid {
   grid-template-columns: 1fr;
   max-width: 26rem;
   margin-inline: auto;
   gap: 1.5rem;
 }
 
-.plans-section.is-daily-visible .plan-card--daily {
+.plans-section.is-daily-visible .plan-card--daily,
+.plans-section.is-familia-visible .plan-card--familia {
   display: flex;
   animation: plan-daily-reveal 380ms cubic-bezier(0, 0, 0.2, 1);
 }
@@ -141,7 +194,8 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .plans-section.is-daily-visible .plan-card--daily {
+  .plans-section.is-daily-visible .plan-card--daily,
+  .plans-section.is-familia-visible .plan-card--familia {
     animation: none;
   }
 }
@@ -161,6 +215,32 @@
     linear-gradient(165deg, rgba(255, 255, 255, 0.98) 0%, rgba(248, 246, 240, 0.92) 100%);
   border: 1px solid rgba(17, 41, 27, 0.08);
   box-shadow: var(--plan-shadow);
+}
+
+.plans-section .plan-card--familia {
+  border: 2px solid rgba(201, 162, 39, 0.38);
+  background:
+    linear-gradient(165deg, rgba(255, 252, 244, 0.98) 0%, rgba(245, 248, 246, 0.94) 48%, rgba(236, 248, 241, 0.92) 100%);
+  box-shadow:
+    var(--plan-shadow),
+    0 0 48px rgba(201, 162, 39, 0.08);
+}
+
+.plans-section .plan-card-badge--familia {
+  background: linear-gradient(135deg, #22a85a 0%, #c9a227 100%);
+  color: var(--white-pure);
+  animation: none;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.plans-section .plan-card--familia .plan-card-tier {
+  color: var(--green-800);
+}
+
+.plans-section .plan-card--familia .plan-card-billing-detail {
+  color: rgba(17, 41, 27, 0.62);
+  font-size: 0.8125rem;
 }
 
 /* --- Pro --- */

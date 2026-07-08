@@ -825,12 +825,19 @@
     }
 
     if (detailEl) {
+      var baseDetail = card.dataset.planBaseDetail || '';
       if (billingKey === 'mensal') {
-        detailEl.hidden = true;
-        detailEl.textContent = '';
+        if (baseDetail) {
+          detailEl.hidden = false;
+          detailEl.textContent = baseDetail;
+        } else {
+          detailEl.hidden = true;
+          detailEl.textContent = '';
+        }
       } else {
         detailEl.hidden = false;
         detailEl.textContent =
+          (baseDetail ? baseDetail + ' · ' : '') +
           'Pagamento de R$ ' +
           formatPlanMoney(total) +
           ' · ' +
@@ -910,27 +917,49 @@
   function initPlanDailyToggle() {
     var section = document.querySelector('.plans-section');
     var dailyBtn = document.getElementById('planDailyToggle');
+    var familiaBtn = document.getElementById('planFamiliaToggle');
     var monthlyBtn = document.getElementById('planMonthlyToggle');
     var dailyCard = document.getElementById('plano-diario');
-    if (!section || !dailyBtn || !monthlyBtn || !dailyCard) return;
+    var familiaCard = document.getElementById('plano-familia');
+    if (!section || !dailyBtn || !familiaBtn || !monthlyBtn || !dailyCard || !familiaCard) return;
+
+    function showMonthly() {
+      section.classList.remove('is-daily-visible', 'is-familia-visible');
+      dailyBtn.setAttribute('aria-expanded', 'false');
+      familiaBtn.setAttribute('aria-expanded', 'false');
+      monthlyBtn.hidden = true;
+      dailyCard.classList.remove('is-visible');
+      familiaCard.classList.remove('is-visible');
+    }
 
     function showDaily() {
       section.classList.add('is-daily-visible');
+      section.classList.remove('is-familia-visible');
       dailyBtn.setAttribute('aria-expanded', 'true');
+      familiaBtn.setAttribute('aria-expanded', 'false');
       monthlyBtn.hidden = false;
       dailyCard.classList.add('is-visible');
+      familiaCard.classList.remove('is-visible');
       window.requestAnimationFrame(function () {
         dailyCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       });
     }
 
-    function showMonthly() {
+    function showFamilia() {
+      section.classList.add('is-familia-visible');
       section.classList.remove('is-daily-visible');
       dailyBtn.setAttribute('aria-expanded', 'false');
-      monthlyBtn.hidden = true;
+      familiaBtn.setAttribute('aria-expanded', 'true');
+      monthlyBtn.hidden = false;
+      familiaCard.classList.add('is-visible');
+      dailyCard.classList.remove('is-visible');
+      window.requestAnimationFrame(function () {
+        familiaCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      });
     }
 
     dailyBtn.addEventListener('click', showDaily);
+    familiaBtn.addEventListener('click', showFamilia);
     monthlyBtn.addEventListener('click', showMonthly);
   }
 
