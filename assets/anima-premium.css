@@ -601,11 +601,11 @@
   background-size: cover;
 }
 
-.mod-img.mod-personal {
-  background-size: contain;
-  background-position: center;
+.mod-img.mod-personal,
+.mod-img.mod-personal-trainer {
+  background-size: cover;
+  background-position: center 30%;
   background-repeat: no-repeat;
-  background-color: #121212;
 }
 
 .mod-img.mod-calistenia {
