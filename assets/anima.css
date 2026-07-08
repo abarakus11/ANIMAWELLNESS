@@ -1195,7 +1195,16 @@ figure {
 }
 
 .mod-terapeuta {
-  background-image: url('https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=700&q=80');
+  background-image: url('./terapeuta.jpg?v=1');
+  background-size: cover;
+  background-position: center 25%;
+  background-repeat: no-repeat;
+}
+
+@media (min-width: 768px) {
+  .mod-terapeuta {
+    background-image: url('./terapeuta-4k.jpg?v=1');
+  }
 }
 
 .mod-psicologo {
