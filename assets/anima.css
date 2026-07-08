@@ -1194,7 +1194,7 @@ figure {
 }
 
 .mod-sauna {
-  background-image: url('./sauna.jpg?v=1');
+  background-image: url('./sauna.jpg?v=2');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -1202,7 +1202,7 @@ figure {
 
 @media (min-width: 768px) {
   .mod-sauna {
-    background-image: url('./sauna-4k.jpg?v=1');
+    background-image: url('./sauna-4k.jpg?v=2');
   }
 }
 
