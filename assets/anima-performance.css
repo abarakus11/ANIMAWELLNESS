@@ -142,17 +142,75 @@
   line-height: 1.65;
 }
 
-.hero-lema {
-  margin: 0.5rem 0 0;
-  max-width: 42rem;
-  font-size: clamp(0.95rem, 1.55vw, 1.08rem);
-  line-height: 1.65;
-  color: rgba(245, 242, 234, 0.88);
-  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.35);
+.hero-quote {
+  position: relative;
+  margin: clamp(1.25rem, 2.5vh, 1.75rem) 0 0;
+  padding: clamp(1.1rem, 2.2vw, 1.35rem) clamp(1.15rem, 2.4vw, 1.5rem) clamp(1rem, 2vw, 1.25rem);
+  max-width: 36rem;
+  border-left: 2px solid rgba(180, 144, 48, 0.72);
+  background:
+    linear-gradient(135deg, rgba(180, 144, 48, 0.08) 0%, rgba(5, 8, 7, 0.28) 100%);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
 }
 
-.hero-manifesto strong,
-.hero-lema strong {
+.hero-quote__mark {
+  display: block;
+  margin-bottom: 0.15rem;
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5vw, 3.25rem);
+  line-height: 0.75;
+  color: var(--gold-400);
+  opacity: 0.92;
+}
+
+.hero-quote__text {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.15rem, 2.2vw, 1.45rem);
+  font-style: italic;
+  font-weight: 500;
+  line-height: 1.55;
+  letter-spacing: 0.01em;
+  color: rgba(245, 242, 234, 0.94);
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.28);
+}
+
+.hero-quote__footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.55rem 0.85rem;
+  margin-top: clamp(0.85rem, 1.8vh, 1.1rem);
+}
+
+.hero-quote__line {
+  flex: 1 1 2.5rem;
+  min-width: 2.5rem;
+  max-width: 4.5rem;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(180, 144, 48, 0.85), rgba(180, 144, 48, 0.15));
+}
+
+.hero-quote__signature {
+  font-family: var(--font-body);
+  font-size: clamp(0.72rem, 1.2vw, 0.8125rem);
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold-300);
+}
+
+.hero-quote__label {
+  font-size: clamp(0.68rem, 1.1vw, 0.75rem);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(245, 242, 234, 0.48);
+}
+
+.hero-manifesto strong {
   color: var(--gold-300);
   font-weight: 700;
 }
