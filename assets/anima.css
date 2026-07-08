@@ -738,7 +738,7 @@ figure {
   inset: 0;
   z-index: 0;
   overflow: hidden;
-  background: var(--green-900) url('./hero-family-4k.png') center / cover no-repeat;
+  background: var(--green-900) url('./hero-family-4k.jpg') center / cover no-repeat;
   touch-action: none;
   -webkit-user-select: none;
   user-select: none;
@@ -756,8 +756,11 @@ figure {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 35%;
+  object-position: center 40%;
   display: block;
+  image-rendering: auto;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
   pointer-events: none;
   -webkit-touch-callout: none;
 }

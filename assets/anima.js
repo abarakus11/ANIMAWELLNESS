@@ -107,9 +107,8 @@
       }
 
       var progress = Math.min(Math.max(-rect.top / Math.max(rect.height, 1), 0), 1);
-      var y = progress * 48;
-      var scale = 1.1 + progress * 0.05;
-      inner.style.transform = 'translate3d(0, ' + y + 'px, 0) scale(' + scale + ')';
+      var y = progress * 40;
+      inner.style.transform = 'translate3d(0, ' + y + 'px, 0)';
       ticking = false;
     }
 

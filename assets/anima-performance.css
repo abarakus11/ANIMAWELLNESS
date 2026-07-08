@@ -323,7 +323,7 @@
 }
 
 .hero--performance .hero-video-inner {
-  transform: scale(1.1);
+  transform: none;
   will-change: transform;
 }
 
@@ -331,12 +331,12 @@
   background:
     linear-gradient(
       105deg,
-      rgba(5, 8, 7, 0.94) 0%,
-      rgba(5, 8, 7, 0.82) 34%,
-      rgba(5, 8, 7, 0.52) 62%,
-      rgba(5, 8, 7, 0.78) 100%
+      rgba(5, 8, 7, 0.88) 0%,
+      rgba(5, 8, 7, 0.72) 34%,
+      rgba(5, 8, 7, 0.42) 62%,
+      rgba(5, 8, 7, 0.68) 100%
     ),
-    linear-gradient(180deg, rgba(5, 8, 7, 0.35) 0%, transparent 28%, transparent 72%, rgba(5, 8, 7, 0.55) 100%);
+    linear-gradient(180deg, rgba(5, 8, 7, 0.28) 0%, transparent 28%, transparent 72%, rgba(5, 8, 7, 0.45) 100%);
 }
 
 .hero-video-vignette {
@@ -344,7 +344,7 @@
   inset: 0;
   z-index: 2;
   pointer-events: none;
-  background: radial-gradient(ellipse 85% 75% at 50% 50%, transparent 35%, rgba(5, 8, 7, 0.65) 100%);
+  background: radial-gradient(ellipse 85% 75% at 50% 50%, transparent 42%, rgba(5, 8, 7, 0.5) 100%);
 }
 
 .hero--performance .hero-glow--gold {
@@ -2105,7 +2105,7 @@
   }
 
   .hero--performance .hero-video-inner {
-    transform: scale(1.05);
+    transform: none;
     will-change: auto;
   }
 }
