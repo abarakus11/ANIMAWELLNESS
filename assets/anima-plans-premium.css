@@ -2,6 +2,11 @@
   --plan-radius: 24px;
   --plan-hover-lift: -10px;
   --plan-transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  --plan-neon: #34ff7a;
+  --plan-neon-bright: #5cff96;
+  --plan-neon-deep: #1ee86a;
+  --plan-neon-glow: rgba(52, 255, 122, 0.5);
+  --plan-neon-glow-strong: rgba(52, 255, 122, 0.75);
   --plan-shadow:
     0 1px 0 rgba(255, 255, 255, 0.85) inset,
     0 20px 48px rgba(10, 26, 17, 0.09);
@@ -19,7 +24,9 @@
   margin-top: 1.25rem;
 }
 
-.plans-section__daily-btn {
+.plans-section__daily-btn,
+.plans-section__familia-btn,
+.plans-section__monthly-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -30,11 +37,13 @@
   letter-spacing: 0.06em;
   text-transform: uppercase;
   font-family: inherit;
-  color: var(--green-800);
-  background: rgba(255, 255, 255, 0.85);
-  border: 1px solid rgba(34, 120, 70, 0.22);
+  color: var(--green-900);
+  background: var(--plan-neon);
+  border: 1px solid var(--plan-neon-bright);
   border-radius: 999px;
-  box-shadow: 0 4px 16px rgba(10, 26, 17, 0.06);
+  box-shadow:
+    0 0 16px var(--plan-neon-glow),
+    0 4px 18px rgba(52, 255, 122, 0.28);
   cursor: pointer;
   transition:
     transform var(--plan-transition),
@@ -44,103 +53,45 @@
     color var(--plan-transition);
 }
 
-.plans-section.is-daily-visible .plans-section__daily-btn {
-  background: var(--green-800);
-  border-color: var(--green-800);
-  color: var(--white-pure);
-  box-shadow: 0 8px 24px rgba(10, 26, 17, 0.18);
+.plans-section.is-daily-visible .plans-section__daily-btn,
+.plans-section.is-familia-visible .plans-section__familia-btn {
+  background: var(--plan-neon-bright);
+  border-color: #8cffb8;
+  color: var(--green-900);
+  box-shadow:
+    0 0 24px var(--plan-neon-glow-strong),
+    0 0 48px rgba(52, 255, 122, 0.35),
+    0 6px 22px rgba(52, 255, 122, 0.32);
 }
 
-.plans-section__daily-btn:hover {
+.plans-section__daily-btn:hover,
+.plans-section__familia-btn:hover,
+.plans-section__monthly-btn:hover {
   transform: translateY(-2px) scale(1.02);
-  border-color: rgba(34, 168, 90, 0.38);
-  background: #fff;
-  box-shadow: 0 8px 24px rgba(10, 26, 17, 0.1);
+  background: var(--plan-neon-bright);
+  border-color: #8cffb8;
+  box-shadow:
+    0 0 22px var(--plan-neon-glow-strong),
+    0 8px 24px rgba(52, 255, 122, 0.35);
 }
 
-.plans-section.is-daily-visible .plans-section__daily-btn:hover {
-  background: #0d2418;
-  border-color: #0d2418;
-  color: var(--white-pure);
+.plans-section.is-daily-visible .plans-section__daily-btn:hover,
+.plans-section.is-familia-visible .plans-section__familia-btn:hover {
+  background: #7affae;
+  border-color: #b8ffd4;
+  color: var(--green-900);
 }
 
 .plans-section__daily-btn:focus-visible,
 .plans-section__familia-btn:focus-visible,
 .plans-section__monthly-btn:focus-visible {
-  outline: 2px solid var(--energy-green);
+  outline: 2px solid var(--plan-neon-bright);
   outline-offset: 3px;
 }
 
-.plans-section__familia-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 0;
-  padding: 0.65rem 1.35rem;
-  font-size: 0.8125rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  font-family: inherit;
-  color: var(--green-800);
-  background: rgba(255, 255, 255, 0.85);
-  border: 1px solid rgba(34, 120, 70, 0.22);
-  border-radius: 999px;
-  box-shadow: 0 4px 16px rgba(10, 26, 17, 0.06);
-  cursor: pointer;
-  transition:
-    transform var(--plan-transition),
-    box-shadow var(--plan-transition),
-    border-color var(--plan-transition),
-    background var(--plan-transition),
-    color var(--plan-transition);
-}
-
-.plans-section.is-familia-visible .plans-section__familia-btn {
-  background: var(--green-800);
-  border-color: var(--green-800);
-  color: var(--white-pure);
-  box-shadow: 0 8px 24px rgba(10, 26, 17, 0.18);
-}
-
-.plans-section__familia-btn:hover {
-  transform: translateY(-2px) scale(1.02);
-  border-color: rgba(34, 168, 90, 0.38);
-  background: #fff;
-  box-shadow: 0 8px 24px rgba(10, 26, 17, 0.1);
-}
-
-.plans-section.is-familia-visible .plans-section__familia-btn:hover {
-  background: #0d2418;
-  border-color: #0d2418;
-  color: var(--white-pure);
-}
-
 .plans-section__monthly-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.65rem 1.15rem;
-  font-size: 0.8125rem;
-  font-weight: 600;
-  font-family: inherit;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-  background: transparent;
-  border: 1px solid rgba(17, 41, 27, 0.12);
-  border-radius: 999px;
-  cursor: pointer;
-  transition:
-    transform var(--plan-transition),
-    border-color var(--plan-transition),
-    color var(--plan-transition);
-}
-
-.plans-section__monthly-btn:hover {
-  color: var(--green-800);
-  border-color: rgba(34, 120, 70, 0.28);
-  transform: translateY(-1px);
+  padding-inline: 1.15rem;
+  font-weight: 700;
 }
 
 .plans-section:not(.is-daily-visible):not(.is-familia-visible) .plan-card--daily,
