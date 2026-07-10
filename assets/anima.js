@@ -397,7 +397,7 @@
   var MODAL_DATA = {
     'judo-infantil': {
       tag: 'programa infantil · judô',
-      title: 'Judô Kids',
+      title: 'Judô',
       imgClass: 'mod-judo-infantil',
       desc: 'Judô olímpico adaptado à infância, com foco em disciplina, coordenação, respeito e diversão segura.',
       features: [
