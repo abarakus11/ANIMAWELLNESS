@@ -19,7 +19,8 @@
   --color-highlight: var(--energy-orange);
 
   --font-athletic: 'Bebas Neue', 'Arial Narrow', sans-serif;
-  --hero-title-size: clamp(3.75rem, 13vw, 8.75rem);
+  --font-brand: 'Cinzel', 'Times New Roman', serif;
+  --hero-title-size: clamp(4.25rem, 14vw, 9.5rem);
   --hero-lead-size: clamp(1.05rem, 2.1vw, 1.35rem);
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -67,34 +68,33 @@
 .hero-kicker {
   display: inline-flex;
   align-items: center;
-  gap: 0.625rem;
-  margin-bottom: clamp(1rem, 2.5vh, 1.75rem);
-  font-size: 0.72rem;
+  gap: 0.75rem;
+  margin-bottom: clamp(1.15rem, 2.8vh, 1.85rem);
+  font-family: var(--font-body);
+  font-size: 0.68rem;
   font-weight: 600;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.28em;
   text-transform: uppercase;
-  color: rgba(245, 242, 234, 0.72);
+  color: rgba(245, 242, 234, 0.68);
 }
 
 .hero-kicker::before {
   content: '';
-  width: 2.25rem;
-  height: 2px;
-  background: linear-gradient(90deg, var(--energy-green), var(--energy-orange));
+  width: 2.5rem;
+  height: 1.5px;
+  background: linear-gradient(90deg, var(--energy-green), var(--gold-300), var(--energy-orange));
 }
 
 .hero-title {
-  margin: 0 0 clamp(1.25rem, 3vh, 2rem);
-  font-family: var(--font-athletic);
+  margin: 0 0 clamp(1.35rem, 3.2vh, 2.15rem);
+  font-family: var(--font-brand);
   font-size: var(--hero-title-size);
-  font-weight: 400;
-  line-height: 0.9;
-  letter-spacing: 0.015em;
+  font-weight: 600;
+  line-height: 0.92;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--white-pure);
-  text-shadow:
-    0 2px 0 rgba(0, 0, 0, 0.15),
-    0 8px 48px rgba(0, 0, 0, 0.55);
+  text-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
 }
 
 .hero-title__line {
@@ -104,28 +104,43 @@
 .hero-title__line--accent {
   color: transparent;
   background: linear-gradient(
-    92deg,
-    var(--white-pure) 0%,
-    rgba(245, 242, 234, 0.92) 45%,
-    var(--gold-300) 88%,
+    100deg,
+    rgba(245, 242, 234, 0.95) 0%,
+    var(--gold-200) 42%,
+    var(--gold-300) 72%,
     var(--energy-orange) 100%
   );
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-size: clamp(1.35rem, 4.8vw, 3.15rem);
-  letter-spacing: 0.04em;
-  line-height: 1.05;
-  margin-top: 0.2em;
+  font-family: var(--font-brand);
+  font-size: clamp(0.95rem, 2.6vw, 1.55rem);
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  line-height: 1.35;
+  margin-top: 0.55em;
+  text-shadow: none;
+  filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.35));
 }
 
 .hero--performance .hero-lead {
-  max-width: 38rem;
+  max-width: 40rem;
+  font-family: var(--font-body);
   font-size: var(--hero-lead-size);
-  line-height: 1.7;
-  color: rgba(245, 242, 234, 0.86);
+  font-weight: 400;
+  line-height: 1.75;
+  color: rgba(245, 242, 234, 0.88);
   margin-bottom: clamp(1.75rem, 4vh, 2.75rem);
   text-shadow: 0 2px 24px rgba(0, 0, 0, 0.35);
+}
+
+.hero--performance .hero-lead strong {
+  font-family: var(--font-brand);
+  font-weight: 600;
+  font-size: 0.78em;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold-300);
 }
 
 .hero-manifesto {
@@ -198,11 +213,11 @@
 }
 
 .hero-quote__signature {
-  font-family: var(--font-body);
-  font-size: clamp(0.72rem, 1.2vw, 0.8125rem);
+  font-family: var(--font-brand);
+  font-size: clamp(0.7rem, 1.15vw, 0.78rem);
   font-style: normal;
   font-weight: 600;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--gold-300);
 }
