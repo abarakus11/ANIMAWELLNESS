@@ -1115,9 +1115,9 @@ figure {
 /* Modality backgrounds */
 .mod-img.mod-judo-infantil,
 .mod-img.mod-judo-kids {
-  background-image: url('./judo-infantil.jpg?v=1') !important;
+  background-image: url('./judo-infantil.jpg?v=2') !important;
   background-size: cover !important;
-  background-position: center 35% !important;
+  background-position: center 40% !important;
   background-repeat: no-repeat !important;
   background-color: #1a1a1a;
 }
@@ -1125,7 +1125,7 @@ figure {
 @media (min-width: 768px) {
   .mod-img.mod-judo-infantil,
   .mod-img.mod-judo-kids {
-    background-image: url('./judo-infantil-4k.jpg?v=1') !important;
+    background-image: url('./judo-infantil-4k.jpg?v=2') !important;
   }
 }
 
