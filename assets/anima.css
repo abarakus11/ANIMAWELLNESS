@@ -1118,16 +1118,16 @@ figure {
   background-image: url('./judo-kids.png');
 }
 
-.mod-karate-infantil {
-  background-image: url('./karate-kids.jpg?v=1');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+.mod-img.mod-karate-infantil {
+  background-image: url('./karate-infantil.jpg?v=3') !important;
+  background-size: cover !important;
+  background-position: center 30% !important;
+  background-repeat: no-repeat !important;
 }
 
 @media (min-width: 768px) {
-  .mod-karate-infantil {
-    background-image: url('./karate-kids-4k.jpg?v=1');
+  .mod-img.mod-karate-infantil {
+    background-image: url('./karate-infantil-4k.jpg?v=3') !important;
   }
 }
 
